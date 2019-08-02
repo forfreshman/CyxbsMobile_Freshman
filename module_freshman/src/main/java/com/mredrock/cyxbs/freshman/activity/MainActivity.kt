@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.freshman.activity
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.BR
 import com.mredrock.cyxbs.freshman.R
@@ -22,8 +23,8 @@ class MainActivity : BaseActivity() {
 
         initialData()
         val recyclerViewAdapter = InitialRecyclerView(this, datas, layoutInflater,
-            R.layout.freshman_recycle_item_initial,
-            BR.initialItem
+            R.layout.freshman_recycle_item_initial,1
+            //BR.initialItem
         )
         rv_initial_page.layoutManager = LinearLayoutManager(this)
         rv_initial_page.adapter = recyclerViewAdapter

@@ -18,7 +18,7 @@ class InitialPage (private var mainTitle : String?, private var subhead : String
 
     fun setMainTitle(mainTitle: String?) : InitialPage{
         this.mainTitle = mainTitle
-        notifyPropertyChanged(BR.mainTitle)
+        //notifyPropertyChanged(BR.mainTitle)
         return this
     }
 
@@ -29,7 +29,7 @@ class InitialPage (private var mainTitle : String?, private var subhead : String
 
     fun setSubhead(subhead: String? ) : InitialPage{
         this.subhead = subhead
-        notifyPropertyChanged(BR.subhead)
+        //notifyPropertyChanged(BR.subhead)
         return this
     }
 }
