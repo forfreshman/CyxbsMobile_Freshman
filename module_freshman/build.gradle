@@ -12,6 +12,7 @@ dependencies {
 
 
 android {
+
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.mredrock.cyxbs.freshman"

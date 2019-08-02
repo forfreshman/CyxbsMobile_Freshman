@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<declare-styleable name="Calendar">
+		<attr name="selectColor" format="color"/>
+		<attr name="calendarTextSize" format="dimension"/>
+		<attr name="enableColor" format="color"/>
+		<attr name="unenableColor" format="color"/>
+		<attr name="bgSelectedColor" format="color"/>
+	</declare-styleable>
+
+</resources>
