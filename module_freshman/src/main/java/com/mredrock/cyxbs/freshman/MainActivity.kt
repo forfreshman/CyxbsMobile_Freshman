@@ -1,12 +1,12 @@
 package com.mredrock.cyxbs.freshman
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mredrock.cyxbs.common.ui.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity(override val isFragmentActivity: Boolean) : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.freshman_activity_main)
     }
 }

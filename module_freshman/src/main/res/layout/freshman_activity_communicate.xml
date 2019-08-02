@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <include layout="@layout/common_toolbar"
+            android:id="@+id/app_bar_layout"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/ll_communicata_text"
+            android:layout_below="@id/app_bar_layout">
+
+        <TextView android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:text="学院群"
+                  android:textSize="22sp"
+                  android:gravity="center"
+                  android:id="@+id/tv_academy"/>
+
+        <TextView android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:text="老乡群"
+                  android:textSize="22sp"
+                  android:gravity="center"
+                  android:id="@+id/tv_fellow"/>
+
+        <TextView android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:text="线上活动"
+                  android:textSize="22sp"
+                  android:gravity="center"
+                  android:id="@+id/tv_activities"/>
+
+    </LinearLayout>
+
+    <com.mredrock.cyxbs.freshman.ui.view.CursorView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:id="@+id/curson_view"
+            android:layout_below="@id/ll_communicata_text"/>
+
+    <androidx.viewpager.widget.ViewPager android:layout_width="match_parent"
+                                         android:layout_height="match_parent"
+                                         android:layout_below="@id/curson_view"
+                                         android:id="@+id/vp_communicate">
+
+    </androidx.viewpager.widget.ViewPager>
+</RelativeLayout>
+
+
