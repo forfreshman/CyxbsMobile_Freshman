@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="freshman_colorPrimary">#008577</color>
+    <color name="freshman_colorPrimaryDark">#00574B</color>
+    <color name="freshman_colorAccent">#D81B60</color>
+
+
+    <color name="freshman_main_bg">#C9E3FE</color>
+
+    <color name="freshman_black">#FF000000</color>
+    <color name="freshman_gray">#FF888888</color>
 </resources>
