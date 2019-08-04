@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.ui.view;
+package com.mredrock.cyxbs.freshman.customedview;
 
 import android.content.Context;
 import android.graphics.Canvas;
