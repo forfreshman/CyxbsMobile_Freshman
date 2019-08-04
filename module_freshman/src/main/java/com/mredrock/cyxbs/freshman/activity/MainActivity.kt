@@ -10,6 +10,7 @@ import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.InitialRecycleAdapter
 import com.mredrock.cyxbs.freshman.viewmodel.InitialItem
+import com.mredrock.cyxbs.freshman.ui.adapter.InitialRecyclerView
 import kotlinx.android.synthetic.main.freshman_activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -24,9 +25,9 @@ class MainActivity : BaseActivity() {
 
 
         initialData()
-        val recyclerViewAdapter =
-            InitialRecycleAdapter(context, datas as List<InitialItem>)
-        recyclerViewAdapter.setItemOnclicListener(object :OnInitalRecycleIMClikListener{
+        val initialRecyclerViewAdapter = InitialRecycleAdapter(context, datas as List<InitialItem>)
+
+        initialRecyclerViewAdapter.setItemOnclicListener(object :OnInitalRecycleIMClikListener{
             override fun OnCilick(mainTitle: String?) {
                 var intent: Intent? = null
                 LogUtils.d("*******","被电击了")
@@ -45,6 +46,11 @@ class MainActivity : BaseActivity() {
             }
 
         })
+        val recyclerViewAdapter = InitialRecyclerView(
+            this, datas, layoutInflater,
+            R.layout.freshman_recycle_item_initial, 1
+            //BR.initialItem
+        )
         rv_initial_page.layoutManager = LinearLayoutManager(this)
         rv_initial_page.adapter = recyclerViewAdapter
         //主页右侧的箭头，点击之后，会跳转到相应的页面

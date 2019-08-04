@@ -24,7 +24,7 @@
             android:layout_height="0dp"
             android:layout_weight="646"
             android:background="@color/freshman_main_bg"/>
-            <!--android:layout_below="@+id/iv_main_top"/>-->
+    <!--android:layout_below="@+id/iv_main_top"/>-->
 
 
     <ImageView
