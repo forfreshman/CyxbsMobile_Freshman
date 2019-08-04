@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/freshman_main_bg"
+        tools:context=".activity.MainActivity">
+
+    <ImageView
+            android:id="@+id/iv_main_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="290"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_banner"
+            android:background="@color/freshman_main_bg"
+            tools:ignore="ContentDescription"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_initial_page"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="646"
+            android:background="@color/freshman_main_bg"/>
+    <!--android:layout_below="@+id/iv_main_top"/>-->
+
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="37"
+            android:src="@drawable/freshman_initial_icon_bottle"
+
+            tools:ignore="ContentDescription"/>
+
+</LinearLayout>

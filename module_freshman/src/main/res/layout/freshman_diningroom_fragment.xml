@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.fragment.DiningroomFragment">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rl_guide_diningroom">
+
+        <com.google.android.material.tabs.TabLayout android:layout_width="match_parent"
+                                                    android:layout_height="30dp"
+                                                    android:id="@+id/tl_guide_diningroom"
+                                                    app:tabSelectedTextColor="#000000"
+                                                    app:tabTextColor="#6d6f70"
+                                                    android:background="#f9fcff"/>
+
+        <androidx.viewpager.widget.ViewPager android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:layout_below="@id/tl_guide_diningroom"
+                                             android:id="@+id/vp_guide_diningroom"/>
+    </RelativeLayout>
+
+</FrameLayout>
