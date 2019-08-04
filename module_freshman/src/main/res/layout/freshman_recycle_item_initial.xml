@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
-
-    <data>
-        <import type="com.mredrock.cyxbs.freshman.viewmodel.InitialPage"/>
-        <variable name="initialItem" type="InitialPage"/>
-    </data>
-
 
     <RelativeLayout
-            android:background="@drawable/freshman_initial_bg_recycle"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/freshman_recycle_initial_item_height"
-            android:padding="20dp">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@drawable/freshman_initial_bg_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/freshman_recycle_initial_item_height"
+        android:padding="21dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp">
 
 
         <LinearLayout
-                android:layout_toStartOf="@+id/im_recycle_initial_back"
+                android:layout_toStartOf="@+id/iv_recycle_initial_goto"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_width="match_parent"
@@ -29,7 +23,7 @@
                     android:id="@+id/tv_initial_first"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:text="@{initialItem.mainTitle}"
+                    android:text=""
                     android:textSize="@dimen/freshman_recycle_initial_tv_first_text_size"
                     android:textStyle="bold"
                     android:textColor="@color/freshman_black"
@@ -41,15 +35,14 @@
                     android:layout_height="20dp"
                     android:textSize="@dimen/freshman_recycle_initial_tv_second_text_size"
                     android:textColor="@color/freshman_gray"
-                    android:text="@{initialItem.subhead}"
-
+                    android:text=""
                     tools:ignore="SpUsage"/>
 
 
         </LinearLayout>
 
         <ImageView
-                android:id="@+id/im_recycle_initial_back"
+                android:id="@+id/iv_recycle_initial_goto"
                 android:layout_alignParentEnd="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -58,6 +51,4 @@
                 android:layout_marginEnd="20dp"
                 tools:ignore="ContentDescription"/>
 
-
     </RelativeLayout>
-</layout>
