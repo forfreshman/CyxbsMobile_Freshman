@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.freshman.viewmodel.InitialPage
+import com.mredrock.cyxbs.freshman.viewmodel.InitialItem
 
 /**
  *created by chenyang
@@ -15,7 +15,7 @@ import com.mredrock.cyxbs.freshman.viewmodel.InitialPage
  */
 
 class InitialRecyclerView(
-    private val context: Context, private val initialItems: List<InitialPage>,
+    private val context: Context, private val initialItems: List<InitialItem>,
     private val layoutInflater: LayoutInflater, private val layoutId: Int,
     private val variableId: Int
 ) : RecyclerView.Adapter<InitialRecyclerView.ViewHolder>() {
@@ -54,7 +54,7 @@ class InitialRecyclerView(
             return viewDataBinding
         }
 
-        fun setContent(t: InitialPage) {
+        fun setContent(t: InitialItem) {
             viewDataBinding!!.setVariable(variableId, t)
 
             viewDataBinding!!.executePendingBindings()
