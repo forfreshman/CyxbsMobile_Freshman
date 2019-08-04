@@ -39,7 +39,7 @@
 
     </LinearLayout>
 
-    <com.mredrock.cyxbs.freshman.ui.view.CursorView
+    <com.mredrock.cyxbs.freshman.customedview.CursorView
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:id="@+id/curson_view"

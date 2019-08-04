@@ -1,16 +1,13 @@
-package com.mredrock.cyxbs.freshman.adapters
+package com.mredrock.cyxbs.freshman.ui.adapter
 
 import android.content.Context
-import android.database.DatabaseUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.viewmodel.InitialPage
-import kotlinx.android.synthetic.main.freshman_recycle_item_initial.view.*
 
 /**
  *created by chenyang
