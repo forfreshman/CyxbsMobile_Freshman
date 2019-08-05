@@ -3,20 +3,18 @@ package com.mredrock.cyxbs.freshman.ui.fragment
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.context.BaseFragment
 import com.mredrock.cyxbs.freshman.ui.adapter.DataRecylerviewAdapter
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DataViewModel
 import android.content.Intent
-import com.mredrock.cyxbs.freshman.activity.DataActivity
+import com.mredrock.cyxbs.common.ui.BaseFragment
+import com.mredrock.cyxbs.freshman.ui.activity.DataActivity
 
 
 class DataFragment : BaseFragment() {
