@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.text
+package com.mredrock.cyxbs.freshman.weight
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -10,6 +10,7 @@ import android.widget.ImageView
  *on 2019/8/2
  */
 
+//自带信息的ImageView
 class DataImageView(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) :
     ImageView(context, attrs, defStyleAttr) {
 

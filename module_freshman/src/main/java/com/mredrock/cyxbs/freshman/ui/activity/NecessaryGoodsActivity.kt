@@ -17,7 +17,12 @@ class NecessaryGoodsActivity : AppCompatActivity() {
         setContentView(R.layout.freshman_activity_necessary_goods)
 
         val list = ArrayList<FoldBean>()
-        val foldBean = FoldBean("defwefwef","的方法烦烦烦的 ")
+        val foldBean = FoldBean("高考准考证","""的方法烦烦烦的
+            |芙蓉哥哥
+            |鬼玩人果然有黄家驹解可看
+            |今天一具体看jjt
+            |纪迦太基
+        """.trimMargin())
         for (i in 1..15)  list.add(foldBean)
 
         val adapter = FoldRecycleAdapter(context, list)

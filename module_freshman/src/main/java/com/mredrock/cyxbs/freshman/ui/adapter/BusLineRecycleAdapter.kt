@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.adapter
 
+import android.content.ClipData
 import android.content.Context
 import android.view.View
 import com.bumptech.glide.Glide
@@ -21,6 +22,7 @@ class BusLineRecycleAdapter(val datas: List<BusLineBean>, val context: Context,
     private var opened = -1
 
     override fun creatHolder(holder: BaseViewHolder, t: BusLineBean) {
+
 
         val startStation = holder.getView().tv_start_bus_station
         val speficBusLine = holder.getView().tv_spefic_bus_line
@@ -51,6 +53,8 @@ class BusLineRecycleAdapter(val datas: List<BusLineBean>, val context: Context,
             }
 
         }
+
+
     }
 
 
