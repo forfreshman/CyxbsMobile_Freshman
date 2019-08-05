@@ -23,7 +23,6 @@ class MainActivity : BaseActivity() {
         val recyclerViewAdapter = InitialRecyclerView(
             this, datas, layoutInflater,
             R.layout.freshman_recycle_item_initial, 1
-            //BR.initialItem
         )
         rv_initial_page.layoutManager = LinearLayoutManager(this)
         rv_initial_page.adapter = recyclerViewAdapter
