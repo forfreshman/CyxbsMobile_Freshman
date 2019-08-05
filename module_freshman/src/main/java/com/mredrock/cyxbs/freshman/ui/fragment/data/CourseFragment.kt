@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.mredrock.cyxbs.freshman.R
+import kotlinx.android.synthetic.main.freshman_course_fragment.*
 
 class CourseFragment : Fragment() {
 
@@ -30,4 +31,9 @@ class CourseFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        barGraghView.setName("高等数学","大学物理","分散数学")
+        barGraghView.setPercent(60,80,20)
+    }
 }

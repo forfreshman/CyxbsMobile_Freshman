@@ -54,7 +54,7 @@ class DeliveryFragment : BaseFragment() {
         title.add("邮政/EMS")
         title.add("菜鸟驿站（校外）")
         title.add("百世")
-        deliveryFragments.add(SFFragment())
+        deliveryFragments.add(SFFragment.newInstance())
         deliveryFragments.add(YDFragment())
         deliveryFragments.add(ZtFragment())
         deliveryFragments.add(YTFragment())

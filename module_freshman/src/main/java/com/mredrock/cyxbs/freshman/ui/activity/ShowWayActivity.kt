@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.mredrock.cyxbs.common.ui.BaseActivity
+
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.fragment.BusLineFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.SchoolSceneryFragment

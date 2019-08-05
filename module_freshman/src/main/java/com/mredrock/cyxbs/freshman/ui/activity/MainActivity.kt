@@ -48,10 +48,16 @@ class MainActivity : BaseActivity() {
             }
 
         })
-//        val recyclerViewAdapter = InitialRecycleAdapter(
-//            this, datas )
+
         rv_initial_page.layoutManager = LinearLayoutManager(this)
         rv_initial_page.adapter = initialRecyclerViewAdapter
+        //主页右侧的箭头，点击之后，会跳转到相应的页面
+
+//        val bu:Button;
+//        bu.setOnClickListener{v ->
+//            val intent  = Intent(this, AnotherActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
     }
