@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:background="#eff7ff"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <LinearLayout
+                android:paddingTop="18dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="20dp"
+                android:background="@drawable/freshman_showway_bg_scenery"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="250dp"
+                tools:ignore="RtlSymmetry">
+
+            <ImageView
+                    android:background="#568"
+                    android:layout_width="match_parent"
+                    android:layout_height="164dp"
+                    android:contentDescription="TODO"
+                    tools:ignore="ContentDescription,HardcodedText"/>
+
+            <TextView
+                    android:layout_marginTop="14dp"
+                    android:textColor="#4a4b4c"
+                    android:text="重邮2D地图"
+                    android:textSize="15sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    tools:ignore="HardcodedText"/>
+
+            <TextView
+                    android:layout_marginTop="8dp"
+                    android:textColor="#636466"
+                    android:text="重邮全景地图前往发现查看(发现->查看)"
+                    android:layout_width="match_parent"
+                    android:layout_height="13dp"
+                    tools:ignore="HardcodedText"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_school_scenery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
