@@ -1,25 +1,18 @@
 package com.mredrock.cyxbs.freshman.ui.fragment
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.mredrock.cyxbs.common.utils.LogUtils
+import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.activity.ShowPictureActivity
-import com.mredrock.cyxbs.freshman.activity.ShowWayActivity
-import com.mredrock.cyxbs.freshman.context.BaseFragment
-import com.mredrock.cyxbs.freshman.ui.OnInitalRecycleIMClikListener
+import com.mredrock.cyxbs.freshman.ui.activity.ShowPictureActivity
 import com.mredrock.cyxbs.freshman.ui.adapter.SchoolSceneryRecycadapter
+import com.mredrock.cyxbs.freshman.utils.interfaces.OnSchoolSceneryClickListener
 import com.mredrock.cyxbs.freshman.viewmodel.SchoolSceneryBean
-import com.umeng.socialize.media.Base
-import kotlinx.android.synthetic.main.freshman_activity_necessary_goods.*
 import kotlinx.android.synthetic.main.freshman_fragment_school_scenery.*
-import kotlinx.android.synthetic.main.freshman_recycle_item_scenery.*
 
 /**
  *created by chenyang
@@ -44,7 +37,8 @@ class SchoolSceneryFragment : BaseFragment() {
         rv_school_scenery.layoutManager = recycleManager
         rv_school_scenery.adapter = adapter
 
-        adapter?.setOnSchoolSceneryClikListener(object : OnSchoolSceneryClickListener {
+        adapter?.setOnSchoolSceneryClikListener(object :
+            OnSchoolSceneryClickListener {
             override fun OnCilick(position : Int, datas : List<SchoolSceneryBean>) {
 
                 //小图片被点击以后执行全屏放大操作

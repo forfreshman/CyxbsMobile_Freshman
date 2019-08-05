@@ -1,11 +1,10 @@
-package com.mredrock.cyxbs.freshman.activity
+package com.mredrock.cyxbs.freshman.ui.activity
 
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
 import com.bumptech.glide.Glide
 import com.mredrock.cyxbs.common.ui.BaseActivity
-import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.viewmodel.SchoolSceneryBean
 import kotlinx.android.synthetic.main.freshman_activity_show_picture.*

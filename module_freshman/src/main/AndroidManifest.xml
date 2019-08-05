@@ -12,22 +12,22 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activity.ShowPictureActivity">
+        <activity android:name="com.mredrock.cyxbs.freshman.ui.activity.ShowPictureActivity">
         </activity>
-        <activity android:name=".activity.ShowWayActivity">
+        <activity android:name="com.mredrock.cyxbs.freshman.ui.activity.ShowWayActivity">
         </activity>
-        <activity android:name=".activity.NecessaryGoodsActivity">
+        <activity android:name="com.mredrock.cyxbs.freshman.ui.activity.NecessaryGoodsActivity">
         </activity>
-        <activity android:name=".activity.MainActivity">
+        <activity android:name="com.mredrock.cyxbs.freshman.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DataActivity"/>
-        <activity android:name=".activity.GuideActivity"/>
-        <activity android:name=".activity.CommunicateActivity"/>
+        <activity android:name="com.mredrock.cyxbs.freshman.ui.activity.DataActivity"/>
+        <activity android:name="com.mredrock.cyxbs.freshman.ui.activity.GuideActivity"/>
+        <activity android:name="com.mredrock.cyxbs.freshman.ui.activity.CommunicateActivity"/>
     </application>
 
 </manifest>

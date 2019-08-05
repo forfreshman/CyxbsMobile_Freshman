@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.text
+package com.mredrock.cyxbs.freshman.weight
 
 import android.animation.LayoutTransition
 import android.annotation.SuppressLint

@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.activity
+package com.mredrock.cyxbs.freshman.ui.activity
 
 import android.content.Intent
 import android.graphics.Color

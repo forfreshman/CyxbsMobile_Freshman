@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.activity
+package com.mredrock.cyxbs.freshman.ui.activity
 
 import android.os.Bundle
 import android.view.View
@@ -11,7 +11,7 @@ import com.mredrock.cyxbs.freshman.ui.adapter.FragmentAdapter
 import com.mredrock.cyxbs.freshman.ui.fragment.AcademyFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.ActivitiesFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.FellowFragment
-import com.mredrock.cyxbs.freshman.customedview.CursorView
+import com.mredrock.cyxbs.freshman.weight.CursorView
 
 import java.util.ArrayList
 

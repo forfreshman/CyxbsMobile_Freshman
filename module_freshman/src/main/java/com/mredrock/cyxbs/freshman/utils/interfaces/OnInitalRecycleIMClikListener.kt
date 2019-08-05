@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.ui
+package com.mredrock.cyxbs.freshman.utils.interfaces
 
 import android.view.View
 import java.text.ParsePosition

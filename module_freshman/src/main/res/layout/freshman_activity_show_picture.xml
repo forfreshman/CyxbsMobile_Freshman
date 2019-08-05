@@ -5,7 +5,7 @@
         android:background="@color/freshman_black"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.ShowPictureActivity">
+        tools:context=".ui.activity.ShowPictureActivity">
 
 
     <ImageView

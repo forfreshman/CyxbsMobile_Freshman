@@ -1,11 +1,11 @@
-package com.mredrock.cyxbs.freshman.activity
+package com.mredrock.cyxbs.freshman.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
 import com.mredrock.cyxbs.common.ui.BaseActivity
-import com.mredrock.cyxbs.freshman.ui.OnInitalRecycleIMClikListener
+import com.mredrock.cyxbs.freshman.utils.interfaces.OnInitalRecycleIMClikListener
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.InitialRecycleAdapter

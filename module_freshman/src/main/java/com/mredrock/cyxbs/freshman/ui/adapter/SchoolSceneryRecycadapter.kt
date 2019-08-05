@@ -2,12 +2,9 @@ package com.mredrock.cyxbs.freshman.ui.adapter
 
 import android.content.Context
 import com.bumptech.glide.Glide
-import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.ui.OnInitalRecycleIMClikListener
-import com.mredrock.cyxbs.freshman.ui.fragment.OnSchoolSceneryClickListener
+import com.mredrock.cyxbs.freshman.utils.interfaces.OnSchoolSceneryClickListener
 import com.mredrock.cyxbs.freshman.viewmodel.SchoolSceneryBean
-import kotlinx.android.synthetic.main.freshman_recycle_item_scenery.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_scenery.view.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_scenery.view.iv_school_scenery_small
 

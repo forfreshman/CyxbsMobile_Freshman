@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.freshman.ui.OnInitalRecycleIMClikListener
+import com.mredrock.cyxbs.freshman.utils.interfaces.OnInitalRecycleIMClikListener
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.viewmodel.InitialItem
 import kotlinx.android.synthetic.main.freshman_recycle_item_initial.view.*

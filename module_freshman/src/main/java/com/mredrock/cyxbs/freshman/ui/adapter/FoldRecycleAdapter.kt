@@ -50,7 +50,7 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>) :
 
         init {
 
-            itemView.iv_msg_flod.setOnClickListener { v ->
+            itemView.iv_necessary_fold.setOnClickListener { v ->
 
                 if (opened == adapterPosition) {
                     //当前item已经被展开，关闭
@@ -65,7 +65,7 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>) :
             }
 
 
-            itemView.cb_fold.setOnClickListener { v ->
+            itemView.cb_necessary_fold.setOnClickListener { v ->
                 val view = v as CheckBox
                 if (view.isChecked) {
 
@@ -75,13 +75,13 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>) :
 
         fun bindView(pos: Int, bean: FoldBean) {
 
-            itemView.tv_msg_main.setText(bean.mainMsg)
-            itemView.tv_msg_sub.setText(bean.subMsg)
+            itemView.tv_necessary_thing.setText(bean.mainMsg)
+            itemView.tv_necessary_spefic.setText(bean.subMsg)
 
             if (pos == opened) {
-                itemView.tv_msg_sub.visibility = View.VISIBLE
+                itemView.tv_necessary_spefic.visibility = View.VISIBLE
             } else {
-                itemView.tv_msg_sub.visibility = View.GONE
+                itemView.tv_necessary_spefic.visibility = View.GONE
             }
         }
     }

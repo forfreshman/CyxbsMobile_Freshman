@@ -1,19 +1,15 @@
-package com.mredrock.cyxbs.freshman.activity
+package com.mredrock.cyxbs.freshman.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.TableLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.recyclerview.widget.GridLayoutManager
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.fragment.BusLineFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.SchoolSceneryFragment
 import kotlinx.android.synthetic.main.freshman_activity_show_way.*
-import kotlinx.android.synthetic.main.freshman_activity_show_way.view.*
 
 class ShowWayActivity : BaseActivity() {
 

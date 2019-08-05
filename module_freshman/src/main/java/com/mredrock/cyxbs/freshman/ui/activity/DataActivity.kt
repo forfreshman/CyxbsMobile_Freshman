@@ -1,9 +1,8 @@
-package com.mredrock.cyxbs.freshman.activity
+package com.mredrock.cyxbs.freshman.ui.activity
 
 import android.content.Intent
 import android.graphics.Color
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -13,8 +12,6 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.FragmentAdapter
 import com.mredrock.cyxbs.freshman.ui.fragment.data.CourseFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.data.PercentFragment
-import kotlinx.android.synthetic.main.freshman_activity_data.*
-import kotlinx.android.synthetic.main.freshman_activity_guide.*
 
 import java.util.ArrayList
 
