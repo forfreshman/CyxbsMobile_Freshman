@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.context.BaseFragment
 import com.mredrock.cyxbs.freshman.ui.adapter.MyPageAdpter
 import com.mredrock.cyxbs.freshman.ui.fragment.delivery.*
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DeliveryViewModel
@@ -54,7 +54,7 @@ class DeliveryFragment : BaseFragment() {
         title.add("邮政/EMS")
         title.add("菜鸟驿站（校外）")
         title.add("百世")
-        deliveryFragments.add(SFFragment())
+        deliveryFragments.add(SFFragment.newInstance())
         deliveryFragments.add(YDFragment())
         deliveryFragments.add(ZtFragment())
         deliveryFragments.add(YTFragment())

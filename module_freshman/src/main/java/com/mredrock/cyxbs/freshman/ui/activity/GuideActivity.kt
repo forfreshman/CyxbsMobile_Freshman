@@ -1,6 +1,5 @@
-package com.mredrock.cyxbs.freshman.activity
+package com.mredrock.cyxbs.freshman.ui.activity
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -35,8 +34,7 @@ class GuideActivity : BaseActivity(), View.OnClickListener {
         common_toolbar.init(
             title = "校园指引" ,
             listener = View.OnClickListener { v ->
-                val intent = Intent(this,MainActivity::class.java)
-                startActivity(intent)
+               finish()
             }
         )
         //控件初始化

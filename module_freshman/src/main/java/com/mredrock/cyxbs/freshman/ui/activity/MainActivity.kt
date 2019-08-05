@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.activity
+package com.mredrock.cyxbs.freshman.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,6 @@ import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.InitialRecycleAdapter
 import com.mredrock.cyxbs.freshman.viewmodel.InitialItem
-import com.mredrock.cyxbs.freshman.ui.adapter.InitialRecyclerView
 import kotlinx.android.synthetic.main.freshman_activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -37,7 +36,8 @@ class MainActivity : BaseActivity() {
                     "指路重邮" ->
                         intent = Intent(context, ShowWayActivity::class.java)
                     "入学流程" -> LogUtils.d("", "")
-                    "校园指导" -> LogUtils.d("", "")
+                    "校园指导" ->
+                        intent = Intent(context, GuideActivity::class.java)
                     "线上活动" -> LogUtils.d("", "")
                     "更多功能" -> LogUtils.d("", "")
                     "关于我们" -> LogUtils.d("", "")
@@ -46,12 +46,9 @@ class MainActivity : BaseActivity() {
             }
 
         })
-        val recyclerViewAdapter = InitialRecyclerView(
-            this, datas, layoutInflater,
-            R.layout.freshman_recycle_item_initial, 1
-        )
+
         rv_initial_page.layoutManager = LinearLayoutManager(this)
-        rv_initial_page.adapter = recyclerViewAdapter
+        rv_initial_page.adapter = initialRecyclerViewAdapter
         //主页右侧的箭头，点击之后，会跳转到相应的页面
 
 //        val bu:Button;
