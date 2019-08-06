@@ -16,12 +16,27 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.MyPageAdpter
 import com.mredrock.cyxbs.freshman.ui.fragment.diningroom.*
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DiningroomViewModel
+import kotlinx.android.synthetic.main.freshman_diningroom_fragment.*
 
 class DiningroomFragment : Fragment() {
-    private var  tabLayout : TabLayout?=null
-    private var dinningViewpager: ViewPager?=null
-    private val diningFragments=ArrayList<Fragment>()
-    private val title =ArrayList<String>()
+    private val diningFragments=object : ArrayList<Fragment>(){
+        init {
+            this.add(QXHFragment.newInstance())
+            this.add(YSFragment.newInstance())
+            this.add(HGLFragment.newInstance())
+            this.add(ZXSTFragment.newInstance())
+            this.add(DXBFragment.newInstance())
+        }
+    }
+    private val title =object : ArrayList<String>(){
+        init {
+            this.add("千喜鹤")
+            this.add("延生")
+            this.add("红高粱")
+            this.add("中心食堂")
+            this.add("大西北")
+        }
+    }
     private var adapter :MyPageAdpter?=null
     private var mView :View?=null
 
@@ -48,24 +63,12 @@ class DiningroomFragment : Fragment() {
     }
 
     private fun initData(){
-        title.add("千喜鹤")
-        title.add("延生")
-        title.add("红高粱")
-        title.add("中心食堂")
-        title.add("大西北")
-        diningFragments.add(QXHFragment.newInstance())
-        diningFragments.add(YSFragment.newInstance())
-        diningFragments.add(HGLFragment.newInstance())
-        diningFragments.add(ZXSTFragment.newInstance())
-        diningFragments.add(DXBFragment.newInstance())
-        dinningViewpager=activity!!.findViewById<View>(R.id.vp_guide_diningroom) as ViewPager
         adapter=MyPageAdpter(childFragmentManager,diningFragments,title)
-        dinningViewpager!!.adapter=adapter
+        vp_guide_diningroom.adapter=adapter
     }
 
     private fun initTab(){
-        tabLayout=activity!!.findViewById<View>(R.id.tl_guide_diningroom) as TabLayout
-        tabLayout!!.setupWithViewPager(dinningViewpager)
-        tabLayout!!.setSelectedTabIndicatorHeight(0)
+        tl_guide_diningroom.setupWithViewPager(vp_guide_diningroom)
+        tl_guide_diningroom.setSelectedTabIndicatorHeight(0)
     }
 }

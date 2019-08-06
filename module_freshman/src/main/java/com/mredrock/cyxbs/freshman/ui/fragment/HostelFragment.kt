@@ -18,14 +18,27 @@ import com.mredrock.cyxbs.freshman.ui.fragment.hostel.NJYFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.hostel.XYYFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.hostel.ZXYFragment
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.HostelViewModel
+import kotlinx.android.synthetic.main.freshman_hostel_fragment.*
 import kotlin.math.log
 
 
 class HostelFragment : Fragment() {
-    private var  tabLayout : TabLayout?=null
-    private var hostelViewpager: ViewPager?=null
-    private val hostelFragments=ArrayList<Fragment>()
-    private val title =ArrayList<String>()
+    private val hostelFragments=object : ArrayList<Fragment>(){
+        init {
+            this.add(ZXYFragment.newInstance())
+            this.add(MLYFragment.newInstance())
+            this.add(NJYFragment.newInstance())
+            this.add(XYYFragment.newInstance())
+        }
+    }
+    private var title =object : ArrayList<String>(){
+        init {
+            this.add("知行苑")
+            this.add("明理苑")
+            this.add("宁静苑")
+            this.add("兴业苑")
+        }
+    }
     private var adapter: MyPageAdpter?=null
     private var mView :View?=null
 
@@ -52,23 +65,13 @@ class HostelFragment : Fragment() {
     }
 
     private fun initData(){
-        title.add("知行苑")
-        title.add("明理苑")
-        title.add("宁静苑")
-        title.add("兴业苑")
-        hostelFragments.add(ZXYFragment.newInstance())
-        hostelFragments.add(MLYFragment.newInstance())
-        hostelFragments.add(NJYFragment.newInstance())
-        hostelFragments.add(XYYFragment.newInstance())
         adapter=MyPageAdpter(childFragmentManager,hostelFragments,title)
-        hostelViewpager=activity!!.findViewById<View>(R.id.vp_guide_hostel) as ViewPager
-        hostelViewpager!!.adapter=adapter
+        vp_guide_hostel.adapter=adapter
     }
 
     private fun initTab(){
-        tabLayout=activity!!.findViewById<View>(R.id.tl_guide_hostel) as TabLayout
-        tabLayout!!.setupWithViewPager(hostelViewpager)
-        tabLayout!!.setSelectedTabIndicatorHeight(0)
+        tl_guide_hostel.setupWithViewPager(vp_guide_hostel)
+        tl_guide_hostel.setSelectedTabIndicatorHeight(0)
 
     }
 
