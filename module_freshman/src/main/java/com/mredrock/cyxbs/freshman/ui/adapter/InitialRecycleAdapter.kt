@@ -59,5 +59,4 @@ class InitialRecycleAdapter(private val context: Context, private val initialIte
         }
     }
 
-
 }

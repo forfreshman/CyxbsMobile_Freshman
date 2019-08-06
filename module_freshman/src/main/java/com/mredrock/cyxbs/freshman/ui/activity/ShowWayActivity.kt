@@ -27,6 +27,11 @@ class ShowWayActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_show_way)
+        //点击导航栏的返回图标，则返回上一个activity
+        common_toolbar.init(title = "指路重邮",
+            listener = View.OnClickListener { v ->
+                finish()
+            })
 
         fragmentAdapter = MyFragmentAdapter(supportFragmentManager)
         //ViewPager的适配器获得Fragment的管理器
@@ -34,11 +39,8 @@ class ShowWayActivity : BaseActivity() {
         //将TabLayout和ViewPager绑定在一起
         tl_show_way.setupWithViewPager(vp_show_way)
 
-        //点击导航栏的返回图标，则返回上一个activity
-        common_toolbar.init(title = "指路重邮",
-            listener = View.OnClickListener { v ->
-            finish()
-        })
+//        common_toolbar.menu.add("编辑")
+//        common_toolbar.menu.addSubMenu("编辑")
 
 
 

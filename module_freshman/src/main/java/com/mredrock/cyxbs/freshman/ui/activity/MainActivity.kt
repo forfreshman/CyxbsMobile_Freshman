@@ -11,6 +11,8 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.InitialRecycleAdapter
 import com.mredrock.cyxbs.freshman.viewmodel.InitialItem
 import kotlinx.android.synthetic.main.freshman_activity_main.*
+import org.jetbrains.anko.imageResource
+import org.jetbrains.anko.imageURI
 
 class MainActivity : BaseActivity() {
     override val isFragmentActivity: Boolean
@@ -48,6 +50,8 @@ class MainActivity : BaseActivity() {
             }
 
         })
+
+//        LogUtils.d("测试打印图片id",""+iv_main_top.imageResource)
 
         rv_initial_page.layoutManager = LinearLayoutManager(this)
         rv_initial_page.adapter = initialRecyclerViewAdapter
