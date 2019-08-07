@@ -10,7 +10,6 @@ import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.DeliveryPageAdapter
-import com.mredrock.cyxbs.freshman.ui.adapter.HostelPageAdpter
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DeliveryViewModel
 import kotlinx.android.synthetic.main.freshman_delivery_fragment.*
 
@@ -58,6 +57,7 @@ class DeliveryFragment : BaseFragment() {
         adapter= DeliveryPageAdapter(title,activity as Context)
         adapter!!.initView()
         vp_guide_delivery.adapter=adapter
+
     }
 
 

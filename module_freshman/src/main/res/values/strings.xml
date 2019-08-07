@@ -15,5 +15,6 @@
     <string name="freshman_assistant">重邮小帮手</string>
     <string name="freshman_help">学长学姐帮帮忙</string>
 
+    <string name="freshman_fragment_bus_line_copied">重邮地址已复制到粘贴板</string>
     >>>>>>> upstream/dev
 </resources>

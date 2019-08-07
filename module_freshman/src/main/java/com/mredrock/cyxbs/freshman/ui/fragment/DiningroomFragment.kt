@@ -10,7 +10,6 @@ import android.view.ViewGroup
 
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.DinningroomPageAdpter
-import com.mredrock.cyxbs.freshman.ui.adapter.HostelPageAdpter
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DiningroomViewModel
 import kotlinx.android.synthetic.main.freshman_diningroom_fragment.*
 
@@ -52,6 +51,7 @@ class DiningroomFragment : Fragment() {
     private fun initData(){
         adapter= DinningroomPageAdpter(title,activity as Context)
         vp_guide_diningroom.adapter=adapter
+
     }
 
     private fun initTab(){

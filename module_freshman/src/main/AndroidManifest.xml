@@ -18,6 +18,11 @@
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".ui.activity.MoreFunctionActivity">
         </activity>
+
+        <activity android:name=".ui.activity.EditMemoActivity">
+        </activity>
+        <activity android:name=".ui.activity.ShowPictureActivity"/>
+
         <activity android:name=".ui.activity.ShowWayActivity">
         </activity>
         <activity android:name=".ui.activity.NecessaryGoodsActivity">

@@ -51,6 +51,7 @@ class HostelFragment : Fragment() {
     private fun initData(){
         adapter=HostelPageAdpter(title,activity as Context)
         vp_guide_hostel.adapter=adapter
+
     }
 
     private fun initTab(){

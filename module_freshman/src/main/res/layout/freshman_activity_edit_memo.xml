@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="#eff7ff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.EditMemoActivity">
+
+    <include layout="@layout/common_toolbar"
+    android:id="@+id/tb_edit_memo"/>
+
+
+    <fragment
+            android:id="@+id/frgment_add_and_display"
+            android:layout_below="@+id/tb_edit_memo"
+            android:name="com.mredrock.cyxbs.freshman.ui.fragment.EditMemoItemFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+</RelativeLayout>
