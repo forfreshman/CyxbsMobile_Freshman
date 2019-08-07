@@ -6,7 +6,7 @@ import android.view.MotionEvent
 import com.bumptech.glide.Glide
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.viewmodel.SchoolSceneryBean
+import com.mredrock.cyxbs.freshman.viewmodel.bean.SchoolSceneryBean
 import kotlinx.android.synthetic.main.freshman_activity_show_picture.*
 
 class ShowPictureActivity : BaseActivity() {

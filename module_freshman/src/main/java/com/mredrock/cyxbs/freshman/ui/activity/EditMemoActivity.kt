@@ -1,11 +1,12 @@
 package com.mredrock.cyxbs.freshman.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
+//import com.mredrock.cyxbs.freshman.db.Repository
+//import com.mredrock.cyxbs.freshman.utils.interfaces.FoldBeanDao
 import kotlinx.android.synthetic.main.freshman_activity_edit_memo.*
 
 class EditMemoActivity : BaseActivity() {
@@ -26,6 +27,7 @@ class EditMemoActivity : BaseActivity() {
         //判断toobar的标题显示什么
         judgeToolbarTitle(frgment_add_and_display)
 
+//        val reo = Repository<FoldBeanDao>(application)
 
     }
 

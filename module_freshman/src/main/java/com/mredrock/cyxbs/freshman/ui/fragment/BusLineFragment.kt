@@ -12,10 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.BusLineRecycleAdapter
-import com.mredrock.cyxbs.freshman.viewmodel.BusLineBean
-import com.mredrock.cyxbs.freshman.viewmodel.SchoolSceneryBean
+import com.mredrock.cyxbs.freshman.viewmodel.bean.BusLineBean
 import kotlinx.android.synthetic.main.freshman_fragment_bus_line.*
-import org.jetbrains.anko.support.v4.toast
 
 /**
  *created by chenyang
@@ -60,11 +58,13 @@ class BusLineFragment : BaseFragment() {
 
 
     private fun initialData() {
-        val temp = BusLineBean("重庆北站","""灌灌灌灌-》
+        val temp = BusLineBean(
+            "重庆北站", """灌灌灌灌-》
             |会你可还好
             |讲究迥异哈哈
             |哪里会你看哈
-        """.trimMargin())
+        """.trimMargin()
+        )
         for (i in 1..15) datas.add(temp)
     }
 }

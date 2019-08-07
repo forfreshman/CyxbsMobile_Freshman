@@ -2,32 +2,42 @@ package com.mredrock.cyxbs.freshman.ui.activity
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.databinding.DataBindingUtil.setContentView
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
 import com.mredrock.cyxbs.common.ui.BaseActivity
-import com.mredrock.cyxbs.common.utils.LogUtils
+import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.FoldRecycleAdapter
+import com.mredrock.cyxbs.freshman.utils.interfaces.MyCallback
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnCheckBoxClickListener
-import com.mredrock.cyxbs.freshman.viewmodel.FoldBean
+import com.mredrock.cyxbs.freshman.viewmodel.FoldBeanVm
+import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
+import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 import kotlinx.android.synthetic.main.freshman_activity_necessary_goods.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.*
-import org.jetbrains.anko.textColor
+import org.antlr.v4.runtime.misc.MurmurHash.finish
 import java.util.ArrayList
 
-class NecessaryGoodsActivity : BaseActivity() {
-
-
+class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
     override val isFragmentActivity: Boolean
         get() = false
+    override val viewModelClass: Class<FoldBeanVm>
+        get() = FoldBeanVm::class.java
 
+
+    var datalist3 : List<FoldBean> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_necessary_goods)
+        viewModel = ViewModelProviders.of(this).get(viewModelClass)
+        insert(null)
 
         //点击导航栏的返回图标，则返回上一个activity
         common_toolbar.init(title = "入学必备",
@@ -40,7 +50,7 @@ class NecessaryGoodsActivity : BaseActivity() {
         //军训用品
         val datalist2 = initData2()
         //备忘录
-        val datalist3 = initData3()
+      //  val datalist3 = initData3()
 
         //悬浮按钮的点击事件
         fab_goto_edit_page.setOnClickListener { v ->
@@ -52,12 +62,8 @@ class NecessaryGoodsActivity : BaseActivity() {
 
 
 
-        if(datalist1.size == 0){
-
-        }
-
         //报道必备
-        if (datalist3.size == 0) {
+        if (datalist1.size == 0) {
             tv_character_need_register.visibility = View.GONE
         }
         val adapter1 = FoldRecycleAdapter(this, datalist1, R.layout.freshman_recycle_item_fold_check)
@@ -94,6 +100,17 @@ class NecessaryGoodsActivity : BaseActivity() {
         val adapter3 = FoldRecycleAdapter(context, datalist3, R.layout.freshman_recycle_item_fold_check)
         rv_need_unfogetable.layoutManager = LinearLayoutManager(this)
         rv_need_unfogetable.adapter = adapter3
+
+        object : MyCallback<FoldBean> {
+            override fun finished(beans: LiveData<List<FoldBean>>) {
+                viewModel.beans.observe(this@NecessaryGoodsActivity, Observer<List<FoldBean>> {
+                    (datalist3 as ArrayList).clear()
+                    (datalist3 as ArrayList).addAll(it)
+                    adapter3.notifyDataSetChanged()
+                })
+            }
+
+        }
 
     }
 
@@ -135,6 +152,21 @@ class NecessaryGoodsActivity : BaseActivity() {
         for (i in 1..8) list.add(foldBean)
 
         return list
+    }
+
+
+    fun insert(view : View?){
+        val foldBean = FoldBean(
+            "备忘录", """的方法烦烦烦的
+            |芙蓉哥哥
+            |鬼玩人果然有黄家驹解可看
+            |今天一具体看jjt
+            |纪迦太基
+        """.trimMargin()
+        )
+        for (i in 1..8) (datalist3 as ArrayList).add(foldBean)
+
+
     }
 
 

@@ -9,10 +9,9 @@ import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.FoldRecycleAdapter
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnCheckBoxClickListener
-import com.mredrock.cyxbs.freshman.viewmodel.FoldBean
+import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
 import kotlinx.android.synthetic.main.freshman_fragment_edit_memo_item.*
 import kotlinx.android.synthetic.main.freshman_fragment_edit_memo_item.view.*
-import kotlinx.android.synthetic.main.freshman_recycle_item_edit_memo.view.*
 import java.util.ArrayList
 
 /**

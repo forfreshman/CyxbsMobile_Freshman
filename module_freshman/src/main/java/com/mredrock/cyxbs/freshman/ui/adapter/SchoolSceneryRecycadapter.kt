@@ -4,7 +4,7 @@ import android.content.Context
 import com.bumptech.glide.Glide
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnSchoolSceneryClickListener
-import com.mredrock.cyxbs.freshman.viewmodel.SchoolSceneryBean
+import com.mredrock.cyxbs.freshman.viewmodel.bean.SchoolSceneryBean
 import kotlinx.android.synthetic.main.freshman_recycle_item_scenery.view.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_scenery.view.iv_school_scenery_small
 

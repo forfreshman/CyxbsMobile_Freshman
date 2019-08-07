@@ -13,10 +13,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.MyPageAdpter
-import com.mredrock.cyxbs.freshman.ui.fragment.hostel.MLYFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.hostel.NJYFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.hostel.XYYFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.hostel.ZXYFragment
+
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.HostelViewModel
 import kotlin.math.log
 
@@ -56,10 +53,7 @@ class HostelFragment : Fragment() {
         title.add("明理苑")
         title.add("宁静苑")
         title.add("兴业苑")
-        hostelFragments.add(ZXYFragment.newInstance())
-        hostelFragments.add(MLYFragment.newInstance())
-        hostelFragments.add(NJYFragment.newInstance())
-        hostelFragments.add(XYYFragment.newInstance())
+
         adapter=MyPageAdpter(childFragmentManager,hostelFragments,title)
         hostelViewpager=activity!!.findViewById<View>(R.id.vp_guide_hostel) as ViewPager
         hostelViewpager!!.adapter=adapter

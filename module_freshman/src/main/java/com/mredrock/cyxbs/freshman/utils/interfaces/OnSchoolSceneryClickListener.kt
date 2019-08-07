@@ -1,6 +1,6 @@
 package com.mredrock.cyxbs.freshman.utils.interfaces
 
-import com.mredrock.cyxbs.freshman.viewmodel.SchoolSceneryBean
+import com.mredrock.cyxbs.freshman.viewmodel.bean.SchoolSceneryBean
 
 /**
  *created by chenyang

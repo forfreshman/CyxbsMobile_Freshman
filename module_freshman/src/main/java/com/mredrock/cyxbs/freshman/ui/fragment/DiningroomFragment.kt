@@ -14,7 +14,6 @@ import com.google.android.material.tabs.TabLayout
 
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.MyPageAdpter
-import com.mredrock.cyxbs.freshman.ui.fragment.diningroom.*
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DiningroomViewModel
 
 class DiningroomFragment : Fragment() {
@@ -53,11 +52,7 @@ class DiningroomFragment : Fragment() {
         title.add("红高粱")
         title.add("中心食堂")
         title.add("大西北")
-        diningFragments.add(QXHFragment.newInstance())
-        diningFragments.add(YSFragment.newInstance())
-        diningFragments.add(HGLFragment.newInstance())
-        diningFragments.add(ZXSTFragment.newInstance())
-        diningFragments.add(DXBFragment.newInstance())
+
         dinningViewpager=activity!!.findViewById<View>(R.id.vp_guide_diningroom) as ViewPager
         adapter=MyPageAdpter(childFragmentManager,diningFragments,title)
         dinningViewpager!!.adapter=adapter

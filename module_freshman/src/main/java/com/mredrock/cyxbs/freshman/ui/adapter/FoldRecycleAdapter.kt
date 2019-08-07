@@ -1,19 +1,13 @@
 package com.mredrock.cyxbs.freshman.ui.adapter
 
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.common.utils.LogUtils
-import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.ui.activity.NecessaryGoodsActivity
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnCheckBoxClickListener
-import com.mredrock.cyxbs.freshman.viewmodel.FoldBean
-import kotlinx.android.synthetic.main.freshman_recycle_item_edit_memo.view.*
-import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.*
+import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
 import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.cb_necessary_fold
 import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.iv_necessary_fold
 import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.tv_necessary_spefic

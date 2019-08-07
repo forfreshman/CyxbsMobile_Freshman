@@ -38,6 +38,7 @@ class ShowWayActivity : BaseActivity() {
         vp_show_way.adapter = fragmentAdapter
         //将TabLayout和ViewPager绑定在一起
         tl_show_way.setupWithViewPager(vp_show_way)
+        tl_show_way.setSelectedTabIndicatorHeight(0)
 
 //        common_toolbar.menu.add("编辑")
 //        common_toolbar.menu.addSubMenu("编辑")

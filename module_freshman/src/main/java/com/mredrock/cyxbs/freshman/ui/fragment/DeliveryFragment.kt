@@ -11,7 +11,6 @@ import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.MyPageAdpter
-import com.mredrock.cyxbs.freshman.ui.fragment.delivery.*
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DeliveryViewModel
 
 class DeliveryFragment : BaseFragment() {
@@ -54,14 +53,6 @@ class DeliveryFragment : BaseFragment() {
         title.add("邮政/EMS")
         title.add("菜鸟驿站（校外）")
         title.add("百世")
-        deliveryFragments.add(SFFragment.newInstance())
-        deliveryFragments.add(YDFragment())
-        deliveryFragments.add(ZtFragment())
-        deliveryFragments.add(YTFragment())
-        deliveryFragments.add(STFragment())
-        deliveryFragments.add(EMSFragment())
-        deliveryFragments.add(CNYZFragment())
-        deliveryFragments.add(BSFragment())
         adapter=MyPageAdpter(childFragmentManager,deliveryFragments,title)
         deliveryViewpager=activity!!.findViewById<View>(R.id.vp_guide_delivery) as ViewPager
         deliveryViewpager!!.adapter=adapter

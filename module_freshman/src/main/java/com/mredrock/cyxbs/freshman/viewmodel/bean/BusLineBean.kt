@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.viewmodel
+package com.mredrock.cyxbs.freshman.viewmodel.bean
 
 /**
  *created by chenyang
