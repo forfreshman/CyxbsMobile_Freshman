@@ -2,29 +2,60 @@ package com.mredrock.cyxbs.freshman.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import androidx.lifecycle.*
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
-import com.mredrock.cyxbs.common.ui.BaseActivity
+import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnInitalRecycleIMClikListener
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.db.repository.InitialItemBeanRepository
 import com.mredrock.cyxbs.freshman.ui.adapter.InitialRecycleAdapter
-import com.mredrock.cyxbs.freshman.viewmodel.InitialItem
+import com.mredrock.cyxbs.freshman.utils.interfaces.MyCallback
+import com.mredrock.cyxbs.freshman.viewmodel.InitialItemBeanVM
+import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
+import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 import kotlinx.android.synthetic.main.freshman_activity_main.*
+import kotlin.collections.ArrayList
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
     override val isFragmentActivity: Boolean
         get() = false
+    override val viewModelClass: Class<InitialItemBeanVM>
+        get() = InitialItemBeanVM::class.java
 
-    val datas = ArrayList<InitialItem>()
+
+    val dataList = ArrayList<InitialItemBean>()
+    var repository : InitialItemBeanRepository ?= null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_main)
+         viewModel = ViewModelProviders.of(this).get(viewModelClass)
+
+       insert(null)
+
+        val initialRecyclerViewAdapter = InitialRecycleAdapter(application, dataList as List<InitialItemBean>)
+        repository = InitialItemBeanRepository()
+        //viewModel = InitialItemBeanVM()
+
+
+        object : MyCallback<InitialItemBean>{
+            override fun finished(beans: LiveData<List<InitialItemBean>>) {
+                viewModel.beans.observe(this@MainActivity, Observer<List<InitialItemBean>> {
+                    dataList.clear()
+                    dataList.addAll(it)
+                    initialRecyclerViewAdapter.notifyDataSetChanged()
+                })
+            }
+
+        }
 
 
         initialData()
-        val initialRecyclerViewAdapter = InitialRecycleAdapter(context, datas as List<InitialItem>)
 
         initialRecyclerViewAdapter.setItemOnclicListener(object :
             OnInitalRecycleIMClikListener {
@@ -49,46 +80,65 @@ class MainActivity : BaseActivity() {
 
         })
 
+
         rv_initial_page.layoutManager = LinearLayoutManager(this)
         rv_initial_page.adapter = initialRecyclerViewAdapter
-        //主页右侧的箭头，点击之后，会跳转到相应的页面
-
-//        val bu:Button;
-//        bu.setOnClickListener{v ->
-//            val intent  = Intent(this, AnotherActivity::class.java)
-//            startActivity(intent)
-//        }
 
 
     }
 
+
+     fun insert(view : View?){
+        val one = InitialItemBean("入学必备", "报道必备 宿舍用品 学习用品")
+        dataList.add(one)
+        val two = InitialItemBean("指路重邮", "重游路线 重邮地图")
+        dataList.add(two)
+        val three = InitialItemBean("入学流程", "入学步骤 入学地点")
+         dataList.add(three)
+        val four = InitialItemBean("校园指导", "校舍 快递点指引")
+         dataList.add(four)
+        val five = InitialItemBean("线上活动", "校舍 快递点指引")
+         dataList.add(five)
+        val six = InitialItemBean("更多功能", "迎新网 新生课表")
+         dataList.add(six)
+        val seven = InitialItemBean("关于我们", "红岩网校")
+         dataList.add(seven)
+
+    }
+
+
+     fun query( view : View) {
+//        List<User> allUser = mRepository.getAllUser();
+//        mUsers.addAll(allUser);
+//        mAdapter.notifyDataSetChanged();
+    }
+
+    fun deleteAll(view : View) {
+        viewModel.deletAll()
+    }
+
+     fun update(view : View ) {
+        val seven = InitialItemBean("关于我们", "红岩网校")
+
+        viewModel.updata(seven);
+    }
+
+
     private fun initialData() {
-        val one = InitialItem("入学必备", "报道必备 宿舍用品 学习用品")
-        datas.add(one)
-        val two = InitialItem("指路重邮", "重游路线 重邮地图")
-        datas.add(two)
-        val three = InitialItem("入学流程", "入学步骤 入学地点")
-        datas.add(three)
-        val four = InitialItem("校园指导", "校舍 快递点指引")
-        datas.add(four)
-        val five = InitialItem("线上活动", "校舍 快递点指引")
-        datas.add(five)
-        val six = InitialItem("更多功能", "迎新网 新生课表")
-        datas.add(six)
-        val seven = InitialItem("关于我们", "红岩网校")
-        datas.add(seven)
-//        initialItem.setMainTitle("指路重邮").setSubhead("重游路线、重邮地图")
-//        datas.add(initialItem)
-//        initialItem.setMainTitle("入学流程").setSubhead("入学步骤、入学地点")
-//        datas.add(initialItem)
-//        initialItem.setMainTitle("校园指导").setSubhead("校舍、快递点指引")
-//        datas.add(initialItem)
-//        initialItem.setMainTitle("线上活动").setSubhead("老乡群、专业群")
-//        datas.add(initialItem)
-//        initialItem.setMainTitle("更多功能").setSubhead("迎新网、新生课表")
-//        datas.add(initialItem)
-//        initialItem.setMainTitle("关于我们").setSubhead("红岩网校")
-//        datas.add(initialItem)
+//        val one = InitialItemBean("入学必备", "报道必备 宿舍用品 学习用品")
+//        dataList.add(one)
+//        val two = InitialItemBean("指路重邮", "重游路线 重邮地图")
+//        dataList.add(two)
+//        val three = InitialItemBean("入学流程", "入学步骤 入学地点")
+//        dataList.add(three)
+//        val four = InitialItemBean("校园指导", "校舍 快递点指引")
+//        dataList.add(four)
+//        val five = InitialItemBean("线上活动", "校舍 快递点指引")
+//        dataList.add(five)
+//        val six = InitialItemBean("更多功能", "迎新网 新生课表")
+//        dataList.add(six)
+//        val seven = InitialItemBean("关于我们", "红岩网校")
+//        dataList.add(seven)
 
     }
 }

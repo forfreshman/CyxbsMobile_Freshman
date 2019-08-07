@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.viewmodel
+package com.mredrock.cyxbs.freshman.viewmodel.bean
 
 import android.os.Parcel
 import android.os.Parcelable

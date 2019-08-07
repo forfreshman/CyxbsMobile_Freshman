@@ -11,7 +11,7 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.activity.ShowPictureActivity
 import com.mredrock.cyxbs.freshman.ui.adapter.SchoolSceneryRecycadapter
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnSchoolSceneryClickListener
-import com.mredrock.cyxbs.freshman.viewmodel.SchoolSceneryBean
+import com.mredrock.cyxbs.freshman.viewmodel.bean.SchoolSceneryBean
 import kotlinx.android.synthetic.main.freshman_fragment_school_scenery.*
 
 /**
@@ -62,7 +62,10 @@ class SchoolSceneryFragment : BaseFragment() {
 
 
     private fun initialData() {
-        val temp = SchoolSceneryBean("ddddd", "http://static.runoob.com/images/demo/demo1.jpg")
+        val temp = SchoolSceneryBean(
+            "ddddd",
+            "http://static.runoob.com/images/demo/demo1.jpg"
+        )
         for (i in 1..15) list.add(temp)
     }
 }
