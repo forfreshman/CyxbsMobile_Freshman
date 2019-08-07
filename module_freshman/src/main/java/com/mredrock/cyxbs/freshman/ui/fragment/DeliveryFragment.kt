@@ -1,33 +1,21 @@
 package com.mredrock.cyxbs.freshman.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.ui.adapter.MyPageAdpter
-import com.mredrock.cyxbs.freshman.ui.fragment.delivery.*
+import com.mredrock.cyxbs.freshman.ui.adapter.DeliveryPageAdapter
+import com.mredrock.cyxbs.freshman.ui.adapter.HostelPageAdpter
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DeliveryViewModel
 import kotlinx.android.synthetic.main.freshman_delivery_fragment.*
 
 class DeliveryFragment : BaseFragment() {
-    private val deliveryFragments=object : ArrayList<Fragment>(){
-        init {
-            this.add(SFFragment.newInstance())
-            this.add(YDFragment())
-            this.add(ZtFragment())
-            this.add(YTFragment())
-            this.add(STFragment())
-            this.add(EMSFragment())
-            this.add(CNYZFragment())
-            this.add(BSFragment())
-        }
-    }
+
     private val title =object : ArrayList<String>(){
         init {
             this.add("顺丰")
@@ -40,7 +28,7 @@ class DeliveryFragment : BaseFragment() {
             this.add("百世")
         }
     }
-    private var adapter: MyPageAdpter?=null
+    private var adapter: DeliveryPageAdapter?=null
     private var mView :View?=null
 
 
@@ -67,7 +55,8 @@ class DeliveryFragment : BaseFragment() {
     }
 
     private fun initData(){
-        adapter=MyPageAdpter(childFragmentManager,deliveryFragments,title)
+        adapter= DeliveryPageAdapter(title,activity as Context)
+        adapter!!.initView()
         vp_guide_delivery.adapter=adapter
     }
 

@@ -1,36 +1,20 @@
 package com.mredrock.cyxbs.freshman.ui.fragment
 
-import androidx.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.ui.adapter.MyPageAdpter
-import com.mredrock.cyxbs.freshman.ui.fragment.hostel.MLYFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.hostel.NJYFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.hostel.XYYFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.hostel.ZXYFragment
+import com.mredrock.cyxbs.freshman.ui.adapter.HostelPageAdpter
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.HostelViewModel
 import kotlinx.android.synthetic.main.freshman_hostel_fragment.*
-import kotlin.math.log
 
 
 class HostelFragment : Fragment() {
-    private val hostelFragments=object : ArrayList<Fragment>(){
-        init {
-            this.add(ZXYFragment.newInstance())
-            this.add(MLYFragment.newInstance())
-            this.add(NJYFragment.newInstance())
-            this.add(XYYFragment.newInstance())
-        }
-    }
+
     private var title =object : ArrayList<String>(){
         init {
             this.add("知行苑")
@@ -39,7 +23,7 @@ class HostelFragment : Fragment() {
             this.add("兴业苑")
         }
     }
-    private var adapter: MyPageAdpter?=null
+    private var adapter: HostelPageAdpter?=null
     private var mView :View?=null
 
     companion object {
@@ -65,7 +49,7 @@ class HostelFragment : Fragment() {
     }
 
     private fun initData(){
-        adapter=MyPageAdpter(childFragmentManager,hostelFragments,title)
+        adapter=HostelPageAdpter(title,activity as Context)
         vp_guide_hostel.adapter=adapter
     }
 

@@ -34,6 +34,6 @@ class CourseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         barGraghView.setName("高等数学","大学物理","分散数学")
-        barGraghView.setPercent(60,80,20)
+        barGraghView.set(0.422f,0.632f,0.452f)
     }
 }

@@ -1,33 +1,20 @@
 package com.mredrock.cyxbs.freshman.ui.fragment
 
-import androidx.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
 
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.ui.adapter.MyPageAdpter
-import com.mredrock.cyxbs.freshman.ui.fragment.diningroom.*
+import com.mredrock.cyxbs.freshman.ui.adapter.DinningroomPageAdpter
+import com.mredrock.cyxbs.freshman.ui.adapter.HostelPageAdpter
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DiningroomViewModel
 import kotlinx.android.synthetic.main.freshman_diningroom_fragment.*
 
 class DiningroomFragment : Fragment() {
-    private val diningFragments=object : ArrayList<Fragment>(){
-        init {
-            this.add(QXHFragment.newInstance())
-            this.add(YSFragment.newInstance())
-            this.add(HGLFragment.newInstance())
-            this.add(ZXSTFragment.newInstance())
-            this.add(DXBFragment.newInstance())
-        }
-    }
     private val title =object : ArrayList<String>(){
         init {
             this.add("千喜鹤")
@@ -37,7 +24,7 @@ class DiningroomFragment : Fragment() {
             this.add("大西北")
         }
     }
-    private var adapter :MyPageAdpter?=null
+    private var adapter :DinningroomPageAdpter?=null
     private var mView :View?=null
 
     companion object {
@@ -63,7 +50,7 @@ class DiningroomFragment : Fragment() {
     }
 
     private fun initData(){
-        adapter=MyPageAdpter(childFragmentManager,diningFragments,title)
+        adapter= DinningroomPageAdpter(title,activity as Context)
         vp_guide_diningroom.adapter=adapter
     }
 
