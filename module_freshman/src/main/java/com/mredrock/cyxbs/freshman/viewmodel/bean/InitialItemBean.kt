@@ -11,5 +11,5 @@ import androidx.room.PrimaryKey
  */
 
 @Entity
-class InitialItemBean(@PrimaryKey @NonNull var mainTitle: String, var subhead: String?)
+class InitialItemBean(@PrimaryKey @NonNull var id: Int, var mainTitle: String, var subhead: String?)
 

@@ -12,6 +12,7 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
  */
 class InitialItemBeanRepository() {
 
+    var allBean : List<InitialItemBean> ? = null
     var initialItemBeanDao: InitialItemBeanDao? = null
     var callback : MyCallback<InitialItemBean> ?= null
     init {
@@ -20,6 +21,7 @@ class InitialItemBeanRepository() {
         //while (initialItemBeanDao?.equals(null)!!){}
        // while (!isInitialFinished) {}
     }
+
 
     fun deleteAll() {
         DeleteAsyncTask(initialItemBeanDao).execute()

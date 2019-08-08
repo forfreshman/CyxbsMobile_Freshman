@@ -28,22 +28,23 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
 
 
     val dataList = ArrayList<InitialItemBean>()
-    var repository : InitialItemBeanRepository ?= null
+    var repository: InitialItemBeanRepository? = null
+    var id = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_main)
-         viewModel = ViewModelProviders.of(this).get(viewModelClass)
+        viewModel = ViewModelProviders.of(this).get(viewModelClass)
 
-       insert(null)
+        insert(null)
 
         val initialRecyclerViewAdapter = InitialRecycleAdapter(application, dataList as List<InitialItemBean>)
         repository = InitialItemBeanRepository()
         //viewModel = InitialItemBeanVM()
 
 
-        object : MyCallback<InitialItemBean>{
+        object : MyCallback<InitialItemBean> {
             override fun finished(beans: LiveData<List<InitialItemBean>>) {
                 viewModel.beans.observe(this@MainActivity, Observer<List<InitialItemBean>> {
                     dataList.clear()
@@ -88,37 +89,37 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
     }
 
 
-     fun insert(view : View?){
-        val one = InitialItemBean("入学必备", "报道必备 宿舍用品 学习用品")
+    fun insert(view: View?) {
+        val one = InitialItemBean(++id, "入学必备", "报道必备 宿舍用品 学习用品")
         dataList.add(one)
-        val two = InitialItemBean("指路重邮", "重游路线 重邮地图")
+        val two = InitialItemBean(++id, "指路重邮", "重游路线 重邮地图")
         dataList.add(two)
-        val three = InitialItemBean("入学流程", "入学步骤 入学地点")
-         dataList.add(three)
-        val four = InitialItemBean("校园指导", "校舍 快递点指引")
-         dataList.add(four)
-        val five = InitialItemBean("线上活动", "校舍 快递点指引")
-         dataList.add(five)
-        val six = InitialItemBean("更多功能", "迎新网 新生课表")
-         dataList.add(six)
-        val seven = InitialItemBean("关于我们", "红岩网校")
-         dataList.add(seven)
+        val three = InitialItemBean(++id, "入学流程", "入学步骤 入学地点")
+        dataList.add(three)
+        val four = InitialItemBean(++id, "校园指导", "校舍 快递点指引")
+        dataList.add(four)
+        val five = InitialItemBean(++id, "线上活动", "校舍 快递点指引")
+        dataList.add(five)
+        val six = InitialItemBean(++id, "更多功能", "迎新网 新生课表")
+        dataList.add(six)
+        val seven = InitialItemBean(++id, "关于我们", "红岩网校")
+        dataList.add(seven)
 
     }
 
 
-     fun query( view : View) {
+    fun query(view: View) {
 //        List<User> allUser = mRepository.getAllUser();
 //        mUsers.addAll(allUser);
 //        mAdapter.notifyDataSetChanged();
     }
 
-    fun deleteAll(view : View) {
+    fun deleteAll(view: View) {
         viewModel.deletAll()
     }
 
-     fun update(view : View ) {
-        val seven = InitialItemBean("关于我们", "红岩网校")
+    fun update(view: View) {
+        val seven = InitialItemBean(++id,"关于我们", "红岩网校")
 
         viewModel.updata(seven);
     }
