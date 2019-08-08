@@ -72,7 +72,8 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
                     "校园指导" ->
                         intent = Intent(context, GuideActivity::class.java)
                     "线上活动" -> LogUtils.d("", "")
-                    "更多功能" -> LogUtils.d("", "")
+                    "更多功能" ->
+                        intent = Intent(context,MoreFunctionActivity ::class.java)
                     "关于我们" -> LogUtils.d("", "")
                 }
                 startActivity(intent)

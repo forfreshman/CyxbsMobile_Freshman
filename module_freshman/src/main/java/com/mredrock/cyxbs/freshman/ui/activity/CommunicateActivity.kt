@@ -11,7 +11,6 @@ import com.mredrock.cyxbs.freshman.ui.adapter.FragmentAdapter
 import com.mredrock.cyxbs.freshman.ui.fragment.AcademyFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.ActivitiesFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.FellowFragment
-import com.mredrock.cyxbs.freshman.weight.CursorView
 
 import java.util.ArrayList
 
@@ -22,7 +21,7 @@ class CommunicateActivity : BaseActivity(), View.OnClickListener {
     private val fragments = ArrayList<Fragment>()
     private var viewPager: ViewPager? = null
     private var fragmentAdapter: FragmentAdapter? = null
-    private var cursorView: CursorView? = null
+
 
     override val isFragmentActivity: Boolean
         get() = false
@@ -42,8 +41,7 @@ class CommunicateActivity : BaseActivity(), View.OnClickListener {
         fragmentAdapter = FragmentAdapter(supportFragmentManager, fragments)
         viewPager!!.adapter = fragmentAdapter
         viewPager!!.currentItem = 0
-        cursorView!!.setCounts(fragments.size)
-        cursorView!!.setColor(R.color.common_default_text_color)
+
     }
 
     private fun initview() {
@@ -51,7 +49,6 @@ class CommunicateActivity : BaseActivity(), View.OnClickListener {
         fellow = findViewById<View>(R.id.tv_fellow) as TextView
         activities = findViewById<View>(R.id.tv_activities) as TextView
         viewPager = findViewById<View>(R.id.vp_communicate) as ViewPager
-        cursorView = findViewById<View>(R.id.curson_view) as CursorView
     }
 
     override fun onClick(v: View) {
@@ -70,7 +67,6 @@ class CommunicateActivity : BaseActivity(), View.OnClickListener {
     inner class MyPagerChangeListener : ViewPager.OnPageChangeListener {
 
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-            cursorView!!.setXY(position, positionOffset)
         }
 
         override fun onPageSelected(position: Int) {
