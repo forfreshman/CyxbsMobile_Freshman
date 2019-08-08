@@ -32,6 +32,9 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
 
 
     var datalist3 : List<FoldBean> = arrayListOf()
+    var id1 = 0
+    var id2 = 0
+    var id3 = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,9 +120,12 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
     private fun initData1(): List<FoldBean> {
         val list = ArrayList<FoldBean>()
         val foldBean = FoldBean(
-            "高考准考证", ""
+            id1, "高考准考证", ""
         )
-        for (i in 1..8) list.add(foldBean)
+        for (i in 1..8) {
+            ++foldBean.id
+            list.add(foldBean)
+        }
 
         return list
     }
@@ -127,14 +133,17 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
     private fun initData2(): List<FoldBean> {
         val list = ArrayList<FoldBean>()
         val foldBean = FoldBean(
-            "军训用品", """的方法烦烦烦的
+            id2,"军训用品", """的方法烦烦烦的
             |芙蓉哥哥
             |鬼玩人果然有黄家驹解可看
             |今天一具体看jjt
             |纪迦太基
         """.trimMargin()
         )
-        for (i in 1..8) list.add(foldBean)
+        for (i in 1..8){
+            ++foldBean.id
+            list.add(foldBean)
+        }
 
         return list
     }
@@ -142,14 +151,17 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
     private fun initData3(): List<FoldBean> {
         val list = ArrayList<FoldBean>()
         val foldBean = FoldBean(
-            "备忘录", """的方法烦烦烦的
+            id3,"备忘录", """的方法烦烦烦的
             |芙蓉哥哥
             |鬼玩人果然有黄家驹解可看
             |今天一具体看jjt
             |纪迦太基
         """.trimMargin()
         )
-        for (i in 1..8) list.add(foldBean)
+        for (i in 1..8) {
+            ++foldBean.id
+            list.add(foldBean)
+        }
 
         return list
     }
@@ -157,14 +169,17 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
 
     fun insert(view : View?){
         val foldBean = FoldBean(
-            "备忘录", """的方法烦烦烦的
+            id3, "备忘录", """的方法烦烦烦的
             |芙蓉哥哥
             |鬼玩人果然有黄家驹解可看
             |今天一具体看jjt
             |纪迦太基
         """.trimMargin()
         )
-        for (i in 1..8) (datalist3 as ArrayList).add(foldBean)
+        for (i in 1..8) {
+            ++foldBean.id
+            (datalist3 as ArrayList).add(foldBean)
+        }
 
 
     }

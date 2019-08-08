@@ -48,27 +48,27 @@ class FoldBeanRepository() {
 
 
     //更新
-    private class UpdataAsyncTask(val dao: FoldBeanDao?) : AsyncTask<FoldBean, Void, Void>() {
+    private class UpdataAsyncTask(val beanDao: FoldBeanDao?) : AsyncTask<FoldBean, Void, Void>() {
         override fun doInBackground(vararg params: FoldBean): Void? {
-            dao!!.updateFoldBeans(params[0])
+            beanDao!!.updateFoldBeans(params[0])
             return null
         }
 
     }
 
     //插入
-    private class InsertAsyncTask(val dao: FoldBeanDao?) : AsyncTask<FoldBean, Void, Void>() {
+    private class InsertAsyncTask(val beanDao: FoldBeanDao?) : AsyncTask<FoldBean, Void, Void>() {
         override fun doInBackground(vararg params: FoldBean): Void? {
-            dao!!.insert(params[0])
+            beanDao!!.insert(params[0])
             return null
         }
 
     }
 
     //删除
-    private class DeleteAsyncTask(val dao: FoldBeanDao?) : AsyncTask<Void, Void, Void>() {
+    private class DeleteAsyncTask(val beanDao: FoldBeanDao?) : AsyncTask<Void, Void, Void>() {
         override fun doInBackground(vararg voids: Void): Void? {
-            dao!!.deleteAll()
+            beanDao!!.deleteAll()
             return null
         }
 

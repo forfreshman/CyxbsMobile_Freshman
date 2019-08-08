@@ -59,14 +59,17 @@ class EditMemoItemFragment : BaseFragment() {
     private fun initData(): List<FoldBean> {
         val list = ArrayList<FoldBean>()
         val foldBean = FoldBean(
-            "备忘录的东西", """的方法烦烦烦的
+            0,"备忘录的东西", """的方法烦烦烦的
             |芙蓉哥哥
             |鬼玩人果然有黄家驹解可看
             |今天一具体看jjt
             |纪迦太基
         """.trimMargin()
         )
-        for (i in 1..15) list.add(foldBean)
+        for (i in 1..15) {
+            ++foldBean.id
+            list.add(foldBean)
+        }
 
         return list
     }
