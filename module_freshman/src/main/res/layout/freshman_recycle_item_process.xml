@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <view
+            android:id="@+id/v_admission_01"
+            android:layout_width="2dp"
+            android:background="#aec0ff"
+            android:layout_marginStart="21dp"
+            android:layout_height="28dp"/>
+
+    <ImageView
+            android:id="@+id/iv_admission_01"
+            android:layout_below="@+id/v_admission_01"
+            android:src="@drawable/freshman_admission_module_icon_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:contentDescription="TODO"
+            tools:ignore="ContentDescription,HardcodedText"/>
+
+    <view
+            android:id="@+id/v_admission_02"
+            android:layout_below="@+id/iv_admission_01"
+            android:layout_width="2dp"
+            android:background="#aec0ff"
+            android:layout_marginStart="21dp"
+            android:layout_height="match_parent"/>
+
+
+    <view
+            android:id="@+id/v_admission_03"
+            android:layout_toEndOf="@+id/iv_admission_01"
+            android:layout_width="15dp"
+            android:layout_marginTop="36dp"
+            android:background="#aec0ff"
+            android:layout_height="2dp"/>
+
+
+    <RelativeLayout
+            android:layout_toEndOf="@+id/v_admission_03"
+            android:background="@drawable/freshman_admission_module_bg_right"
+            android:layout_width="match_parent"
+            android:paddingBottom="15dp"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/tv_admission_mainTitle"
+                android:textSize="15sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:layout_marginTop="26dp"
+                android:layout_marginStart="13dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="HardcodedText"
+                tools:text="持相关证件至风雨操场各学院报道"/>
+
+        <ImageView
+                android:id="@+id/iv_admission_fold"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:src="@drawable/freshman_necessary_fold_icon_down"
+                android:layout_height="wrap_content"
+                tools:ignore="ContentDescription"/>
+
+        <TextView
+                android:id="@+id/tv_admission_subTitle"
+                android:layout_below="@+id/tv_admission_mainTitle"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="40dp"
+                tools:text="dddddddd"
+                android:layout_marginTop="15dp"
+                android:textSize="14sp"
+                android:visibility="gone"
+                android:textColor="#666666"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <ImageView
+                android:id="@+id/iv_admission_photo"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="fitCenter"
+                android:layout_below="@+id/tv_admission_subTitle"
+                tools:background="@drawable/aaaaaaaaa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:ignore="ContentDescription"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

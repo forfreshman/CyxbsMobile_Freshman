@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.freshman.ui.activity
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.mredrock.cyxbs.common.ui.BaseActivity
@@ -26,10 +27,12 @@ class EditMemoActivity : BaseActivity() {
         })
         //判断toobar的标题显示什么
         judgeToolbarTitle(frgment_add_and_display)
-
 //        val reo = Repository<FoldBeanDao>(application)
 
+
     }
+
+
 
     private fun judgeToolbarTitle(fragment: Fragment) {
         val bar = common_toolbar
@@ -40,6 +43,18 @@ class EditMemoActivity : BaseActivity() {
         }
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.freshman_memo, menu)
+
+        return true
+    }
+
+//    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.freshman_memo, menu)
+//        return true
+//    }
+
 
 
 }

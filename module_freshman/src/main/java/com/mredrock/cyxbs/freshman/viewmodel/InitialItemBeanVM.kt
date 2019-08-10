@@ -3,8 +3,6 @@ package com.mredrock.cyxbs.freshman.viewmodel
 import androidx.lifecycle.LiveData
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.db.repository.InitialItemBeanRepository
-import com.mredrock.cyxbs.freshman.utils.interfaces.MyCallback
-import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
 import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 
 /**
@@ -13,31 +11,18 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
  */
 class InitialItemBeanVM : BaseViewModel(){
 
-    lateinit var beans : LiveData<List<InitialItemBean>>
-    var callback : MyCallback <InitialItemBean>?= null
-
+     var beans : LiveData<List<InitialItemBean>>?
     val repository: InitialItemBeanRepository
 
     init {
 
         repository = InitialItemBeanRepository()
 
-        object : MyCallback<InitialItemBean> {
-            override fun finished(beans: LiveData<List<InitialItemBean>>) {
-                this@InitialItemBeanVM.beans = beans
-                callback?.finished(beans)
-            }
-
-
-        }
-
+        beans = repository.allBean
 
     }
 
 
-//    fun beans() : LiveData<List<InitialItemBean>>?{
-//        return repository.allInitialitemBean
-//    }
 
     fun insertInitialItemBean(bean : InitialItemBean){
         repository.insert(bean)

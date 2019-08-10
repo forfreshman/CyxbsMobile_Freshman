@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.db.repository.BusLineRepository
 import com.mredrock.cyxbs.freshman.viewmodel.bean.BusLineBean
-import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
 
 /**
  *created by chenyang
@@ -20,7 +19,7 @@ class BusLineBeanVM : BaseViewModel() {
         beans = repository.allBean
     }
 
-    fun insertInitialItemBean(bean : BusLineBean){
+    fun insertBusLIneBean(bean : BusLineBean){
         repository.insert(bean)
     }
 

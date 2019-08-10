@@ -1,9 +1,9 @@
 package com.mredrock.cyxbs.freshman.db.repository
 
 import android.os.AsyncTask
+import androidx.lifecycle.LiveData
 import com.mredrock.cyxbs.freshman.db.FreshmanRoomDatabase
 import com.mredrock.cyxbs.freshman.utils.interfaces.FoldBeanDao
-import com.mredrock.cyxbs.freshman.utils.interfaces.MyCallback
 import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
 
 /**
@@ -13,12 +13,14 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
 class FoldBeanRepository() {
 
     var foldBeanDao: FoldBeanDao? = null
-    var callback : MyCallback<FoldBean> ?= null
+    var allBean: LiveData<List<FoldBean>>? = null
+
+
     init {
 
-        InitThread().start()
-        //while (initialItemBeanDao?.equals(null)!!){}
-       // while (!isInitialFinished) {}
+        val db = FreshmanRoomDatabase.getInstance()
+        foldBeanDao = db?.foldBeanDao()
+        allBean = foldBeanDao?.getFoldBeanList()
     }
 
     fun deleteAll() {
@@ -33,18 +35,6 @@ class FoldBeanRepository() {
         InsertAsyncTask(foldBeanDao).execute(bean)
     }
 
-
-    inner class InitThread : Thread() {
-
-        override fun run() {
-            val db = FreshmanRoomDatabase.getInstance()
-            foldBeanDao = db!!.foldBeanDao()
-
-            val allFoldBean = foldBeanDao!!.getFoldBeanList()
-            callback?.finished(allFoldBean)
-        }
-
-    }
 
 
     //更新
@@ -73,7 +63,6 @@ class FoldBeanRepository() {
         }
 
     }
-
 
 }
 

@@ -4,24 +4,18 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
-import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.FoldRecycleAdapter
-import com.mredrock.cyxbs.freshman.utils.interfaces.MyCallback
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnCheckBoxClickListener
 import com.mredrock.cyxbs.freshman.viewmodel.FoldBeanVm
 import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
-import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 import kotlinx.android.synthetic.main.freshman_activity_necessary_goods.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.*
-import org.antlr.v4.runtime.misc.MurmurHash.finish
 import java.util.ArrayList
 
 class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
@@ -96,6 +90,7 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
         rv_need_army_training.adapter = adapter2
 
 
+
         //备忘录
         if (datalist3.size == 0) {
             tv_character_memo.visibility = View.GONE
@@ -104,16 +99,14 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
         rv_need_unfogetable.layoutManager = LinearLayoutManager(this)
         rv_need_unfogetable.adapter = adapter3
 
-        object : MyCallback<FoldBean> {
-            override fun finished(beans: LiveData<List<FoldBean>>) {
-                viewModel.beans.observe(this@NecessaryGoodsActivity, Observer<List<FoldBean>> {
+
+                viewModel.beans?.observe(this@NecessaryGoodsActivity, Observer<List<FoldBean>> {
                     (datalist3 as ArrayList).clear()
                     (datalist3 as ArrayList).addAll(it)
                     adapter3.notifyDataSetChanged()
                 })
-            }
 
-        }
+
 
     }
 
@@ -178,10 +171,24 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
         )
         for (i in 1..8) {
             ++foldBean.id
-            (datalist3 as ArrayList).add(foldBean)
+            viewModel.insertFoldBean(foldBean)
         }
+    }
+
+    fun query(view: View) {
+//        List<User> allUser = mRepository.getAllUser();
+//        mUsers.addAll(allUser);
+//        mAdapter.notifyDataSetChanged();
+    }
 
 
+    fun deleteAll(view: View) {
+        viewModel.deletAll()
+    }
+
+    fun update(view: View) {
+
+//        viewModel.updata();
     }
 
 

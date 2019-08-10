@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.ui.BaseFragment
+import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.FoldRecycleAdapter
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnCheckBoxClickListener
@@ -37,7 +39,8 @@ class EditMemoItemFragment : BaseFragment() {
         }
 
         val adapter = context?.let { FoldRecycleAdapter(it, dataList, R.layout.freshman_recycle_item_edit_memo) }
-        rv_editable_unforgetable.layoutManager = LinearLayoutManager(context)
+
+        rv_editable_unforgetable.layoutManager = LinearLayoutManager(context) as RecyclerView.LayoutManager?
         rv_editable_unforgetable.adapter = adapter
 
 
@@ -47,7 +50,6 @@ class EditMemoItemFragment : BaseFragment() {
         adapter?.setCheckBoxClickListener(object : OnCheckBoxClickListener{
             override fun OnClick(view: View, pos: Int) {
                 //这里传进来的view时是总的view
-
 
             }
         })
