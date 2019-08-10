@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/data_background"
+              android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar"/>
+
+    <RelativeLayout android:layout_width="match_parent"
+                  android:layout_height="75dp"
+                  android:id="@+id/rl_more_first"
+                  android:layout_marginTop="15dp"
+                  android:layout_marginLeft="15dp"
+                  android:layout_marginRight="15dp"
+                  android:background="@drawable/more_item">
+
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:id="@+id/ll_more_first">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="15sp"
+                      android:textColor="#333333"
+                      android:layout_marginTop="15dp"
+                      android:layout_marginStart="24dp"
+                      android:textStyle="bold"
+                      android:text="@string/freshman__2019"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="13sp"
+                      android:textColor="#888888"
+                      android:layout_marginTop="6dp"
+                      android:layout_marginStart="24dp"
+                      android:layout_marginBottom="15dp"
+                      android:text="@string/freshman_future"/>
+        </LinearLayout>
+
+        <ImageView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/more_next"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/btn_more_freshman"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="13dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:id="@+id/rl_more_second"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/more_item">
+
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:id="@+id/ll_more_second">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="15sp"
+                      android:textColor="#333333"
+                      android:layout_marginTop="15dp"
+                      android:layout_marginStart="24dp"
+                      android:textStyle="bold"
+                      android:text="@string/freshman_newfunc"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="13sp"
+                      android:textColor="#888888"
+                      android:layout_marginTop="6dp"
+                      android:layout_marginStart="24dp"
+                      android:layout_marginBottom="15dp"
+                      android:text="@string/freshman_more"/>
+        </LinearLayout>
+
+        <ImageView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/more_next"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/btn_more_morefunc"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="13dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:id="@+id/rl_more_third"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/more_item">
+
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:id="@+id/ll_more_third">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="15sp"
+                      android:textColor="#333333"
+                      android:layout_marginTop="15dp"
+                      android:layout_marginStart="24dp"
+                      android:textStyle="bold"
+                      android:text="@string/freshman_assistant"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="13sp"
+                      android:textColor="#888888"
+                      android:layout_marginTop="6dp"
+                      android:layout_marginStart="24dp"
+                      android:layout_marginBottom="15dp"
+                      android:text="@string/freshman_help"/>
+        </LinearLayout>
+
+        <ImageView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/more_next"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/btn_more_help"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="13dp"/>
+
+    </RelativeLayout>
+</LinearLayout>

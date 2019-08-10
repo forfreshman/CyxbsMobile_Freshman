@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="#eff7ff"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <RelativeLayout
+                android:background="@drawable/freshman_school_scenery_bg_address"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="88dp">
+
+            <TextView
+                    android:id="@+id/tv_school_address"
+                    android:paddingStart="19dp"
+                    android:text="重庆邮电大学地址："
+                    android:textSize="15sp"
+                    android:textColor="#333333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    tools:ignore="HardcodedText,RtlSymmetry"/>
+
+            <TextView
+                    android:id="@+id/tv_spefic_school_address"
+                    android:layout_marginTop="14dp"
+                    android:layout_below="@+id/tv_school_address"
+                    android:paddingStart="19dp"
+                    android:text="重庆市南岸区南山街道崇文路二号重庆邮电大学"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="HardcodedText,RtlSymmetry"/>
+
+            <TextView
+                    android:id="@+id/tv_copy_school_address"
+                    android:layout_alignParentEnd="true"
+                    android:paddingStart="19dp"
+                    android:text="复制地址"
+                    android:textSize="13sp"
+                    android:textColor="#7390ff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    tools:ignore="HardcodedText,RtlSymmetry"/>
+
+        </RelativeLayout>
+
+        <TextView
+                android:layout_marginTop="24dp"
+                android:textColor="#999999"
+                android:textSize="14sp"
+                android:text="推荐路线"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="HardcodedText"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_bus_lines"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+

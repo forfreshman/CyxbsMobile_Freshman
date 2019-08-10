@@ -2,6 +2,26 @@
     <string name="freshman_app_name">CyxbsMobile_Freshman</string>
     <string name="freshman_recycle_initial_tv_first">入学必备</string>
     <string name="freshman_recycle_initial_tv_second">报道必备、宿舍用品、学习用品</string>
+    <string name="freshman_guide_hostel">宿舍</string>
+    <string name="freshman_guide_dining_room">食堂</string>
+    <string name="freshman_guide_delivery">快递</string>
+    <string name="freshman_guide_data">数据揭秘</string>
+    <string name="freshman_data_study">最难科目</string>
+    <string name="freshman_data_percent">男女比例</string>
+    <string name="freshman__2019">重邮2019迎新专题</string>
+    <string name="freshman_future">邮你造未来</string>
+    <string name="freshman_newfunc">掌上重邮新功能</string>
+    <string name="freshman_more">校车, 校历等更多查询功能</string>
+    <string name="freshman_assistant">重邮小帮手</string>
+    <string name="freshman_help">学长学姐帮帮忙</string>
 
->>>>>>> upstream/dev
+    <string name="freshman_fragment_bus_line_copied">重邮地址已复制到粘贴板</string>
+    <string name="freshman_copy">保存图片到手机</string>
+    <string name="freshman_cancel">取消</string>
+    <string name="freshman_cource">学院群</string>
+    <string name="freshman_fellow">老乡群</string>
+    <string name="freshman_activity">线上活动</string>
+    <string name="freshman_takePart">立即参与</string>
+    <string name="freshman_edit">找不到学院群？试试搜索</string>
+    >>>>>>> upstream/dev
 </resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:id="@+id/rl_guide_data">
+
+    <include layout="@layout/common_toolbar"
+            android:id="@+id/data_common_toolbar"/>
+    
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="49dp"
+                  android:id="@+id/ll_guide_data"
+                  android:orientation="horizontal"
+                  android:layout_below="@id/data_common_toolbar">
+
+        <TextView android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:text="@string/freshman_data_study"
+                  android:gravity="center"
+                  android:textSize="17sp"
+                  android:id="@+id/tv_data_cource"
+                  android:textColor="#333333"
+                  android:layout_weight="1"/>
+
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:layout_height="match_parent"
+                  android:textSize="17sp"
+                  android:gravity="center"
+                  android:id="@+id/tv_data_percent"
+                  android:textColor="#333333"
+                  android:text="@string/freshman_data_percent"/>
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager android:layout_width="match_parent"
+                                         android:layout_height="match_parent"
+                                         android:id="@+id/vp_guide_data"
+                                         android:layout_below="@id/ll_guide_data"/>
+
+</RelativeLayout>

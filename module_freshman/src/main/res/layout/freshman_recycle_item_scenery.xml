@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:layout_marginTop="15dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        android:layout_width="170dp"
+        android:background="@drawable/freshman_school_scenery_stroke_out"
+        android:layout_height="138dp"
+        android:padding="7dp">
+
+    <ImageView
+            android:id="@+id/iv_school_scenery_small"
+            android:scaleType="center"
+            android:background="@drawable/freshman_school_sceneary_stroke_inner"
+            android:layout_width="156dp"
+            android:layout_height="98dp"
+            android:contentDescription="TODO"
+            tools:ignore="ContentDescription,HardcodedText"/>
+
+    <TextView
+            android:id="@+id/tv_scenery_name"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="12dp"
+            android:text="仰望八教"
+            android:textSize="14sp"
+            android:textColor="#4a4b4c"
+            android:layout_width="wrap_content"
+            android:layout_height="13dp"
+            tools:ignore="HardcodedText"/>
+
+</LinearLayout>

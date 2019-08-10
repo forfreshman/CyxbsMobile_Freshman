@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_marginTop="15dp"
+              android:background="@drawable/guide_item_background"
+              android:layout_height="310dp">
+
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/iv_communicate_activity"
+               android:layout_marginLeft="16dp"
+               android:layout_marginRight="16dp"
+               android:layout_marginTop="18dp"/>
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp">
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="15sp"
+                  android:textColor="#333333"
+                  android:gravity="center"
+                  android:layout_centerVertical="true"
+                  android:id="@+id/tv_communicate_activity"/>
+
+        <Button android:layout_width="89dp"
+                android:layout_height="30dp"
+                android:id="@+id/btn_communicate_activity"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="#8aaafe"
+                android:textSize="14sp"
+                android:textColor="#ffffff"
+                android:text="@string/freshman_takePart"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -8,46 +8,51 @@
 
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="49dp"
             android:orientation="horizontal"
             android:id="@+id/ll_communicata_text"
             android:layout_below="@id/app_bar_layout">
 
         <TextView android:layout_width="0dp"
-                  android:layout_height="match_parent"
+                  android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="学院群"
-                  android:textSize="22sp"
+                  android:text="@string/freshman_cource"
+                  android:textSize="17sp"
                   android:gravity="center"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#333333"
                   android:id="@+id/tv_academy"/>
 
         <TextView android:layout_width="0dp"
-                  android:layout_height="match_parent"
+                  android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="老乡群"
-                  android:textSize="22sp"
+                  android:text="@string/freshman_fellow"
+                  android:textSize="17sp"
                   android:gravity="center"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#333333"
                   android:id="@+id/tv_fellow"/>
 
         <TextView android:layout_width="0dp"
-                  android:layout_height="match_parent"
+                  android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="线上活动"
-                  android:textSize="22sp"
+                  android:text="@string/freshman_activity"
+                  android:textSize="17sp"
+                  android:layout_gravity="center_vertical"
                   android:gravity="center"
+                  android:textColor="#333333"
                   android:id="@+id/tv_activities"/>
 
     </LinearLayout>
 
-    <com.mredrock.cyxbs.freshman.ui.view.CursorView
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:id="@+id/curson_view"
-            android:layout_below="@id/ll_communicata_text"/>
+    <View android:layout_width="match_parent"
+          android:layout_height="1px"
+          android:background="#b3c4ff"/>
+
 
     <androidx.viewpager.widget.ViewPager android:layout_width="match_parent"
                                          android:layout_height="match_parent"
-                                         android:layout_below="@id/curson_view"
+                                         android:layout_below="@id/ll_communicata_text"
                                          android:id="@+id/vp_communicate">
 
     </androidx.viewpager.widget.ViewPager>

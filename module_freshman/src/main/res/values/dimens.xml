@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="freshman_recycle_initial_item_height">100dp</dimen>
+    <dimen name="freshman_recycle_initial_item_height">80dp</dimen>
     
     <dimen name="freshman_recycle_initial_tv_first_text_size">20dp</dimen>
     <dimen name="freshman_recycle_initial_tv_second_text_size">15dp</dimen>
