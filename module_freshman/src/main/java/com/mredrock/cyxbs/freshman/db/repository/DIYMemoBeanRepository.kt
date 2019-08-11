@@ -34,6 +34,17 @@ class DIYMemoBeanRepository {
         InsertAsyncTask(dao).execute(bean)
     }
 
+    fun delete(bean: DIYMemoBean){
+        DeleteOneAsyncTask(dao).execute(bean)
+    }
+
+    fun getAll() : List<DIYMemoBean>?{
+
+        val a = GetAllAsyncTask(dao)
+        a.execute()
+        return a.beanList
+    }
+
 
     //更新
     private class UpdataAsyncTask(val beanDao: DIYMemoBeanDao?) : AsyncTask<DIYMemoBean, Void, Void>() {
@@ -62,5 +73,24 @@ class DIYMemoBeanRepository {
 
     }
 
+    //删除
+    private class DeleteOneAsyncTask(val beanDao: DIYMemoBeanDao?) : AsyncTask<DIYMemoBean, Void, Void>() {
+        override fun doInBackground(vararg bean: DIYMemoBean): Void? {
+            beanDao!!.delete(bean[0])
+            return null
+        }
+    }
+
+
+    //删除
+    private class GetAllAsyncTask(val beanDao: DIYMemoBeanDao?) : AsyncTask<Void, Void, Void>() {
+
+        internal var beanList : List<DIYMemoBean>?=null
+        override fun doInBackground(vararg voids: Void): Void? {
+            beanList =  beanDao!!.getAll()
+            return null
+        }
+
+    }
 
 }

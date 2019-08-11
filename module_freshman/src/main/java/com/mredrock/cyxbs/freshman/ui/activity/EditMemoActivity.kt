@@ -39,22 +39,29 @@ class EditMemoActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_edit_memo)
 
-        manager.beginTransaction().replace(R.id.frgment_add_and_display,add).commit()
+        manager.beginTransaction().replace(R.id.frgment_add_and_display, add).commit()
         setToolbarBack()
 
-        add.setListener(object : MyCallback{
-            override fun OnDo(editText: EditText?, dataList : List<DIYMemoBean>?, viewModel: BaseViewModel?) {
+        add.setListener(object : MyCallback {
+            override fun OnDo(editText: EditText?, dataList: List<DIYMemoBean>?, viewModel: BaseViewModel?) {
                 val bean = DIYMemoBean(editText?.text.toString())
                 (viewModel as DIYMemoBeanVM).insertDITMemoBean(bean)
             }
         })
-    }
 
+        edit.setOnHintClickedListener(object : DIYMemoClicklistener{
+            override fun onClick(needAdd: Boolean) {
+                manager.beginTransaction().replace(R.id.frgment_add_and_display, AddMemoItemFragment()).commit()
+                (add.getETView() as EditText).setText("")
+            }
+
+        })
+    }
 
 
     private fun setToolbarBack() {
         //取消被点击，回到主界面
-        tv_edit_memo_cancel.setOnClickListener(){
+        tv_edit_memo_cancel.setOnClickListener() {
             finish()
         }
 
@@ -62,68 +69,38 @@ class EditMemoActivity : BaseActivity() {
 
 
         //在编辑单条备忘录后，点击保存之后跳转，并将备忘录的内容传入数据库
-        tv_edit_memo_save.setOnClickListener{
+        tv_edit_memo_save.setOnClickListener {
 
         }
 
+        var dataList: List<DIYMemoBean>? = null
+        val vm = DIYMemoBeanVM()
+        vm.beans?.observe(this, Observer {
+            dataList = it
+        })
 
         tv_edit_memo_save.setOnClickListener {
 
-            if ((it as TextView).text.equals("删除($selectedNum)") ){
+            if ((it as TextView).text.equals("删除($selectedNum)")) {
 
-                LogUtils.d("删除被电击了1","删除被电击了")
-                val bundle = Bundle()
-                bundle.putString("text","text")
-                edit.arguments = bundle
-////                val dao = FreshmanRoomDatabase.getInstance()?.dIYMemoBeanDao()
-//                var dataList : List<DIYMemoBean>
-//                val vm = DIYMemoBeanVM()
-////                vm.deletAll()
-//                vm.beans?.observe(this, Observer {
-//
-//                    //删除被选择的
-//                    dataList = it.filter { it.isSelected == true }
-//                    for (bean in dataList){
-//                    vm.insertDITMemoBean(bean)
-//
-//                }
-//                })
-
-                edit.setEditListener(object : MyCallback{
-                    override fun OnDo(editText: EditText?, dataList: List<DIYMemoBean>?, viewModel: BaseViewModel?) {
-                        LogUtils.d("MyCallbackss","ss")
-//                        viewModel as DIYMemoBeanVM
-//                        viewModel.deletAll()
-//                        viewModel.beans?.observe(this@EditMemoActivity, Observer {
-//                            for (bean in dataList!!) {
-//                                viewModel.insertDITMemoBean(bean)
-//                            }
-//                        })
-                    }
-
-                })
-
-
-//                vm.deletAll()
-//                for (bean in dataList){
-//                    vm.insertDITMemoBean(bean)
-//                }
+                for (bean in dataList!!.filter { it.isSelected == true }) {
+                    vm.deleteOne(bean)
+                }
+                it.setText("删除")
 
             } else {
 
-                LogUtils.d("删除被电击了2","删除被电击了")
-
                 //跳转至备忘录浏览页面
                 val transaction = manager.beginTransaction()
-                transaction.replace(R.id.frgment_add_and_display,edit).commit()
+                transaction.replace(R.id.frgment_add_and_display, edit).commit()
                 tv_edit_memo_title.setText("备忘录")
                 tv_edit_memo_save.setText("删除")
 
-                edit.setDIYMemoClicklistener(object : DIYMemoClicklistener{
+                edit.setDIYMemoClicklistener(object : DIYMemoClicklistener {
                     @SuppressLint("SetTextI18n")
                     override fun onClick(needAdd: Boolean) {
 
-                        if(needAdd) selectedNum++ else selectedNum--
+                        if (needAdd) selectedNum++ else selectedNum--
 
                         if (selectedNum == 0) {
                             tv_edit_memo_save.setText("删除")
