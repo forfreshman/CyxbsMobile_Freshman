@@ -4,7 +4,6 @@ import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import com.mredrock.cyxbs.freshman.db.FreshmanRoomDatabase
 import com.mredrock.cyxbs.freshman.utils.interfaces.BusLineBeanDao
-import com.mredrock.cyxbs.freshman.utils.interfaces.MyCallback
 import com.mredrock.cyxbs.freshman.viewmodel.bean.BusLineBean
 
 /**
@@ -15,14 +14,11 @@ class BusLineRepository {
 
     internal var allBean : LiveData<List<BusLineBean>> ?= null
     var busLineBeanDao: BusLineBeanDao? = null
-    var callback : MyCallback<BusLineBean>?= null
     init {
-
         val db = FreshmanRoomDatabase.getInstance()
         busLineBeanDao = db?.busLineBeanDao()
         allBean = busLineBeanDao?.getBusLineBeanList()
 
-        //InitThread().start()
     }
 
     fun deleteAll() {
@@ -35,19 +31,6 @@ class BusLineRepository {
 
     fun insert(bean: BusLineBean) {
         InsertAsyncTask(busLineBeanDao).execute(bean)
-    }
-
-
-    inner class InitThread : Thread() {
-
-        override fun run() {
-            val db = FreshmanRoomDatabase.getInstance()
-            busLineBeanDao = db!!.busLineBeanDao()
-
-            val allBean = busLineBeanDao!!.getBusLineBeanList()
-            callback?.finished(allBean)
-        }
-
     }
 
 

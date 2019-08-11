@@ -6,7 +6,12 @@ import javax.annotation.Nullable
 
 /**
  *created by chenyang
- *on 2019/8/4
+ *on 2019/8/10
  */
 @Entity
-class BusLineBean(@PrimaryKey @Nullable val id: Int, var startStaton: String?, var sepficLine: String?)
+class DIYMemoBean(@Nullable @PrimaryKey val DIYMemo : String ) {
+
+
+    var isSelected = false
+
+}

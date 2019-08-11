@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:background="@drawable/freshman_initial_bg_recycle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp">

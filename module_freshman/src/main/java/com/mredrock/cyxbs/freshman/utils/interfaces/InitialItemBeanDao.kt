@@ -1,10 +1,7 @@
 package com.mredrock.cyxbs.freshman.utils.interfaces
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 
 /**
@@ -14,7 +11,7 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 @Dao
 interface InitialItemBeanDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(initialItemBean: InitialItemBean)
 
     @Query("select * from InitialItemBean")

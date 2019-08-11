@@ -11,8 +11,7 @@ class SchoolSceneryBean (var sceneryName: String?, var sceneryImgeurl: String?) 
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString()
-    ) {
-    }
+    )
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeString(sceneryName)

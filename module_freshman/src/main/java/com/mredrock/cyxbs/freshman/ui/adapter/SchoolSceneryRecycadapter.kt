@@ -20,7 +20,6 @@ class SchoolSceneryRecycadapter(
 
     private var listener: OnSchoolSceneryClickListener? = null
 
-
     override fun creatHolder(holder: BaseViewHolder, t: SchoolSceneryBean) {
         val image = holder.getView().iv_school_scenery_small
         val textView = holder.getView().tv_scenery_name
@@ -32,10 +31,9 @@ class SchoolSceneryRecycadapter(
 
         //校园风景图小图片被点击之后
         image.setOnClickListener { v ->
-
             listener?.OnCilick(position, datas)
-
         }
+
     }
 
     fun setOnSchoolSceneryClikListener(listener: OnSchoolSceneryClickListener) {
