@@ -22,12 +22,15 @@ import kotlinx.android.synthetic.main.freshman_data_fragment.*
 
 
 class DataFragment : BaseFragment() {
-    private val title = arrayListOf("传媒艺术学院","体育学院","先进制造工程学院","国际半导体学院","国际学院"
-    ,"外国语学院","现代邮政学院","理学院","生物信息学院","经济管理学院","网络信息安全与信息法学院","自动化学院","计算机科学与技术"
-    ,"软件工程学院","通信与信息工程学院","光电工程学院")
+    private val title = arrayListOf(
+        "传媒艺术学院", "体育学院", "先进制造工程学院", "国际半导体学院", "国际学院"
+        , "外国语学院", "现代邮政学院", "理学院", "生物信息学院", "经济管理学院", "网络信息安全与信息法学院", "自动化学院", "计算机科学与技术"
+        , "软件工程学院", "通信与信息工程学院", "光电工程学院"
+    )
 
-    var adpter =DataRecylerviewAdapter(title)
-    val message=Message()
+    var adpter = DataRecylerviewAdapter(title)
+    val message = Message()
+    private var recyclerView: RecyclerView? = null
 
     companion object {
         fun newInstance() = DataFragment()
@@ -51,12 +54,13 @@ class DataFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-        Log.d("begin:","data")
+        Log.d("begin:", "data")
     }
 
 
-    private fun initView(){
-        adpter.setOnItemClickListener(object :DataRecylerviewAdapter.OnItemClickListener{
+    private fun initView() {
+        recyclerView = activity!!.findViewById<View>(R.id.rv_guide_data) as RecyclerView
+        adpter.setOnItemClickListener(object : DataRecylerviewAdapter.OnItemClickListener {
             override fun onClick(position: Int, view: View) {
                 val intent = Intent(activity, DataActivity::class.java)
                 startActivity(intent)
@@ -69,12 +73,16 @@ class DataFragment : BaseFragment() {
 
         adpter.setiItem(object : Iitem {
             override fun setOnItem(position: Int) {
-                message.what=position
-                Toast.makeText(context,"你点击了第${position}个item",Toast.LENGTH_SHORT).show()
+                message.what = position
+                Toast.makeText(context, "你点击了第${position}个item", Toast.LENGTH_SHORT).show()
             }
         })
-        rv_guide_data.adapter=adpter
-        val linearLayoutManager=LinearLayoutManager(context)
-        rv_guide_data.layoutManager=linearLayoutManager
+        rv_guide_data.adapter = adpter
+        val linearLayoutManager = LinearLayoutManager(context)
+        rv_guide_data.layoutManager = linearLayoutManager
+
+
     }
+
 }
+

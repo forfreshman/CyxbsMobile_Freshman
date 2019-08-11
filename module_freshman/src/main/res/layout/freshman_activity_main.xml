@@ -8,6 +8,7 @@
         android:background="@color/freshman_main_bg"
         tools:context=".ui.activity.MainActivity">
 
+
     <ImageView
             android:id="@+id/iv_main_top"
             android:layout_width="match_parent"

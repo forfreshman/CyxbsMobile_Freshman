@@ -2,15 +2,21 @@ package com.mredrock.cyxbs.freshman.ui.adapter
 
 import android.content.Context
 import android.view.View
-import com.mredrock.cyxbs.freshman.viewmodel.bean.BusLineBean
+import com.bumptech.glide.Glide
+import com.mredrock.cyxbs.common.utils.LogUtils
+import com.mredrock.cyxbs.freshman.viewmodel.BusLineBean
+import com.mredrock.cyxbs.freshman.viewmodel.SchoolSceneryBean
 import kotlinx.android.synthetic.main.freshman_recycle_item_bus_line.view.*
+import kotlinx.android.synthetic.main.freshman_recycle_item_scenery.view.*
 
 /**
  *created by chenyang
  *on 2019/8/4
  */
 class BusLineRecycleAdapter(val datas: List<BusLineBean>, val context: Context,
-                            override val latoutId: Int) :
+
+                                override val latoutId: Int) :
+
     BaseAdapter<BusLineBean>(datas, context) {
 
     //标记展开的item
@@ -48,7 +54,6 @@ class BusLineRecycleAdapter(val datas: List<BusLineBean>, val context: Context,
             }
 
         }
-
 
     }
 

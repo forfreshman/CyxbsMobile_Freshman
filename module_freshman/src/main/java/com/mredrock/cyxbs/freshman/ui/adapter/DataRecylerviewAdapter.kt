@@ -1,26 +1,25 @@
 package com.mredrock.cyxbs.freshman.ui.adapter
 
-import android.content.Context
-import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.utils.interfaces.Iitem
 
+
 class DataRecylerviewAdapter(internal var title: List<String>) :
     RecyclerView.Adapter<DataRecylerviewAdapter.ViewHolder>() {
     private var mOnItemClickListener: OnItemClickListener? = null
+
     private var iItem: Iitem? =null
 
     fun setiItem(iitem: Iitem){
         this.iItem=iitem
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.freshman_recyle_item_guide_data, parent, false)
@@ -32,6 +31,7 @@ class DataRecylerviewAdapter(internal var title: List<String>) :
         if (mOnItemClickListener != null) {
             holder.itemView.setOnClickListener { v -> mOnItemClickListener!!.onClick(position, v)
             iItem!!.setOnItem(position)}
+
             holder.itemView.setOnLongClickListener { v ->
                 mOnItemClickListener!!.onLongClick(position, v)
                 false
@@ -60,7 +60,4 @@ class DataRecylerviewAdapter(internal var title: List<String>) :
         this.mOnItemClickListener = onItemClickListener
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
-    }
 }

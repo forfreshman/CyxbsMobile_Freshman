@@ -6,27 +6,30 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
+import com.mredrock.cyxbs.common.utils.LogUtils
+import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnCheckBoxClickListener
-import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
-import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.cb_necessary_fold
-import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.iv_necessary_fold
-import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.tv_necessary_spefic
-import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.tv_necessary_thing
+import com.mredrock.cyxbs.freshman.viewmodel.FoldBean
+import kotlinx.android.synthetic.main.freshman_recycle_item_edit_memo.view.*
+import kotlinx.android.synthetic.main.freshman_recycle_item_fold.view.*
+
 
 /**
  *created by chenyang
  *on 2019/8/3
  */
 
-class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val layoutId :Int) :
+class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>) :
     RecyclerView.Adapter<FoldRecycleAdapter.MyViewHolder>() {
 
-    private var checkBoxClickListener : OnCheckBoxClickListener ?= null
     //标记展开的item
     private var opened = -1
+    private var checkBoxClickListener:OnCheckBoxClickListener?=null
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
+
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.freshman_recycle_item_fold, parent, false)
         val holder = MyViewHolder(view)
         return holder
     }
@@ -53,6 +56,7 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
     fun setCheckBoxClickListener(onCheckBoxClickListener: OnCheckBoxClickListener){
 
         checkBoxClickListener = onCheckBoxClickListener
+
     }
 
 
@@ -60,7 +64,7 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
 
         init {
 
-            itemView.iv_necessary_fold.setOnClickListener { v ->
+            itemView.iv_msg_flod.setOnClickListener { v ->
 
                 if (opened == adapterPosition) {
                     //当前item已经被展开，关闭
@@ -75,7 +79,7 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
             }
 
 
-            itemView.cb_necessary_fold.setOnClickListener { v ->
+            itemView.cb_fold.setOnClickListener { v ->
                 val view = v as CheckBox
                 if (view.isChecked) {
 
@@ -83,16 +87,15 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
             }
         }
 
-
         fun bindView(pos: Int, bean: FoldBean) {
 
-            itemView.tv_necessary_thing.setText(bean.mainMsg)
-            itemView.tv_necessary_spefic.setText(bean.subMsg)
+            itemView.tv_msg_main.setText(bean.mainMsg)
+            itemView.tv_msg_sub.setText(bean.subMsg)
 
             if (pos == opened) {
-                itemView.tv_necessary_spefic.visibility = View.VISIBLE
+                itemView.tv_msg_sub.visibility = View.VISIBLE
             } else {
-                itemView.tv_necessary_spefic.visibility = View.GONE
+                itemView.tv_msg_sub.visibility = View.GONE
             }
         }
     }

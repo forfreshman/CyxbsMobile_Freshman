@@ -23,16 +23,15 @@
                 android:background="@drawable/freshman_showway_bg_scenery"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 tools:ignore="RtlSymmetry">
 
             <ImageView
-                    android:background="#f8fbff"
+                    android:background="#568"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="164dp"
                     android:contentDescription="TODO"
-                    android:src="@drawable/freshman_school_scenery_cqupt_2d_map"
-                    tools:ignore="ContentDescription,HardcodedText"/>
+                  tools:ignore="ContentDescription,HardcodedText"/>
 
             <TextView
                     android:layout_marginTop="14dp"
@@ -40,7 +39,7 @@
                     android:text="重邮2D地图"
                     android:textSize="15sp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="14dp"
                     tools:ignore="HardcodedText"/>
 
             <TextView

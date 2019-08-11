@@ -19,7 +19,6 @@
 
     <androidx.viewpager.widget.ViewPager android:layout_width="match_parent"
                                          android:layout_height="match_parent"
-                                         android:layout_below="@id/tl_guide_delivery"
                                          android:id="@+id/vp_guide_delivery"/>
 
 

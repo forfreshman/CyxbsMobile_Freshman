@@ -10,7 +10,6 @@
 
     <ImageView
             android:id="@+id/iv_school_scenery_small"
-            android:scaleType="center"
             android:background="@drawable/freshman_school_sceneary_stroke_inner"
             android:layout_width="156dp"
             android:layout_height="98dp"

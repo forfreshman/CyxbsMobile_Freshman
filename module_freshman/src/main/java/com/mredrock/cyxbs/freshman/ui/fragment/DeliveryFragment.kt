@@ -20,16 +20,7 @@ import kotlinx.android.synthetic.main.freshman_delivery_fragment.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
-import rx.Subscriber
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
-import javax.json.JsonObject
+
 
 class DeliveryFragment : BaseFragment() {
 
@@ -114,6 +105,5 @@ class DeliveryFragment : BaseFragment() {
         tl_guide_delivery.tabMode = TabLayout.MODE_SCROLLABLE
         tl_guide_delivery.setSelectedTabIndicatorHeight(0)
     }
-
 
 }
