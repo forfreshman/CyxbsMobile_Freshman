@@ -4,12 +4,16 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+<<<<<<< HEAD
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.LiveData
+=======
+>>>>>>> upstream/master
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
+<<<<<<< HEAD
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
@@ -22,6 +26,16 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 import kotlinx.android.synthetic.main.freshman_activity_necessary_goods.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.*
 import org.antlr.v4.runtime.misc.MurmurHash.finish
+=======
+import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
+import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.ui.adapter.FoldRecycleAdapter
+import com.mredrock.cyxbs.freshman.utils.interfaces.OnCheckBoxClickListener
+import com.mredrock.cyxbs.freshman.viewmodel.FoldBeanVm
+import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
+import kotlinx.android.synthetic.main.freshman_activity_necessary_goods.*
+import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.*
+>>>>>>> upstream/master
 import java.util.ArrayList
 
 class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
@@ -60,6 +74,7 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
 
             val intent = Intent(this, EditMemoActivity::class.java)
             startActivity(intent)
+<<<<<<< HEAD
 
         }
 
@@ -85,20 +100,63 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
                 }
             }
         })
+=======
+        }
+
+
+        //报道必备
+        if (datalist1.size == 0) {
+            tv_character_need_register.visibility = View.GONE
+        } else{
+            val adapter1 = FoldRecycleAdapter(this, datalist1, R.layout.freshman_recycle_item_fold_check)
+            rv_need_register.layoutManager = LinearLayoutManager(this)
+            rv_need_register.adapter = adapter1
+            adapter1.setCheckBoxClickListener(object : OnCheckBoxClickListener {
+                override fun OnClick(view: View, pos: Int) {
+                    //当item被选中之后，设置字体也变颜色
+                    if (view.cb_necessary_fold.isChecked) {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#d0d1d2"))
+                    } else {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#333333"))
+                    }
+                }
+            })
+        }
+>>>>>>> upstream/master
 
 
         //军训用品
         if (datalist2.size == 0) {
             tv_character_army_training_need.visibility = View.GONE
+<<<<<<< HEAD
         }
         val adapter2 = FoldRecycleAdapter(context, datalist2, R.layout.freshman_recycle_item_fold_check)
         rv_need_army_training.layoutManager = LinearLayoutManager(this)
         rv_need_army_training.adapter = adapter2
 
+=======
+        } else {
+            val adapter2 = FoldRecycleAdapter(context, datalist2, R.layout.freshman_recycle_item_fold_check)
+            rv_need_army_training.layoutManager = LinearLayoutManager(this)
+            rv_need_army_training.adapter = adapter2
+
+            adapter2.setCheckBoxClickListener(object : OnCheckBoxClickListener {
+                override fun OnClick(view: View, pos: Int) {
+                    //当item被选中之后，设置字体也变颜色
+                    if (view.cb_necessary_fold.isChecked) {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#d0d1d2"))
+                    } else {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#333333"))
+                    }
+                }
+            })
+        }
+>>>>>>> upstream/master
 
         //备忘录
         if (datalist3.size == 0) {
             tv_character_memo.visibility = View.GONE
+<<<<<<< HEAD
         }
         val adapter3 = FoldRecycleAdapter(context, datalist3, R.layout.freshman_recycle_item_fold_check)
         rv_need_unfogetable.layoutManager = LinearLayoutManager(this)
@@ -115,6 +173,35 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
 
         }
 
+=======
+        } else {
+
+            val adapter3 = FoldRecycleAdapter(context, datalist3, R.layout.freshman_recycle_item_fold_check)
+            rv_need_unfogetable.layoutManager = LinearLayoutManager(this)
+            rv_need_unfogetable.adapter = adapter3
+
+            viewModel.beans?.observe(this@NecessaryGoodsActivity, Observer<List<FoldBean>> {
+
+                (datalist3 as ArrayList).clear()
+                (datalist3 as ArrayList).addAll(it)
+                adapter3.notifyDataSetChanged()
+            })
+
+            adapter3.setCheckBoxClickListener(object : OnCheckBoxClickListener {
+                override fun OnClick(view: View, pos: Int) {
+                    //当item被选中之后，设置字体也变颜色
+                    if (view.cb_necessary_fold.isChecked) {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#d0d1d2"))
+                    } else {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#333333"))
+                    }
+                }
+            })
+        }
+
+
+
+>>>>>>> upstream/master
     }
 
     private fun initData1(): List<FoldBean> {
@@ -178,10 +265,31 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
         )
         for (i in 1..8) {
             ++foldBean.id
+<<<<<<< HEAD
             (datalist3 as ArrayList).add(foldBean)
         }
 
 
+=======
+            viewModel.insertFoldBean(foldBean)
+        }
+    }
+
+    fun query(view: View) {
+//        List<User> allUser = mRepository.getAllUser();
+//        mUsers.addAll(allUser);
+//        mAdapter.notifyDataSetChanged();
+    }
+
+
+    fun deleteAll(view: View) {
+        viewModel.deletAll()
+    }
+
+    fun update(view: View) {
+
+//        viewModel.updata();
+>>>>>>> upstream/master
     }
 
 

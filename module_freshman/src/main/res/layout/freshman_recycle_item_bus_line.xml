@@ -1,56 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:padding="10dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/freshman_bus_line_bg"
+
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@drawable/freshman_bus_line_bg"
+        android:layout_marginBottom="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <TextView
+            android:id="@+id/tv_start_bus_station"
+            android:layout_marginTop="26dp"
+            android:layout_marginStart="34dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="重庆火车北站北广场/南广场"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,SpUsage"/>
+
+    <ImageView
+            android:id="@+id/iv_spefic_bus_line_flod"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/freshman_necessary_fold_icon_down"
             android:layout_width="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
-
-        <RelativeLayout
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
-                android:layout_marginEnd="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            <TextView
-                    android:id="@+id/tv_start_bus_station"
-                    android:layout_marginStart="19dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:text="重庆火车北站北广场/南广场"
-                    tools:ignore="HardcodedText,SpUsage"/>
-
-            <ImageView
-                    android:id="@+id/iv_spefic_bus_line_flod"
-                    android:src="@drawable/freshman_flod_up"
-                    android:layout_width="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    tools:ignore="ContentDescription"/>
-        </RelativeLayout>
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            tools:ignore="ContentDescription"/>
 
 
+    <TextView
+            android:id="@+id/tv_spefic_bus_line"
+            android:layout_below="@+id/tv_start_bus_station"
+            android:layout_marginStart="34dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:textSize="15dp"
+            tools:ignore="HardcodedText,SpUsage"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"
+            android:text=""/>
 
-        <TextView
-                android:id="@+id/tv_spefic_bus_line"
-                android:layout_marginStart="19dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                tools:ignore="HardcodedText,SpUsage"
-                android:text=""/>
 
+    <TextView
+            android:id="@+id/tv_bus_line_click"
+            android:layout_width="match_parent"
+            android:layout_marginStart="100dp"
+            android:layout_height="50dp">
+    </TextView>
+</RelativeLayout>
 
-
-    </LinearLayout>
 
 
 

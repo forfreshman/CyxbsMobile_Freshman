@@ -64,6 +64,7 @@ class DinningroomPageAdpter (private val title: List<String>,private val details
     }
 
 
+
     public fun initView(){
         views[0].banner_qxh.setImages(image[2])
         views[0].banner_qxh.setImageLoader(MyImageLoader())

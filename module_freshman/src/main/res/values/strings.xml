@@ -14,6 +14,7 @@
     <string name="freshman_more">校车, 校历等更多查询功能</string>
     <string name="freshman_assistant">重邮小帮手</string>
     <string name="freshman_help">学长学姐帮帮忙</string>
+<<<<<<< HEAD
     <string name="freshman_fragment_bus_line_copied">重邮地址已复制到粘贴板</string>
     <string name="freshman_copy">保存图片到手机</string>
     <string name="freshman_cource">学院群</string>
@@ -27,4 +28,9 @@
     <string name="freshman_fellow1">找不到老乡群？试试搜索</string>
 
 
+=======
+
+    <string name="freshman_fragment_bus_line_copied">重邮地址已复制到粘贴板</string>
+    >>>>>>> upstream/dev
+>>>>>>> upstream/master
 </resources>

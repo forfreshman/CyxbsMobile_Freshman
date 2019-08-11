@@ -9,4 +9,4 @@ import javax.annotation.Nullable
  *on 2019/8/4
  */
 @Entity
-class BusLineBean(@PrimaryKey @Nullable var id: Int, var startStaton: String?, var sepficLine: String?)
+class BusLineBean(@PrimaryKey @Nullable val id: Int, var startStaton: String?, var sepficLine: String?)

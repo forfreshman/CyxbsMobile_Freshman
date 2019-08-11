@@ -30,7 +30,10 @@ class FreshmanBarGraghView @JvmOverloads constructor(context: Context, attrs: At
         paint.style = Paint.Style.FILL
         paint.isAntiAlias = true
         initAttrs(context, attrs)
-
+        val decimalFormat = DecimalFormat("#.00")
+        first = decimalFormat.format(firstPercent?.toDouble())
+        second=decimalFormat.format(secondPercent?.toDouble())
+        third=decimalFormat.format(thirdPercent?.toDouble())
     }
 
 

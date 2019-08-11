@@ -1,10 +1,7 @@
 package com.mredrock.cyxbs.freshman.utils.interfaces
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.mredrock.cyxbs.freshman.viewmodel.bean.BusLineBean
 import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
 
@@ -16,7 +13,8 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
 @Dao
 interface BusLineBeanDao {
 
-    @Insert
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(bean: BusLineBean)
 
     @Query("select * from buslinebean")

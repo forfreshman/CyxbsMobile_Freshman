@@ -2,20 +2,19 @@ package com.mredrock.cyxbs.freshman.ui.adapter
 
 import android.content.Context
 import android.view.View
-import com.bumptech.glide.Glide
-import com.mredrock.cyxbs.common.utils.LogUtils
-import com.mredrock.cyxbs.freshman.viewmodel.BusLineBean
-import com.mredrock.cyxbs.freshman.viewmodel.SchoolSceneryBean
+import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.ui.activity.ShowWayActivity
+import com.mredrock.cyxbs.freshman.viewmodel.bean.BusLineBean
 import kotlinx.android.synthetic.main.freshman_recycle_item_bus_line.view.*
-import kotlinx.android.synthetic.main.freshman_recycle_item_scenery.view.*
 
 /**
  *created by chenyang
  *on 2019/8/4
  */
+
 class BusLineRecycleAdapter(val datas: List<BusLineBean>, val context: Context,
 
-                                override val latoutId: Int) :
+                            override val latoutId: Int) :
 
     BaseAdapter<BusLineBean>(datas, context) {
 
@@ -38,9 +37,12 @@ class BusLineRecycleAdapter(val datas: List<BusLineBean>, val context: Context,
             speficBusLine.visibility = View.GONE
         }
 
+        if (holder.getView().tv_spefic_bus_line.visibility == View.VISIBLE){
+            holder.getView().iv_spefic_bus_line_flod.setImageResource(R.drawable.freshman_necessary_fold_icon_up)
+        }
 
         //当箭头点击之后决定是展开具体路线还是收起具体路线
-        holder.getView().iv_spefic_bus_line_flod.setOnClickListener{v ->
+        holder.getView().tv_bus_line_click.setOnClickListener{v ->
 
             if (opened == holder.adapterPosition) {
                 //当前item已经被展开，关闭
@@ -52,11 +54,22 @@ class BusLineRecycleAdapter(val datas: List<BusLineBean>, val context: Context,
                 notifyItemChanged(oldOpend)
                 notifyItemChanged(opened)
             }
-
         }
 
+
+        holder.setVisiable()
     }
 
-
+    private fun BaseAdapter.BaseViewHolder.setVisiable(){
+        val view = getView()
+        view.setOnClickListener(){
+            if (view.tv_spefic_bus_line.visibility == View.VISIBLE){
+                it.iv_spefic_bus_line_flod.setImageResource(R.drawable.freshman_necessary_fold_icon_up)
+            } else {
+                it.iv_spefic_bus_line_flod.setImageResource(R.drawable.freshman_necessary_fold_icon_down)
+            }
+        }
+    }
 
 }
+

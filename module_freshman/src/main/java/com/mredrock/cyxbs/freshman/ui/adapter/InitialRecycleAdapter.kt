@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.common.ui.OnInitalRecycleIMClikListener
+import com.mredrock.cyxbs.freshman.utils.interfaces.OnInitalRecycleIMClikListener
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.viewmodel.InitialItem
+import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 import kotlinx.android.synthetic.main.freshman_recycle_item_initial.view.*
 
 
@@ -17,8 +17,7 @@ import kotlinx.android.synthetic.main.freshman_recycle_item_initial.view.*
  */
 
 
-class InitialRecycleAdapter(private val context: Context, private val initialItems: List<InitialItem>) :
-
+class InitialRecycleAdapter(private val context: Context, private val initialItems: List<InitialItemBean>) :
     RecyclerView.Adapter<InitialRecycleAdapter.ViewHolder>() {
 
 
@@ -31,8 +30,7 @@ class InitialRecycleAdapter(private val context: Context, private val initialIte
         holder.getView().tv_initial_first.setText(initialItem.mainTitle)
         holder.getView().tv_initial_second.setText(initialItem.subhead)
 
-
-        holder.getView().iv_recycle_initial_goto.setOnClickListener { v ->
+        holder.getView().setOnClickListener { v ->
 
 
             listener?.OnCilick(initialItem.mainTitle)
@@ -63,6 +61,5 @@ class InitialRecycleAdapter(private val context: Context, private val initialIte
             return itemView
         }
     }
-
 
 }

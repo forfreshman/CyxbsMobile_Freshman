@@ -32,6 +32,7 @@ class DataFragment : BaseFragment() {
     val message = Message()
     private var recyclerView: RecyclerView? = null
 
+
     companion object {
         fun newInstance() = DataFragment()
     }

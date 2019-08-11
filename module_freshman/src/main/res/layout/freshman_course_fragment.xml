@@ -14,9 +14,7 @@
 
         <com.mredrock.cyxbs.freshman.weight.FreshmanBarGraghView android:layout_width="match_parent"
                                                                  android:layout_height="match_parent"
-                                                                 app:freshman_academy_name_first="未加载"
-                                                                 app:freshman_academy_name_second="未加载"
-                                                                 app:freshman_academy_name_third="未加载"
+
                                                                  android:id="@+id/barGraghView"/>
 
     </LinearLayout>

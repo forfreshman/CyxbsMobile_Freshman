@@ -5,15 +5,15 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:background="@drawable/freshman_initial_bg_recycle"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/freshman_recycle_initial_item_height"
-        android:padding="21dp"
+        android:layout_height="80dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp">
 
 
         <LinearLayout
-
+                android:layout_marginStart="22dp"
+                android:layout_centerVertical="true"
                 android:layout_toStartOf="@+id/iv_recycle_initial_goto"
                 android:orientation="vertical"
                 android:gravity="center"

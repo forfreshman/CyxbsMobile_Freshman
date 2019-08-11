@@ -4,7 +4,10 @@ import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import com.mredrock.cyxbs.freshman.db.FreshmanRoomDatabase
 import com.mredrock.cyxbs.freshman.utils.interfaces.BusLineBeanDao
+<<<<<<< HEAD
 import com.mredrock.cyxbs.freshman.utils.interfaces.MyCallback
+=======
+>>>>>>> upstream/master
 import com.mredrock.cyxbs.freshman.viewmodel.bean.BusLineBean
 
 /**
@@ -15,14 +18,21 @@ class BusLineRepository {
 
     internal var allBean : LiveData<List<BusLineBean>> ?= null
     var busLineBeanDao: BusLineBeanDao? = null
+<<<<<<< HEAD
     var callback : MyCallback<BusLineBean>?= null
     init {
 
+=======
+    init {
+>>>>>>> upstream/master
         val db = FreshmanRoomDatabase.getInstance()
         busLineBeanDao = db?.busLineBeanDao()
         allBean = busLineBeanDao?.getBusLineBeanList()
 
+<<<<<<< HEAD
         //InitThread().start()
+=======
+>>>>>>> upstream/master
     }
 
     fun deleteAll() {
@@ -38,6 +48,7 @@ class BusLineRepository {
     }
 
 
+<<<<<<< HEAD
     inner class InitThread : Thread() {
 
         override fun run() {
@@ -51,6 +62,8 @@ class BusLineRepository {
     }
 
 
+=======
+>>>>>>> upstream/master
     //更新
     private class UpdataAsyncTask(val beanDao: BusLineBeanDao?) : AsyncTask<BusLineBean, Void, Void>() {
         override fun doInBackground(vararg params: BusLineBean): Void? {

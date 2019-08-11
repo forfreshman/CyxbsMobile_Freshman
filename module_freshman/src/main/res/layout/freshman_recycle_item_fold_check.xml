@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_marginBottom="15dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/freshman_bus_line_bg"
-        android:layout_width="wrap_content"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
 
     <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:background="@drawable/freshman_bus_line_bg"
+            android:layout_marginBottom="15dp"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
         <CheckBox
                 android:id="@+id/cb_necessary_fold"
+                android:layout_marginTop="26dp"
                 android:layout_alignParentStart="true"
                 android:background="@drawable/freshman_check_checkbox_school_necessary"
                 android:layout_marginStart="15dp"
@@ -28,49 +22,52 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"/>
 
-        <TextView
-                android:id="@+id/tv_necessary_thing"
-                android:layout_toEndOf="@+id/cb_necessary_fold"
-                android:layout_marginStart="11dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#333333"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:text="录取通知书"
-                tools:ignore="HardcodedText,SpUsage"/>
+    <TextView
+            android:id="@+id/tv_necessary_thing"
+            android:layout_marginTop="26dp"
+            android:layout_toEndOf="@+id/cb_necessary_fold"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="录取通知书"
+            tools:ignore="HardcodedText,SpUsage"/>
 
         <ImageView
                 android:id="@+id/iv_necessary_fold"
-                android:src="@drawable/freshman_flod_up"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/freshman_necessary_fold_icon_down"
                 android:layout_width="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_height="wrap_content"
+                android:clickable="false"
                 android:layout_marginEnd="20dp"
                 tools:ignore="ContentDescription"/>
-    </RelativeLayout>
 
 
 
-    <TextView
+
+<TextView
             android:id="@+id/tv_necessary_spefic"
             android:layout_marginStart="41dp"
             android:layout_width="match_parent"
             android:layout_marginTop="18dp"
             android:layout_height="wrap_content"
             android:textSize="15dp"
+            android:layout_below="@+id/tv_necessary_thing"
             android:layout_marginBottom="20dp"
             tools:ignore="HardcodedText,SpUsage"
             android:textColor="#666666"
+            android:visibility="gone"
             android:text=""/>
 
 
-
-</LinearLayout>
-
-
-
-
-
-
+    <TextView
+            android:id="@+id/tv_click"
+            android:layout_width="match_parent"
+            android:layout_marginStart="200dp"
+            android:layout_height="53dp"/>
+</RelativeLayout>
 

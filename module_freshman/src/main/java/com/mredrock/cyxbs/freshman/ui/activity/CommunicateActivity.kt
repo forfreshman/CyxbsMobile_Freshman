@@ -1,6 +1,5 @@
 package com.mredrock.cyxbs.freshman.ui.activity
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -9,9 +8,9 @@ import androidx.viewpager.widget.ViewPager
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.FragmentAdapter
-import com.mredrock.cyxbs.freshman.ui.fragment.communicate.AcademyFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.communicate.ActivitiesFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.communicate.FellowFragment
+import com.mredrock.cyxbs.freshman.ui.fragment.AcademyFragment
+import com.mredrock.cyxbs.freshman.ui.fragment.ActivitiesFragment
+import com.mredrock.cyxbs.freshman.ui.fragment.FellowFragment
 
 import java.util.ArrayList
 
@@ -25,15 +24,11 @@ class CommunicateActivity : BaseActivity(), View.OnClickListener {
 
 
     override val isFragmentActivity: Boolean
-        get() = true
+        get() = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_communicate)
-        common_toolbar.init(
-            title =  "线上交流",
-            listener = View.OnClickListener { v -> finish() }
-        )
         initview()
         academy!!.setOnClickListener(this)
         fellow!!.setOnClickListener(this)
@@ -46,7 +41,7 @@ class CommunicateActivity : BaseActivity(), View.OnClickListener {
         fragmentAdapter = FragmentAdapter(supportFragmentManager, fragments)
         viewPager!!.adapter = fragmentAdapter
         viewPager!!.currentItem = 0
-        academy?.setTextColor(Color.parseColor("#4672ff"))
+
     }
 
     private fun initview() {
@@ -58,18 +53,11 @@ class CommunicateActivity : BaseActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.tv_academy -> {viewPager!!.currentItem = 0
-                academy?.setTextColor(Color.parseColor("#4672ff"))
-                fellow?.setTextColor(Color.parseColor("#333333"))
-            activities?.setTextColor(Color.parseColor("#333333"))}
-            R.id.tv_fellow ->{viewPager!!.currentItem = 1
-                academy?.setTextColor(Color.parseColor("#333333"))
-                fellow?.setTextColor(Color.parseColor("#4672ff"))
-                activities?.setTextColor(Color.parseColor("#333333"))}
-            R.id.tv_activities -> {viewPager!!.currentItem = 2
-                academy?.setTextColor(Color.parseColor("#333333"))
-                fellow?.setTextColor(Color.parseColor("#333333"))
-                activities?.setTextColor(Color.parseColor("#4672ff"))}
+            R.id.tv_academy -> viewPager!!.currentItem = 0
+            R.id.tv_fellow -> viewPager!!.currentItem = 1
+            R.id.tv_activities -> viewPager!!.currentItem = 2
+            else -> {
+            }
         }
     }
 
@@ -82,22 +70,7 @@ class CommunicateActivity : BaseActivity(), View.OnClickListener {
         }
 
         override fun onPageSelected(position: Int) {
-            when(position){
-                0 -> {viewPager!!.currentItem = 0
-                academy?.setTextColor(Color.parseColor("#4672ff"))
-                        fellow?.setTextColor(Color.parseColor("#333333"))
-                        activities?.setTextColor(Color.parseColor("#333333"))}
 
-                1 -> {viewPager!!.currentItem = 1
-                    academy?.setTextColor(Color.parseColor("#333333"))
-                    fellow?.setTextColor(Color.parseColor("#4672ff"))
-                    activities?.setTextColor(Color.parseColor("#333333"))}
-
-                2 -> {viewPager!!.currentItem = 2
-                    academy?.setTextColor(Color.parseColor("#333333"))
-                    fellow?.setTextColor(Color.parseColor("#333333"))
-                    activities?.setTextColor(Color.parseColor("#4672ff"))}
-            }
         }
 
         override fun onPageScrollStateChanged(state: Int) {

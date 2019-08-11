@@ -1,23 +1,17 @@
 package com.mredrock.cyxbs.freshman.ui.fragment.data
 
-<<<<<<< HEAD
 import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.util.Log
-=======
-import androidx.lifecycle.ViewModelProviders
-import android.os.Bundle
->>>>>>> upstream/master
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.mredrock.cyxbs.freshman.R
-<<<<<<< HEAD
 import com.mredrock.cyxbs.freshman.ui.adapter.DataRecylerviewAdapter
 import com.mredrock.cyxbs.freshman.ui.fragment.DataFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.DiningroomFragment
@@ -191,10 +185,6 @@ class CourseFragment : Fragment() {
             }
         }
     }
-=======
-
-class CourseFragment : Fragment() {
->>>>>>> upstream/master
 
     companion object {
         fun newInstance() = CourseFragment()
@@ -215,7 +205,6 @@ class CourseFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
-<<<<<<< HEAD
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         createJson()
@@ -250,6 +239,4 @@ class CourseFragment : Fragment() {
             handler.sendMessage(dataFragment.message)
         }).start()
     }
-=======
->>>>>>> upstream/master
 }

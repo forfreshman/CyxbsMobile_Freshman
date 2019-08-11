@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-    <include layout="@layout/common_toolbar"
 
+    <include layout="@layout/common_toolbar"
              android:id="@+id/guide_common_toolbar"/>
 
 
@@ -56,11 +56,9 @@
                   android:textColor="#515151"/>
     </LinearLayout>
 
-
     <com.mredrock.cyxbs.freshman.weight.CustomViewPager android:layout_width="match_parent"
                                          android:layout_height="match_parent"
                                          android:id="@+id/vp_guide"
                                          android:layout_below="@id/ll_guide_first"/>
-
 
 </RelativeLayout>

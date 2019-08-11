@@ -44,6 +44,7 @@ class DeliveryFragment : BaseFragment() {
     }
 
 
+
     companion object {
         fun newInstance() = DeliveryFragment()
     }
@@ -90,6 +91,7 @@ class DeliveryFragment : BaseFragment() {
             message.what = 0
             handler.sendMessage(message)
         }).start()
+
     }
 
     private fun initData() {

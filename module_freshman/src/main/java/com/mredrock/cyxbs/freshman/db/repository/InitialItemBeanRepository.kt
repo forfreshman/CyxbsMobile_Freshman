@@ -1,9 +1,15 @@
 package com.mredrock.cyxbs.freshman.db.repository
 
 import android.os.AsyncTask
+<<<<<<< HEAD
 import com.mredrock.cyxbs.freshman.db.FreshmanRoomDatabase
 import com.mredrock.cyxbs.freshman.utils.interfaces.InitialItemBeanDao
 import com.mredrock.cyxbs.freshman.utils.interfaces.MyCallback
+=======
+import androidx.lifecycle.LiveData
+import com.mredrock.cyxbs.freshman.db.FreshmanRoomDatabase
+import com.mredrock.cyxbs.freshman.utils.interfaces.InitialItemBeanDao
+>>>>>>> upstream/master
 import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 
 /**
@@ -12,6 +18,7 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
  */
 class InitialItemBeanRepository() {
 
+<<<<<<< HEAD
     var allBean : List<InitialItemBean> ? = null
     var initialItemBeanDao: InitialItemBeanDao? = null
     var callback : MyCallback<InitialItemBean> ?= null
@@ -20,6 +27,15 @@ class InitialItemBeanRepository() {
         InitThread().start()
         //while (initialItemBeanDao?.equals(null)!!){}
        // while (!isInitialFinished) {}
+=======
+    var allBean : LiveData<List<InitialItemBean>> ? = null
+    var initialItemBeanDao: InitialItemBeanDao? = null
+    init {
+
+       val db = FreshmanRoomDatabase.getInstance()
+        initialItemBeanDao = db?.initialItemBeanDao()
+        allBean = initialItemBeanDao?.getInitialItemBeanList()
+>>>>>>> upstream/master
     }
 
 
@@ -36,6 +52,7 @@ class InitialItemBeanRepository() {
     }
 
 
+<<<<<<< HEAD
     inner class InitThread : Thread() {
 
         override fun run() {
@@ -48,6 +65,8 @@ class InitialItemBeanRepository() {
 
     }
 
+=======
+>>>>>>> upstream/master
 
     //更新
     private class UpdataAsyncTask(val dao: InitialItemBeanDao?) : AsyncTask<InitialItemBean, Void, Void>() {
@@ -75,7 +94,10 @@ class InitialItemBeanRepository() {
         }
 
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> upstream/master
 }
 

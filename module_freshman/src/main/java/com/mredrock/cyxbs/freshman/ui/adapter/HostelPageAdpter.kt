@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.PagerAdapter
 import com.mredrock.cyxbs.freshman.R
+
 import com.mredrock.cyxbs.freshman.util.MyImageLoader
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
@@ -41,6 +42,7 @@ class HostelPageAdpter(private val title: List<String>,private val details:List<
     }
 
 
+
     override fun getCount(): Int {
         return views.size
     }
@@ -65,6 +67,7 @@ class HostelPageAdpter(private val title: List<String>,private val details:List<
     override fun getPageTitle(position: Int): CharSequence? {
         return title[position]
     }
+
 
 
     public fun initView(){

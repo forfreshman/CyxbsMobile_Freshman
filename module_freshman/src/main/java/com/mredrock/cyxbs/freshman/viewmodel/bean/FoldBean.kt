@@ -15,6 +15,5 @@ import kotlinx.metadata.ClassName
 @Entity
 class FoldBean(@PrimaryKey @NonNull var id: Int, var mainMsg: String, var subMsg: String?) {
 
-    //  val d = ClassName
 
 }
