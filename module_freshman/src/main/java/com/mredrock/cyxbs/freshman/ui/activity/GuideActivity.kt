@@ -4,14 +4,16 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.Fragment
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.ui.adapter.FragmentAdapter
 import com.mredrock.cyxbs.freshman.ui.fragment.DataFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.DeliveryFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.DiningroomFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.HostelFragment
-
+import kotlinx.android.synthetic.main.freshman_activity_guide.*
+import java.util.ArrayList
 
 
 class GuideActivity : BaseActivity(), View.OnClickListener {
@@ -19,10 +21,8 @@ class GuideActivity : BaseActivity(), View.OnClickListener {
     private var diningroom: TextView? = null
     private var delivery: TextView? = null
     private var data:TextView?=null
-    private var hostelFragment :HostelFragment?=null
-    private var diningroomFragment :DiningroomFragment?=null
-    private var deliveryFragment :DeliveryFragment?=null
-    private var dataFragment :DataFragment?=null
+    private var fragmentAdapter :FragmentAdapter?=null
+    private val fragments=ArrayList<Fragment>()
 
     override val isFragmentActivity: Boolean
         get() = true
@@ -37,75 +37,23 @@ class GuideActivity : BaseActivity(), View.OnClickListener {
                finish()
             }
         )
+        initData()
         //控件初始化
         initView()
         hostel!!.setOnClickListener (this)
         diningroom!!.setOnClickListener(this)
         delivery!!.setOnClickListener(this)
         data!!.setOnClickListener(this)
-        initHostelFragment()
+        vp_guide.currentItem=0
         hostel!!.setTextColor(Color.parseColor("#4b72ff"))
     }
 
 
-    private fun initHostelFragment(){
-        val transaction = supportFragmentManager.beginTransaction()
-        if(hostelFragment == null){
-            hostelFragment= HostelFragment.newInstance()
-            transaction.add(R.id.fl_guide_second, hostelFragment!!)
-        }
-        hideFragment(transaction)
-        transaction.show(hostelFragment!!)
-        transaction.commit()
-    }
-
-    private fun initDiningroomFragment(){
-        val transaction = supportFragmentManager.beginTransaction()
-        if(diningroomFragment == null){
-            diningroomFragment= DiningroomFragment.newInstance()
-            transaction.add(R.id.fl_guide_second, diningroomFragment!!)
-        }
-        hideFragment(transaction)
-        transaction.show(diningroomFragment!!)
-        transaction.commit()
-    }
-
-    private fun initDeliveryFragment(){
-        val transaction = supportFragmentManager.beginTransaction()
-        if(deliveryFragment == null){
-            deliveryFragment= DeliveryFragment.newInstance()
-            transaction.add(R.id.fl_guide_second, deliveryFragment!!)
-        }
-        hideFragment(transaction)
-        transaction.show(deliveryFragment!!)
-        transaction.commit()
-    }
-
-    private fun initDataFragment(){
-        val transaction = supportFragmentManager.beginTransaction()
-        if(dataFragment == null){
-            dataFragment= DataFragment.newInstance()
-            transaction.add(R.id.fl_guide_second, dataFragment!!)
-        }
-        hideFragment(transaction)
-        transaction.show(dataFragment!!)
-        transaction.commit()
-    }
-
-    private fun hideFragment(fragmentTransaction: FragmentTransaction){
-            if(hostelFragment !=null){
-                fragmentTransaction.hide(hostelFragment!!)
-            }
-            if(diningroomFragment != null) {
-                fragmentTransaction.hide(diningroomFragment!!)
-            }
-            if(deliveryFragment != null) {
-                fragmentTransaction.hide(deliveryFragment!!)
-            }
-            if(dataFragment != null) {
-                fragmentTransaction.hide(dataFragment!!)
-            }
-
+    private fun initData(){
+        fragments.add(HostelFragment.newInstance())
+        fragments.add(DiningroomFragment.newInstance())
+        fragments.add(DeliveryFragment.newInstance())
+        fragments.add(DataFragment.newInstance())
     }
 
 
@@ -114,31 +62,34 @@ class GuideActivity : BaseActivity(), View.OnClickListener {
         diningroom=findViewById<View>(R.id.tv_guide_dining_room) as TextView
         delivery=findViewById<View>(R.id.tv_guide_delivery) as TextView
         data=findViewById<View>(R.id.tv_guide_data) as TextView
+        fragmentAdapter= FragmentAdapter(supportFragmentManager,fragments)
+        vp_guide.setScanScroll(false)
+        vp_guide.adapter=fragmentAdapter
     }
 
 
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.tv_guide_hostel -> {
-                initHostelFragment()
+                vp_guide.currentItem=0
                 hostel!!.setTextColor(Color.parseColor("#4b72ff"))
                 diningroom!!.setTextColor(Color.parseColor("#515151"))
                 delivery!!.setTextColor(Color.parseColor("#515151"))
                 data!!.setTextColor(Color.parseColor("#515151"))}
             R.id.tv_guide_dining_room ->{
-                initDiningroomFragment()
+                vp_guide.currentItem=1
                 hostel!!.setTextColor(Color.parseColor("#515151"))
                 diningroom!!.setTextColor(Color.parseColor("#4b72ff"))
                 delivery!!.setTextColor(Color.parseColor("#515151"))
                 data!!.setTextColor(Color.parseColor("#515151"))}
             R.id.tv_guide_delivery->{
-                initDeliveryFragment()
+                vp_guide.currentItem=2
                 hostel!!.setTextColor(Color.parseColor("#515151"))
                 diningroom!!.setTextColor(Color.parseColor("#515151"))
                 delivery!!.setTextColor(Color.parseColor("#4b72ff"))
                 data!!.setTextColor(Color.parseColor("#515151"))}
             R.id.tv_guide_data->{
-                initDataFragment()
+                vp_guide.currentItem=3
                 hostel!!.setTextColor(Color.parseColor("#515151"))
                 diningroom!!.setTextColor(Color.parseColor("#515151"))
                 delivery!!.setTextColor(Color.parseColor("#515151"))

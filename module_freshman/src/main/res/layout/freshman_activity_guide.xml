@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
     <include layout="@layout/common_toolbar"
-            android:id="@+id/guide_common_toolbar"/>
+             android:id="@+id/guide_common_toolbar"/>
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="49dp"
@@ -21,7 +21,7 @@
                   android:textSize="17sp"
                   android:id="@+id/tv_guide_hostel"
                   android:textColor="#515151"/>
-        
+
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:id="@+id/tv_guide_dining_room"
@@ -54,11 +54,9 @@
                   android:textColor="#515151"/>
     </LinearLayout>
 
-    <FrameLayout android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:id="@+id/fl_guide_second"
-                  android:layout_below="@id/ll_guide_first">
-
-    </FrameLayout>
+    <com.mredrock.cyxbs.freshman.weight.CustomViewPager android:layout_width="match_parent"
+                                         android:layout_height="match_parent"
+                                         android:id="@+id/vp_guide"
+                                         android:layout_below="@id/ll_guide_first"/>
 
 </RelativeLayout>

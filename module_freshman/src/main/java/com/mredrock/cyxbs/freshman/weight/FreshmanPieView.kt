@@ -41,7 +41,7 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
         title = ta.getString(R.styleable.FreshmanPieView_freshman_academy)
         maleAngle = 360 * (malePercent!! / 100)
         femaleAngle = 360 * (femalePercent!! / 100)
-        val decimalFormat = DecimalFormat(".00")
+        val decimalFormat = DecimalFormat(".0")
         male = decimalFormat.format(malePercent!!.toDouble())
         female = decimalFormat.format(femalePercent!!.toDouble())
         ta.recycle()
@@ -102,12 +102,18 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
         canvas.drawArc(pieRectf, currentStartAngle, femaleAngle!!, true, paint)
         paint.color = Color.parseColor("#698aff")
         canvas.drawLine(
-
-                (width!! * 0.505).toFloat(),
-                (height!! * 0.63).toFloat(),
-                (width!! * 0.505).toFloat(),
-                (height!! * 0.9).toFloat()
-                , paint
+            (width!! * 0.505).toFloat(),
+            (height!! * 0.63).toFloat(),
+            (width!! * 0.505).toFloat(),
+            (height!! * 0.9).toFloat()
+            , paint
+        )
+        canvas.drawLine(
+            (width!! * 0.505).toFloat(),
+            (height!! * 0.63).toFloat(),
+            ((width!! * 0.505)+raduis * Math.sin(femaleAngle!! * Math.PI / 180)).toFloat(),
+            ((height!! * 0.63)+ raduis * Math.cos(femaleAngle!! * Math.PI / 180)).toFloat(),
+            paint
         )
         paint.style = Paint.Style.STROKE
         canvas.drawArc(pieRectf, startAngle, 360f, true, paint)
