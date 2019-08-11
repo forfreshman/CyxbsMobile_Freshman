@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.weight.FreshmanPieView
+import kotlinx.android.synthetic.main.freshman_percent_fragment.*
 
 class PercentFragment : Fragment() {
 
@@ -30,4 +32,10 @@ class PercentFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        pieview_data.setTitle("自动化学院")
+        pieview_data.setMalePercent(60)
+        pieview_data.setFemalePercent(40)
+    }
 }
