@@ -54,57 +54,76 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
 
             val intent = Intent(this, EditMemoActivity::class.java)
             startActivity(intent)
-
         }
-
 
 
         //报道必备
         if (datalist1.size == 0) {
             tv_character_need_register.visibility = View.GONE
-        }
-        val adapter1 = FoldRecycleAdapter(this, datalist1, R.layout.freshman_recycle_item_fold_check)
-        rv_need_register.layoutManager = LinearLayoutManager(this)
-        rv_need_register.adapter = adapter1
-
-
-        adapter1.setCheckBoxClickListener(object : OnCheckBoxClickListener {
-            override fun OnClick(view: View, pos: Int) {
-
-                //当item被选中之后，设置字体也变颜色
-                if (view.cb_necessary_fold.isChecked) {
-                    view.tv_necessary_thing.setTextColor(Color.parseColor("#d0d1d2"))
-                } else {
-                    view.tv_necessary_thing.setTextColor(Color.parseColor("#333333"))
+        } else{
+            val adapter1 = FoldRecycleAdapter(this, datalist1, R.layout.freshman_recycle_item_fold_check)
+            rv_need_register.layoutManager = LinearLayoutManager(this)
+            rv_need_register.adapter = adapter1
+            adapter1.setCheckBoxClickListener(object : OnCheckBoxClickListener {
+                override fun OnClick(view: View, pos: Int) {
+                    //当item被选中之后，设置字体也变颜色
+                    if (view.cb_necessary_fold.isChecked) {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#d0d1d2"))
+                    } else {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#333333"))
+                    }
                 }
-            }
-        })
+            })
+        }
 
 
         //军训用品
         if (datalist2.size == 0) {
             tv_character_army_training_need.visibility = View.GONE
+        } else {
+            val adapter2 = FoldRecycleAdapter(context, datalist2, R.layout.freshman_recycle_item_fold_check)
+            rv_need_army_training.layoutManager = LinearLayoutManager(this)
+            rv_need_army_training.adapter = adapter2
+
+            adapter2.setCheckBoxClickListener(object : OnCheckBoxClickListener {
+                override fun OnClick(view: View, pos: Int) {
+                    //当item被选中之后，设置字体也变颜色
+                    if (view.cb_necessary_fold.isChecked) {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#d0d1d2"))
+                    } else {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#333333"))
+                    }
+                }
+            })
         }
-        val adapter2 = FoldRecycleAdapter(context, datalist2, R.layout.freshman_recycle_item_fold_check)
-        rv_need_army_training.layoutManager = LinearLayoutManager(this)
-        rv_need_army_training.adapter = adapter2
-
-
 
         //备忘录
         if (datalist3.size == 0) {
             tv_character_memo.visibility = View.GONE
+        } else {
+
+            val adapter3 = FoldRecycleAdapter(context, datalist3, R.layout.freshman_recycle_item_fold_check)
+            rv_need_unfogetable.layoutManager = LinearLayoutManager(this)
+            rv_need_unfogetable.adapter = adapter3
+
+            viewModel.beans?.observe(this@NecessaryGoodsActivity, Observer<List<FoldBean>> {
+
+                (datalist3 as ArrayList).clear()
+                (datalist3 as ArrayList).addAll(it)
+                adapter3.notifyDataSetChanged()
+            })
+
+            adapter3.setCheckBoxClickListener(object : OnCheckBoxClickListener {
+                override fun OnClick(view: View, pos: Int) {
+                    //当item被选中之后，设置字体也变颜色
+                    if (view.cb_necessary_fold.isChecked) {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#d0d1d2"))
+                    } else {
+                        view.tv_necessary_thing.setTextColor(Color.parseColor("#333333"))
+                    }
+                }
+            })
         }
-        val adapter3 = FoldRecycleAdapter(context, datalist3, R.layout.freshman_recycle_item_fold_check)
-        rv_need_unfogetable.layoutManager = LinearLayoutManager(this)
-        rv_need_unfogetable.adapter = adapter3
-
-
-                viewModel.beans?.observe(this@NecessaryGoodsActivity, Observer<List<FoldBean>> {
-                    (datalist3 as ArrayList).clear()
-                    (datalist3 as ArrayList).addAll(it)
-                    adapter3.notifyDataSetChanged()
-                })
 
 
 

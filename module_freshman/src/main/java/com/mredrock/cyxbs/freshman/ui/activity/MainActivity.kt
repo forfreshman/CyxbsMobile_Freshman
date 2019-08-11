@@ -47,8 +47,8 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
                     "指路重邮" ->
                         intent = Intent(context, ShowWayActivity::class.java)
                     "入学流程" ->
-//                        intent = Intent(context, AdmissionProcessActivity::class.java)
-                        LogUtils.d("","")
+                        intent = Intent(context, AdmissionProcessActivity::class.java)
+//                        LogUtils.d("","")
                     "校园指导" ->
                         intent = Intent(context, GuideActivity::class.java)
                     "线上活动" -> LogUtils.d("", "")

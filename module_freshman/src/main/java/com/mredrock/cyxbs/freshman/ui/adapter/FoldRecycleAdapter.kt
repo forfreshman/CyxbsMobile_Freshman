@@ -20,6 +20,7 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
     private var checkBoxClickListener : OnCheckBoxClickListener ?= null
     //标记展开的item
     private var opened = -1
+    private var holder : MyViewHolder ?= null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -34,6 +35,7 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
+        this.holder = holder
         val bean = datas.get(position)
         holder.bindView(position, bean)
         //当CheckBox被点击以后
@@ -55,6 +57,10 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
     fun setCheckBoxClickListener(onCheckBoxClickListener: OnCheckBoxClickListener){
 
         checkBoxClickListener = onCheckBoxClickListener
+    }
+
+    fun getView() : View{
+        return holder!!.itemView
     }
 
 
@@ -104,5 +110,6 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
                 itemView.tv_necessary_spefic.visibility = View.GONE
             }
         }
+
     }
 }

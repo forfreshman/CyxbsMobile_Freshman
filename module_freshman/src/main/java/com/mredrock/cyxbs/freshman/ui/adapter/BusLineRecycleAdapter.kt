@@ -40,7 +40,7 @@ class BusLineRecycleAdapter(val datas: List<BusLineBean>, val context: Context,
         }
 
         //当箭头点击之后决定是展开具体路线还是收起具体路线
-        holder.getView().setOnClickListener{v ->
+        holder.getView().tv_bus_line_click.setOnClickListener{v ->
 
             if (opened == holder.adapterPosition) {
                 //当前item已经被展开，关闭

@@ -3,15 +3,9 @@ package com.mredrock.cyxbs.freshman.db
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
-import com.mredrock.cyxbs.freshman.utils.interfaces.BusLineBeanDao
-import com.mredrock.cyxbs.freshman.utils.interfaces.FoldBeanDao
-import com.mredrock.cyxbs.freshman.utils.interfaces.InitialItemBeanDao
-import com.mredrock.cyxbs.freshman.viewmodel.bean.BusLineBean
-import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
-import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
+import com.mredrock.cyxbs.freshman.utils.interfaces.*
+import com.mredrock.cyxbs.freshman.viewmodel.bean.*
 
 /**
  *created by chenyang
@@ -19,13 +13,15 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
  */
 
 
-@Database(entities = [InitialItemBean::class, FoldBean::class, BusLineBean::class/*,AdmissionProcessBean::class*/], version = 3 )
+@Database(entities = [InitialItemBean::class, FoldBean::class, BusLineBean::class,
+    AdmissionProcessBean::class, DIYMemoBean::class], version = 5 )
 abstract class FreshmanRoomDatabase : RoomDatabase() {
 
     abstract fun initialItemBeanDao(): InitialItemBeanDao
     abstract fun foldBeanDao() : FoldBeanDao
     abstract fun busLineBeanDao() : BusLineBeanDao
-//    abstract fun admissionProcessBeanDao() : AdmissionProcessBeanDao
+    abstract fun admissionProcessBeanDao() : AdmissionProcessBeanDao
+    abstract fun dIYMemoBeanDao() : DIYMemoBeanDao
 
     companion object {
 

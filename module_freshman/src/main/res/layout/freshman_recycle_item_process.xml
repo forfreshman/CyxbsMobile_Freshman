@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
+                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="15dp"
               android:layout_height="wrap_content">
 
-    <view
-            android:id="@+id/v_admission_01"
-            android:layout_width="2dp"
-            android:background="#aec0ff"
-            android:layout_marginStart="21dp"
-            android:layout_height="28dp"/>
+    <!--<TextView-->
+            <!--android:id="@+id/v_admission_01"-->
+            <!--android:layout_width="2dp"-->
+            <!--android:background="#aec0ff"-->
+            <!--android:layout_marginStart="21dp"-->
+            <!--android:layout_height="28dp"/>-->
 
     <ImageView
             android:id="@+id/iv_admission_01"
-            android:layout_below="@+id/v_admission_01"
+            android:layout_marginTop="28dp"
             android:src="@drawable/freshman_admission_module_icon_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,16 +23,16 @@
             android:contentDescription="TODO"
             tools:ignore="ContentDescription,HardcodedText"/>
 
-    <view
-            android:id="@+id/v_admission_02"
-            android:layout_below="@+id/iv_admission_01"
-            android:layout_width="2dp"
-            android:background="#aec0ff"
-            android:layout_marginStart="21dp"
-            android:layout_height="match_parent"/>
+    <!--<TextView-->
+            <!--android:id="@+id/v_admission_02"-->
+            <!--android:layout_below="@+id/iv_admission_01"-->
+            <!--android:layout_width="2dp"-->
+            <!--android:background="#aec0ff"-->
+            <!--android:layout_marginStart="21dp"-->
+            <!--android:layout_height="match_parent"/>-->
 
 
-    <view
+    <TextView
             android:id="@+id/v_admission_03"
             android:layout_toEndOf="@+id/iv_admission_01"
             android:layout_width="15dp"
@@ -43,7 +45,6 @@
             android:layout_toEndOf="@+id/v_admission_03"
             android:background="@drawable/freshman_admission_module_bg_right"
             android:layout_width="match_parent"
-            android:paddingBottom="15dp"
             android:layout_height="wrap_content">
 
         <TextView
@@ -97,5 +98,10 @@
     </RelativeLayout>
 
 
+    <TextView
+            android:id="@+id/tv_admission_click"
+            android:layout_marginStart="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
 
 </RelativeLayout>

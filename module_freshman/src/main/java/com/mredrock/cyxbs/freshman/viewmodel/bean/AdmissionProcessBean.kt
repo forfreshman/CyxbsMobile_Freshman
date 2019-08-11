@@ -9,7 +9,7 @@ import javax.annotation.Nullable
  * on 2019/8/9
  */
 @Entity
- class AdmissionProcessBean {
+ class AdmissionProcessBean (){
     /**
      * code : 200
      * info : ok
@@ -25,7 +25,7 @@ import javax.annotation.Nullable
          * photo :
          * detail :
          */
-        @Nullable @PrimaryKey var id : Int = 0
+        @Nullable @PrimaryKey var id : Int ?= 0
         var title: String? = null
         var message: String? = null
         var photo: String? = null
