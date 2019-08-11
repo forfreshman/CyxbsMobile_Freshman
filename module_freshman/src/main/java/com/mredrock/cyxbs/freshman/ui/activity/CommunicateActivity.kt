@@ -31,7 +31,7 @@ class CommunicateActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_communicate)
         common_toolbar.init(
-            title =  "线上活动",
+            title =  "线上交流",
             listener = View.OnClickListener { v -> finish() }
         )
         initview()

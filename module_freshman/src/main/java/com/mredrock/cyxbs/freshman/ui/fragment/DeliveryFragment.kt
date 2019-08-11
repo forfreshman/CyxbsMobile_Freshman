@@ -1,7 +1,10 @@
 package com.mredrock.cyxbs.freshman.ui.fragment
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,19 +17,40 @@ import com.mredrock.cyxbs.freshman.utils.interfaces.NetService
 import com.mredrock.cyxbs.freshman.viewmodel.bean.DeliveryBean
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DeliveryViewModel
 import kotlinx.android.synthetic.main.freshman_delivery_fragment.*
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import javax.json.JsonObject
 
 class DeliveryFragment : BaseFragment() {
 
-    private val names = arrayListOf("顺丰","韵达","中通","圆通","申通","邮政/EMS\"","菜鸟驿站（校外）","百世")
-    private var adapter: DeliveryPageAdapter?=null
-    private var mView :View?=null
+    private val names = arrayListOf("顺丰", "韵达", "中通", "圆通", "申通", "邮政/EMS", "菜鸟驿站（校外）", "百世")
+    private var adapter: DeliveryPageAdapter? = null
+    private var mView: View? = null
+    val details = ArrayList<String>()
+    val image = ArrayList<String>()
+    val titles = ArrayList<String>()
+    private val BASE_URL = "http://129.28.185.138:9025/"
+    private val handler = @SuppressLint("HandlerLeak")
+    object : Handler() {
+        override fun handleMessage(msg: Message) {
+            when (msg.what) {
+                0 -> {
+                    initData()
+                    initTab()
+                }
+            }
+        }
+    }
 
 
     companion object {
@@ -46,55 +70,50 @@ class DeliveryFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("begin:","delivery")
-        initData()
-        initTab()
+        Log.d("begin:", "delivery")
+        createJson()
+
     }
 
-    private fun initData(){
-        adapter= DeliveryPageAdapter(names,activity as Context)
-        Json()
+    private fun createJson() {
+        Thread(Runnable {
+            val url = "http://129.28.185.138:9025/zsqy/json/33"
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(url)
+                .build()
+            val response = client.newCall(request).execute()
+            val body = response.body()!!.string()
+            Log.d("哈哈", "kk" + body)
+            val jsonObject = JSONObject(body)
+            val jsonArray = jsonObject.getJSONArray("text")
+            for (i in 0 until jsonArray.length()) {
+                val initJsonObject: JSONObject = jsonArray.getJSONObject(i)
+                val message = initJsonObject.getJSONArray("message")
+                titles.add(message.getJSONObject(0).getString("title"))
+                Log.d("哈哈哈", titles[i])
+                details.add(message.getJSONObject(0).getString("detail"))
+                image.add("http://129.28.185.138:9025/zsqy/image/" + message.getJSONObject(0).getString("photo"))
+            }
+            val message = Message()
+            message.what = 0
+            handler.sendMessage(message)
+        }).start()
+    }
+
+    private fun initData() {
+        adapter = DeliveryPageAdapter(names, titles, image, details, activity as Context)
         adapter!!.initView()
-        vp_guide_delivery.adapter=adapter
+        vp_guide_delivery.adapter = adapter
 
     }
 
 
-    private fun initTab(){
+    private fun initTab() {
         tl_guide_delivery.setupWithViewPager(vp_guide_delivery)
-        tl_guide_delivery.tabMode=TabLayout.MODE_SCROLLABLE
+        tl_guide_delivery.tabMode = TabLayout.MODE_SCROLLABLE
         tl_guide_delivery.setSelectedTabIndicatorHeight(0)
     }
 
-    private fun Json(){
-        val retrofit =Retrofit.Builder()
-            .baseUrl("http://129.28.185.138:9025/zsqy/json/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-            .build()
-        val netService :NetService =retrofit.create(NetService::class.java)
-        netService.getMessage()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object :Subscriber<DeliveryBean>(){
-                override fun onNext(t: DeliveryBean) {
-                    Log.d("AAA","aaa")
-                    for (i in 0 until t.text?.size!!){
-                        adapter!!.image[i]="http://129.28.185.138:9025/zsqy/image/"+ t.text!![i].message!![0].photo.toString()
-                        Log.d("AAA", t.toString())
-                        adapter!!.titles[i]= t.text!![i].message!![0].title.toString()
-                        adapter!!.details[i] = t.text!![i].message!![0].detail.toString()
-                    }
-                }
 
-                override fun onCompleted() {
-                    Log.d("AAA","bbb")
-                }
-
-                override fun onError(e: Throwable?) {
-                    Log.d("AAA","ccc")
-                }
-
-            })
-    }
 }

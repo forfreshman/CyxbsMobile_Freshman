@@ -11,10 +11,12 @@
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
-
+            android:networkSecurityConfig="@xml/freshman_net"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true"
+
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".ui.activity.MoreFunctionActivity">
         </activity>
@@ -36,7 +38,8 @@
         </activity>
         <activity android:name=".ui.activity.DataActivity"/>
         <activity android:name=".ui.activity.GuideActivity"/>
-        <activity android:name=".ui.activity.CommunicateActivity"/>
+        <activity android:name=".ui.activity.CommunicateActivity"
+                  android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

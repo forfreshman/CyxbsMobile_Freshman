@@ -17,12 +17,7 @@ import kotlinx.android.synthetic.main.freshman_copy_dialog.*
 import kotlinx.android.synthetic.main.freshman_fragment_activities.*
 
 class ActivitiesFragment : Fragment() {
-    val activities=object :ArrayList<String>(){
-        init {
-            this.add("学长学姐帮帮忙")
-            this.add("学长学姐帮帮忙")
-        }
-    }
+    val activities= arrayListOf("学长学姐帮帮忙")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

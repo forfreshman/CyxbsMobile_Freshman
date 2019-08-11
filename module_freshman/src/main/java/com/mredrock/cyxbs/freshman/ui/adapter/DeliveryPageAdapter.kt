@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.freshman.ui.adapter
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -26,11 +27,11 @@ import kotlinx.android.synthetic.main.freshman_yt_fragment.view.*
 import kotlinx.android.synthetic.main.freshman_zt_fragment.view.*
 import java.lang.StringBuilder
 
-class DeliveryPageAdapter(private val title: List<String>, private val activity : Context) :
+class DeliveryPageAdapter(private val title: List<String>,private val titles:List<String>,
+                          private val image:List<String>,private val details:List<String>,private val activity : Context) :
         PagerAdapter(){
-    public val details =ArrayList<String>()
-    public val image =ArrayList<String>()
-    public val titles=ArrayList<String>()
+
+
     private val views=object : ArrayList<View>(){
         init {
             this.add(View.inflate(activity, R.layout.freshman_sf_fragment,null))
@@ -72,35 +73,36 @@ class DeliveryPageAdapter(private val title: List<String>, private val activity 
 
 
     public fun initView(){
-        views[0].banner_sf.setImageFromUrl(image[0])
+        Log.d("DD", image.size.toString())
+        Glide.with(activity).load(image[0]).into(views[0].banner_sf)
         views[0].tv_guide_delivery_position.setText(title[0])
         views[0].tv_guide_delivery_desciption.setText(details[0])
 
-        views[1].banner_yd.setImageFromUrl(image[1])
+        Glide.with(activity).load(image[1]).into(views[1].banner_yd)
         views[1].tv_guide_delivery_position.setText(title[1])
         views[1].tv_guide_delivery_desciption.setText(details[1])
 
-        views[2].banner_zt.setImageFromUrl(image[2])
+        Glide.with(activity).load(image[2]).into(views[2].banner_zt)
         views[2].tv_guide_delivery_position_first.setText(title[2])
         views[2].tv_guide_delivery_desciption_first.setText(details[2])
 
-        views[3].banner_yt.setImageFromUrl(image[3])
+        Glide.with(activity).load(image[3]).into(views[3].banner_yt)
         views[3].tv_guide_delivery_position.setText(title[3])
         views[3].tv_guide_delivery_desciption.setText(details[3])
 
-        views[4].banner_st.setImageFromUrl(image[4])
+        Glide.with(activity).load(image[4]).into(views[4].banner_st)
         views[4].tv_guide_delivery_position.setText(title[4])
         views[4].tv_guide_delivery_desciption.setText(details[4])
 
-        views[5].banner_ems.setImageFromUrl(image[5])
+        Glide.with(activity).load(image[5]).into(views[5].banner_ems)
         views[5].tv_guide_delivery_position.setText(title[5])
         views[5].tv_guide_delivery_desciption.setText(details[5])
 
-        views[6].banner_cnyz.setImageFromUrl(image[6])
+        Glide.with(activity).load(image[6]).into(views[6].banner_cnyz)
         views[6].tv_guide_delivery_position.setText(title[6])
         views[6].tv_guide_delivery_desciption.setText(details[6])
 
-        views[7].banner_bs.setImageFromUrl(image[7])
+        Glide.with(activity).load(image[7]).into(views[7].banner_bs)
         views[7].tv_guide_delivery_position.setText(title[7])
         views[7].tv_guide_delivery_desciption.setText(details[7])
     }

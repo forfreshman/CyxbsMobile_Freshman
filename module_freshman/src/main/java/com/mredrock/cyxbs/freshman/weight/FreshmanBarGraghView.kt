@@ -11,18 +11,18 @@ import java.text.DecimalFormat
 
 class FreshmanBarGraghView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     View(context, attrs) {
-    private var firstName: String? = null
-    private var secondName: String? = null
-    private var thirdName: String? = null
-    private var firstPercent: Float ?=null
-    private var secondPercent: Float ?=null
-    private var thirdPercent: Float?=null
+    private var firstName: String = ""
+    private var secondName: String =""
+    private var thirdName: String = ""
+    private var firstPercent: Float =0f
+    private var secondPercent: Float =0f
+    private var thirdPercent: Float=0f
     private val paint: Paint
-    private var width: Int ?=null
-    private var height: Int ?=null
-    private var first :String?=null
-    private var second :String?=null
-    private var third :String?=null
+    private var mWidth: Int = 0
+    private var mHeight: Int =0
+    private var first :String=""
+    private var second :String=""
+    private var third :String=""
     private val color = intArrayOf(Color.parseColor("#698aff"), Color.parseColor("#ff95c3"),Color.parseColor("#71d5ff"))
 
     init {
@@ -38,27 +38,27 @@ class FreshmanBarGraghView @JvmOverloads constructor(context: Context, attrs: At
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         paint.color=Color.parseColor("#5c7ffc")
-        canvas.drawLine((width!! * 0.16).toFloat(), (height!! * 0.75).toFloat(),(width!! * 0.16).toFloat(), (height!! *0.23).toFloat(),paint)
-        canvas.drawLine((width!! * 0.16).toFloat(), (height!! * 0.75).toFloat(),(width!!*0.9).toFloat(),(height!! * 0.75).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.16).toFloat(), (mHeight * 0.75).toFloat(),(mWidth * 0.16).toFloat(), (mHeight *0.23).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.16).toFloat(), (mHeight * 0.75).toFloat(),(mWidth*0.9).toFloat(),(mHeight * 0.75).toFloat(),paint)
         paint.textSize=30f
-        canvas.drawText("难",(width!! * 0.1).toFloat(), (height!!*0.27).toFloat(),paint)
-        canvas.drawText("度",(width!! * 0.1).toFloat(), (height!!*0.32).toFloat(),paint)
-        canvas.drawText("系",(width!! * 0.1).toFloat(), (height!!*0.37).toFloat(),paint)
-        canvas.drawText("数",(width!! * 0.1).toFloat(), (height!!*0.42).toFloat(),paint)
-        canvas.drawLine((width!! * 0.16).toFloat(), (height!! *0.23).toFloat(),((width!! * 0.16)+10).toFloat(), ((height!! *0.23)+10).toFloat(),paint)
-        canvas.drawLine((width!! * 0.16).toFloat(), (height!! *0.23).toFloat(),((width!! * 0.16)-10).toFloat(), ((height!! *0.23)+10).toFloat(),paint)
-        canvas.drawLine((width!!*0.9).toFloat(),(height!! * 0.75).toFloat(),((width!!*0.9)-10).toFloat(),((height!! * 0.75)+10).toFloat(),paint)
-        canvas.drawLine((width!!*0.9).toFloat(),(height!! * 0.75).toFloat(),((width!!*0.9)-10).toFloat(),((height!! * 0.75)-10).toFloat(),paint)
-        canvas.drawLine((width!! * 0.16).toFloat(), (height!! * 0.68).toFloat(),(width!! * 0.15).toFloat(), (height!! * 0.68).toFloat(),paint)
-        canvas.drawLine((width!! * 0.16).toFloat(), (height!! * 0.61).toFloat(),(width!! * 0.15).toFloat(), (height!! * 0.61).toFloat(),paint)
-        canvas.drawLine((width!! * 0.16).toFloat(), (height!! * 0.54).toFloat(),(width!! * 0.15).toFloat(), (height!! * 0.54).toFloat(),paint)
-        canvas.drawLine((width!! * 0.16).toFloat(), (height!! * 0.47).toFloat(),(width!! * 0.15).toFloat(), (height!! * 0.47).toFloat(),paint)
-        val firstRectF=RectF((width!! * 0.225).toFloat(),(width!! *0.76 - width!!*firstPercent!!*0.7).toFloat(),(width!! * 0.305).toFloat(),(height!! * 0.75).toFloat())
-        val secondRectF=RectF((width!! * 0.465).toFloat(),(width!! *0.76 - width!!*secondPercent!!*0.7).toFloat(),(width!! * 0.545).toFloat(),(height!! * 0.75).toFloat())
-        val thirdRectF=RectF((width!! * 0.705).toFloat(),(width!! *0.76 - width!!*thirdPercent!!*0.7).toFloat(),(width!! * 0.785).toFloat(),(height!! * 0.75).toFloat())
-        canvas.drawText(firstName,(width!! * 0.21).toFloat(), (height!! *0.8).toFloat(),paint)
-        canvas.drawText(secondName,(width!! * 0.45).toFloat(), (height!! *0.8).toFloat(),paint)
-        canvas.drawText(thirdName,(width!! * 0.69).toFloat(), (height!! *0.8).toFloat(),paint)
+        canvas.drawText("难",(mWidth * 0.1).toFloat(), (mHeight*0.27).toFloat(),paint)
+        canvas.drawText("度",(mWidth * 0.1).toFloat(), (mHeight*0.32).toFloat(),paint)
+        canvas.drawText("系",(mWidth * 0.1).toFloat(), (mHeight*0.37).toFloat(),paint)
+        canvas.drawText("数",(mWidth * 0.1).toFloat(), (mHeight*0.42).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.16).toFloat(), (mHeight *0.23).toFloat(),((mWidth * 0.16)+10).toFloat(), ((mHeight *0.23)+10).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.16).toFloat(), (mHeight *0.23).toFloat(),((mWidth * 0.16)-10).toFloat(), ((mHeight *0.23)+10).toFloat(),paint)
+        canvas.drawLine((mWidth*0.9).toFloat(),(mHeight * 0.75).toFloat(),((mWidth*0.9)-10).toFloat(),((mHeight * 0.75)+10).toFloat(),paint)
+        canvas.drawLine((mWidth*0.9).toFloat(),(mHeight * 0.75).toFloat(),((mWidth*0.9)-10).toFloat(),((mHeight * 0.75)-10).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.16).toFloat(), (mHeight * 0.68).toFloat(),(mWidth * 0.15).toFloat(), (mHeight * 0.68).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.16).toFloat(), (mHeight * 0.61).toFloat(),(mWidth * 0.15).toFloat(), (mHeight * 0.61).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.16).toFloat(), (mHeight * 0.54).toFloat(),(mWidth * 0.15).toFloat(), (mHeight * 0.54).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.16).toFloat(), (mHeight * 0.47).toFloat(),(mWidth * 0.15).toFloat(), (mHeight * 0.47).toFloat(),paint)
+        val firstRectF=RectF((mWidth * 0.225).toFloat(),(mWidth *0.76 - mWidth*firstPercent*0.7).toFloat(),(mWidth * 0.305).toFloat(),(mHeight!! * 0.75).toFloat())
+        val secondRectF=RectF((mWidth * 0.465).toFloat(),(mWidth *0.76 - mWidth*secondPercent*0.7).toFloat(),(mWidth * 0.545).toFloat(),(mHeight!! * 0.75).toFloat())
+        val thirdRectF=RectF((mWidth * 0.705).toFloat(),(mWidth *0.76 - mWidth*thirdPercent*0.7).toFloat(),(mWidth * 0.785).toFloat(),(mHeight!! * 0.75).toFloat())
+        canvas.drawText(firstName,(mWidth * 0.21).toFloat(), (mHeight *0.8).toFloat(),paint)
+        canvas.drawText(secondName,(mWidth * 0.45).toFloat(), (mHeight *0.8).toFloat(),paint)
+        canvas.drawText(thirdName,(mWidth * 0.69).toFloat(), (mHeight *0.8).toFloat(),paint)
         paint.color=color[0]
         canvas.drawRect(firstRectF,paint)
         paint.color=color[1]
@@ -66,16 +66,16 @@ class FreshmanBarGraghView @JvmOverloads constructor(context: Context, attrs: At
         paint.color=color[2]
         canvas.drawRect(thirdRectF,paint)
         paint.color=Color.parseColor("#b0b1b3")
-        canvas.drawText("0$first",(width!! * 0.23).toFloat(),(width!! *0.76 - width!!*firstPercent!!*0.7-width!!* 0.02).toFloat(),paint)
-        canvas.drawText("0$second",(width!! * 0.47).toFloat(),(width!! *0.76 - width!!*secondPercent!!*0.7-width!!* 0.02).toFloat(),paint)
-        canvas.drawText("0$third",(width!! * 0.715).toFloat(),(width!! *0.76 - width!!*thirdPercent!!*0.7-width!!* 0.02).toFloat(),paint)
+        canvas.drawText("0$first",(mWidth * 0.23).toFloat(),(mWidth *0.76 - mWidth*firstPercent*0.7-mWidth* 0.02).toFloat(),paint)
+        canvas.drawText("0$second",(mWidth * 0.47).toFloat(),(mWidth *0.76 - mWidth*secondPercent*0.7-mWidth* 0.02).toFloat(),paint)
+        canvas.drawText("0$third",(mWidth * 0.715).toFloat(),(mWidth *0.76 - mWidth*thirdPercent*0.7-mWidth* 0.02).toFloat(),paint)
         paint.color=Color.parseColor("#5c7ffc")
-        canvas.drawLine((width!! * 0.295).toFloat(),(width!! *0.76 - width!!*firstPercent!!*0.7+width!!*0.01).toFloat(),(width!! * 0.275).toFloat(),(width!! *0.76 - width!!*firstPercent!!*0.7+width!!*0.01).toFloat(),paint)
-        canvas.drawLine((width!! * 0.295).toFloat(),(width!! *0.76 - width!!*firstPercent!!*0.7+width!!*0.01).toFloat(),(width!! * 0.295).toFloat(),(width!! *0.76 - width!!*firstPercent!!*0.7+width!!*0.03).toFloat(),paint)
-        canvas.drawLine((width!! * 0.535).toFloat(),(width!! *0.76 - width!!*secondPercent!!*0.7+width!!*0.01).toFloat(),(width!! * 0.515).toFloat(),(width!! *0.76 - width!!*secondPercent!!*0.7+width!!*0.01).toFloat(),paint)
-        canvas.drawLine((width!! * 0.535).toFloat(),(width!! *0.76 - width!!*secondPercent!!*0.7+width!!*0.01).toFloat(),(width!! * 0.535).toFloat(),(width!! *0.76 - width!!*secondPercent!!*0.7+width!!*0.03).toFloat(),paint)
-        canvas.drawLine((width!! * 0.775).toFloat(),(width!! *0.76 - width!!*thirdPercent!!*0.7+width!!*0.01).toFloat(),(width!! * 0.755).toFloat(),(width!! *0.76 - width!!*thirdPercent!!*0.7+width!!*0.01).toFloat(),paint)
-        canvas.drawLine((width!! * 0.775).toFloat(),(width!! *0.76 - width!!*thirdPercent!!*0.7+width!!*0.01).toFloat(),(width!! * 0.775).toFloat(),(width!! *0.76 - width!!*thirdPercent!!*0.7+width!!*0.03).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.295).toFloat(),(mWidth *0.76 - mWidth*firstPercent*0.7+mWidth*0.01).toFloat(),(mWidth * 0.275).toFloat(),(mWidth!! *0.76 - mWidth!!*firstPercent!!*0.7+mWidth!!*0.01).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.295).toFloat(),(mWidth *0.76 - mWidth*firstPercent*0.7+mWidth*0.01).toFloat(),(mWidth * 0.295).toFloat(),(mWidth!! *0.76 - mWidth!!*firstPercent!!*0.7+mWidth!!*0.03).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.535).toFloat(),(mWidth *0.76 - mWidth*secondPercent*0.7+mWidth*0.01).toFloat(),(mWidth * 0.515).toFloat(),(mWidth!! *0.76 - mWidth!!*secondPercent!!*0.7+mWidth!!*0.01).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.535).toFloat(),(mWidth *0.76 - mWidth*secondPercent*0.7+mWidth*0.01).toFloat(),(mWidth * 0.535).toFloat(),(mWidth!! *0.76 - mWidth!!*secondPercent!!*0.7+mWidth!!*0.03).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.775).toFloat(),(mWidth *0.76 - mWidth*thirdPercent*0.7+mWidth*0.01).toFloat(),(mWidth * 0.755).toFloat(),(mWidth!! *0.76 - mWidth!!*thirdPercent!!*0.7+mWidth!!*0.01).toFloat(),paint)
+        canvas.drawLine((mWidth * 0.775).toFloat(),(mWidth *0.76 - mWidth*thirdPercent*0.7+mWidth*0.01).toFloat(),(mWidth * 0.775).toFloat(),(mWidth!! *0.76 - mWidth!!*thirdPercent!!*0.7+mWidth!!*0.03).toFloat(),paint)
         paint.style=Paint.Style.STROKE
         paint.color=Color.parseColor("#5c7ffc")
         canvas.drawRect(firstRectF,paint)
@@ -85,10 +85,11 @@ class FreshmanBarGraghView @JvmOverloads constructor(context: Context, attrs: At
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        width = w
-        height = h
+        mWidth = w
+        mHeight = h
     }
 
+    @SuppressLint("Recycle")
     private fun initAttrs(context: Context, atts: AttributeSet?) {
         val ta = context.obtainStyledAttributes(atts, R.styleable.FreshmanBarGraghView)
         firstName = ta.getString(R.styleable.FreshmanBarGraghView_freshman_academy_name_first)
@@ -99,19 +100,19 @@ class FreshmanBarGraghView @JvmOverloads constructor(context: Context, attrs: At
         thirdPercent = ta.getFloat(R.styleable.FreshmanBarGraghView_freshman_academy_percent_third, 0.4f)
     }
 
-    public fun set(firstPercent :Double,secondPercent :Double,thirdPercent :Double){
+    fun set(firstPercent :Double,secondPercent :Double,thirdPercent :Double){
         this.firstPercent=firstPercent.toFloat()
         this.secondPercent=secondPercent.toFloat()
         this.thirdPercent=thirdPercent.toFloat()
         val decimalFormat = DecimalFormat("#.00")
-        first = decimalFormat.format(firstPercent?.toDouble())
-        second=decimalFormat.format(secondPercent?.toDouble())
-        third=decimalFormat.format(thirdPercent?.toDouble())
+        first = decimalFormat.format(firstPercent)
+        second=decimalFormat.format(secondPercent)
+        third=decimalFormat.format(thirdPercent)
         invalidate()
         Log.d("AAA:","aaa")
     }
 
-    public fun setName(firstName:String,secondName:String,thirdName:String){
+    fun setName(firstName:String,secondName:String,thirdName:String){
         this.firstName=firstName
         this.secondName=secondName
         this.thirdName=thirdName
