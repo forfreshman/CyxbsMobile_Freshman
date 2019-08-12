@@ -18,13 +18,22 @@
                   android:drawablePadding="10dp"
                   android:textSize="15sp"
                   android:paddingStart="15dp"
+                  android:id="@+id/et_fellow"
                   android:drawableStart="@drawable/search"/>
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginLeft="15dp"
+                     android:layout_marginRight="15dp">
 
-        <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
-                                                   android:layout_height="wrap_content"
-                                                   android:layout_marginLeft="15dp"
-                                                   android:id="@+id/rv_communicate_fellow"
-                                                   android:layout_marginRight="15dp"/>
+            <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+                                                       android:id="@+id/rv_communicate_fellow"/>
+
+            <ListView android:layout_width="match_parent"
+                      android:id="@+id/lv_communicate_fellow_search"
+                      android:layout_height="wrap_content"/>
+        </FrameLayout>
+
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"

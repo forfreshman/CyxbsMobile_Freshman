@@ -40,7 +40,9 @@
         </activity>
         <activity
                 android:name=".ui.activity.CommunicateActivity"
-                android:windowSoftInputMode="adjustPan"/>
+                android:windowSoftInputMode="adjustPan">
+
+        </activity>
     </application>
 
 </manifest>

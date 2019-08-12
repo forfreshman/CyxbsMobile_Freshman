@@ -34,16 +34,6 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
         paint.style = Paint.Style.FILL
         paint.isAntiAlias = true
         initAttrs(context, attrs)
-//        val valueAnimator =ValueAnimator.ofFloat(0F, 360F)
-//        valueAnimator.setDuration(1000)
-//        valueAnimator.addUpdateListener(object :ValueAnimator.AnimatorUpdateListener{
-//
-//            override fun onAnimationUpdate(p0: ValueAnimator?) {
-//                currentStartAngle= valueAnimator.getAnimatedValue() as Float + startAngle
-//                invalidate()
-//            }
-//        })
-//        valueAnimator.start()
     }
 
     private fun initAttrs(context: Context, attrs: AttributeSet?) {
@@ -63,7 +53,6 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
     @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val angles = arrayListOf(maleAngle, femaleAngle)
         val raduis = (width!! / 4).toFloat()
 
         paint.color = Color.parseColor("#333333")
@@ -102,19 +91,9 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
             (height!! * 0.9).toFloat()
         )
 
-//        fun shezhi(canvas: Canvas,n : Int,paint: Paint){
-//            for (i in 0 .. n){
-//                paint.color=color[n]
-//                canvas.drawArc(pieRectf, angles[n]!!, currentStartAngle!! - angles[n]!!,true,paint)
-//            }
-//        }
+
         var currentStartAngle = startAngle
         paint.style = Paint.Style.FILL
-//        if (currentStartAngle!! < angles[1]!!){
-//            shezhi(canvas,0,paint)
-//        }else {
-//            shezhi(canvas,1,paint)
-//        }
         paint.color = color[0]
         canvas.drawArc(pieRectf, currentStartAngle, 360 * (this.malePercent!! / 100), true, paint)
         paint.color = color[1]
@@ -140,8 +119,9 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
         paint.style = Paint.Style.FILL
         paint.textSize = 30f
         paint.color = Color.parseColor("#ffffff")
-        canvas.drawText(malePercent.toString() + "%", (width!! * 0.36).toFloat(), (height!! *0.75).toFloat(), paint)
-        canvas.drawText(femalePercent.toString() + "%", (width!! * 0.51).toFloat(), (height!! * 0.85).toFloat(), paint)
+        canvas.drawText(femalePercent.toString() + "%",
+            (raduis/2 * Math.sin((this.femalePercent!! / 100)*Math.PI)+width!! * 0.505).toFloat(),(raduis/2 * Math.cos((this.femalePercent!! / 100)*Math.PI)+height!! * 0.63).toFloat(), paint)
+        canvas.drawText(malePercent.toString() + "%",(-raduis/2 * Math.sin((this.femalePercent!! / 100)*Math.PI)+width!! * 0.505).toFloat(),(-raduis/2 * Math.cos((this.femalePercent!! / 100)*Math.PI)+height!! * 0.63).toFloat(), paint)
 
     }
 
@@ -151,15 +131,13 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
 
     fun setMalePercent(malePercent: Double) {
         this.malePercent = malePercent.toFloat()
-        male = decimalFormat.format(malePercent.toDouble())
-        maleAngle = 360 * (this.malePercent!! / 100)
+        male = decimalFormat.format(malePercent)
         invalidate()
     }
 
     fun setFemalePercent(femalePercent: Double) {
         this.femalePercent = femalePercent.toFloat()
-        female = decimalFormat.format(femalePercent.toDouble())
-        femaleAngle = 360 * (this.femalePercent!! / 100)
+        female = decimalFormat.format(femalePercent)
         invalidate()
     }
 

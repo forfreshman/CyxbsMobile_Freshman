@@ -86,7 +86,7 @@ class HostelFragment : Fragment() {
 
     private fun createJson() {
         Thread(Runnable {
-            val url = "http://129.28.185.138:9025/zsqy/json/3"
+            val url = "http://129.28.185.138:8080/zsqy/json/3"
             val client = OkHttpClient()
             val request= Request.Builder()
                 .url(url)

@@ -18,14 +18,23 @@
                   android:drawablePadding="10dp"
                   android:textSize="15sp"
                   android:paddingStart="15dp"
+                  android:id="@+id/et_academy"
                   android:inputType="text"
                   android:drawableStart="@drawable/search"/>
 
-        <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
-                                                   android:layout_height="wrap_content"
-                                                   android:layout_marginLeft="15dp"
-                                                   android:id="@+id/rv_communicate"
-                                                   android:layout_marginRight="15dp"/>
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_marginLeft="15dp"
+                     android:layout_marginRight="15dp">
+            <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+                                                       android:id="@+id/rv_communicate"/>
+
+            <ListView android:layout_width="match_parent"
+                      android:id="@+id/lv_communicate_search"
+                      android:layout_height="wrap_content"/>
+        </FrameLayout>
+
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"

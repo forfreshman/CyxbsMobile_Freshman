@@ -57,7 +57,7 @@ class AcademyFragment : Fragment() {
 
     private fun createJson() {
         Thread(Runnable {
-            val url = "http://129.28.185.138:9025/zsqy/json/7"
+            val url = "http://129.28.185.138:8080/zsqy/json/7"
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(url)

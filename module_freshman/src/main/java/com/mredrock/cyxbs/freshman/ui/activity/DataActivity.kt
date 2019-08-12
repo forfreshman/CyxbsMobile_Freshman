@@ -15,6 +15,8 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.FragmentAdapter
 import com.mredrock.cyxbs.freshman.ui.fragment.data.CourseFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.data.PercentFragment
+import com.mredrock.cyxbs.freshman.util.JsonUtils
+import com.mredrock.cyxbs.freshman.utils.interfaces.HandlerMessage
 import com.mredrock.cyxbs.freshman.weight.FreshmanPieView
 import kotlinx.android.synthetic.main.freshman_course_fragment.*
 import kotlinx.android.synthetic.main.freshman_percent_fragment.*
@@ -387,7 +389,7 @@ class DataActivity : BaseActivity(), View.OnClickListener {
 
     private fun createCourseJson() {
         Thread(Runnable {
-            val url = "http://129.28.185.138:9025/zsqy/json/4"
+            val url = "http://129.28.185.138:8080/zsqy/json/4"
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(url)
@@ -421,7 +423,7 @@ class DataActivity : BaseActivity(), View.OnClickListener {
 
     private fun createPercentJson() {
         Thread(Runnable {
-            val url = "http://129.28.185.138:9025/zsqy/json/44"
+            val url = "http://129.28.185.138:8080/zsqy/json/44"
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(url)
