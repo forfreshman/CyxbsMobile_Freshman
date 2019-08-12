@@ -12,6 +12,7 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
  */
 class InitialItemBeanRepository() {
 
+
     var allBean : LiveData<List<InitialItemBean>> ? = null
     var initialItemBeanDao: InitialItemBeanDao? = null
     init {

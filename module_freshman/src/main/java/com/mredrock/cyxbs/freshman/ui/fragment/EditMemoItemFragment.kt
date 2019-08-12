@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
+
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,10 +52,11 @@ class EditMemoItemFragment : BaseViewModelFragment<DIYMemoBeanVM>() {
         rv_editable_unforgetable.layoutManager = LinearLayoutManager(context)
         rv_editable_unforgetable.adapter = adapter
 
-        /**
+      /**
          * 当box被选中之后，说明有可能被删除,通过这里可以统计被选中的item
          */
         adapter?.setCheckBoxClickListener(object : OnCheckBoxClickListener{
+
             //这里传进来的view时是总的view
             override fun OnClick(view: View, pos: Int) {
 

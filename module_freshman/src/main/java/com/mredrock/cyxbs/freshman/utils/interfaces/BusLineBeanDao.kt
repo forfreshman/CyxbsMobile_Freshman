@@ -13,6 +13,7 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
 @Dao
 interface BusLineBeanDao {
 
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(bean: BusLineBean)
 

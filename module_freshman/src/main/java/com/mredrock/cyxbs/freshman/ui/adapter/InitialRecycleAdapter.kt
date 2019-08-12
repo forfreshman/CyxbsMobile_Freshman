@@ -10,10 +10,12 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 import kotlinx.android.synthetic.main.freshman_recycle_item_initial.view.*
 
+
 /**
  *created by chenyang
  *on 2019/8/2
  */
+
 
 class InitialRecycleAdapter(private val context: Context, private val initialItems: List<InitialItemBean>) :
     RecyclerView.Adapter<InitialRecycleAdapter.ViewHolder>() {
@@ -29,6 +31,7 @@ class InitialRecycleAdapter(private val context: Context, private val initialIte
         holder.getView().tv_initial_second.setText(initialItem.subhead)
 
         holder.getView().setOnClickListener { v ->
+
 
             listener?.OnCilick(initialItem.mainTitle)
         }

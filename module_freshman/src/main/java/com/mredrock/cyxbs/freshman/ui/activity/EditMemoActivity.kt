@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.activity
 
+
 import android.annotation.SuppressLint
 import android.net.nsd.NsdManager
 import android.os.Bundle
@@ -112,5 +113,6 @@ class EditMemoActivity : BaseActivity() {
             }
         }
     }
+
 
 }

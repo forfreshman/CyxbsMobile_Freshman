@@ -12,6 +12,7 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 
 @Dao
 interface FoldBeanDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(foldBean: FoldBean)
 

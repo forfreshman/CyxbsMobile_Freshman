@@ -39,6 +39,7 @@ class SchoolSceneryRecycadapter(
     fun setOnSchoolSceneryClikListener(listener: OnSchoolSceneryClickListener) {
 
         this.listener = listener
+
     }
 
 }

@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.freshman_fragment_bus_line.*
  *on 2019/8/4
  */
 
+
 class BusLineFragment : BaseViewModelFragment<BusLineBeanVM>() {
     override val viewModelClass: Class<BusLineBeanVM>
         get() = BusLineBeanVM::class.java

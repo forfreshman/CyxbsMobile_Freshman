@@ -18,12 +18,12 @@ import kotlinx.android.synthetic.main.freshman_fragment_school_scenery.*
  *created by chenyang
  *on 2019/8/4
  */
+
 class SchoolSceneryFragment : BaseFragment() {
 
     val list = ArrayList<SchoolSceneryBean>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initialData()
 
         val recycleManager = GridLayoutManager(context, 2)
         val adapter = context?.let {
@@ -39,36 +39,23 @@ class SchoolSceneryFragment : BaseFragment() {
 
         adapter?.setOnSchoolSceneryClikListener(object :
             OnSchoolSceneryClickListener {
-            override fun OnCilick(position : Int, datas : List<SchoolSceneryBean>) {
+            override fun OnCilick(position: Int, datas: List<SchoolSceneryBean>) {
 
                 //小图片被点击以后执行全屏放大操作
                 val intent = Intent(activity, ShowPictureActivity::class.java)
                 val bundel = Bundle()
-                bundel.putSerializable("dataList",list)
-                bundel.putInt("clickedPicPos",position)
-                intent.putExtra("dataBundel",bundel)
+                bundel.putSerializable("dataList", list)
+                bundel.putInt("clickedPicPos", position)
+                intent.putExtra("dataBundel", bundel)
                 startActivity(intent)
 
             }
         })
 
-    }
 
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.freshman_fragment_school_scenery, container, false)
-        return view
-    }
-
-
-    private fun initialData() {
-        val temp = SchoolSceneryBean(
-            "ddddd",
-            "http://static.runoob.com/images/demo/demo1.jpg"
-        )
-        for (i in 1..15) list.add(temp)
     }
 }
+
 
 
 

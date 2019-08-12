@@ -15,6 +15,7 @@
                                                     android:id="@+id/tl_guide_diningroom"
                                                     app:tabSelectedTextColor="#000000"
                                                     app:tabTextColor="#6d6f70"
+                                                    app:tabRippleColor="@android:color/transparent"
                                                     android:background="#f9fcff"/>
 
         <androidx.viewpager.widget.ViewPager android:layout_width="match_parent"

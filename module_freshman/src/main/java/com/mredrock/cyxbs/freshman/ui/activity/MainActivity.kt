@@ -11,6 +11,7 @@ import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnInitalRecycleIMClikListener
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
+
 import com.mredrock.cyxbs.freshman.ui.adapter.InitialRecycleAdapter
 import com.mredrock.cyxbs.freshman.viewmodel.InitialItemBeanVM
 import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
@@ -32,7 +33,7 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
         val initialRecyclerViewAdapter = InitialRecycleAdapter(application, dataList as List<InitialItemBean>)
 
         insert(null)
-        setviewModel(initialRecyclerViewAdapter)
+//        setviewModel(initialRecyclerViewAdapter)
 
 
         initialRecyclerViewAdapter.setItemOnclicListener(object :
@@ -68,14 +69,14 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
 
     }
 
-    private fun setviewModel(adapter : InitialRecycleAdapter) {
-        viewModel.beans?.observe(this@MainActivity, Observer<List<InitialItemBean>> {
-            dataList.clear()
-            dataList.addAll(it)
-            adapter.notifyDataSetChanged()
-        })
-
-    }
+//    private fun setviewModel(adapter : InitialRecycleAdapter) {
+//        viewModel.beans.observe(this@MainActivity, Observer<List<InitialItemBean>> {
+//            dataList.clear()
+//            dataList.addAll(it)
+//            adapter.notifyDataSetChanged()
+//        })
+//
+//    }
 
 
     fun insert(view: View?) {
@@ -113,6 +114,7 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
 
    //     viewModel.updata();
     }
+
 
 
 }

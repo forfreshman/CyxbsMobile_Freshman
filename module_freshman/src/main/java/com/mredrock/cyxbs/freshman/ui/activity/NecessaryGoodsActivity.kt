@@ -4,6 +4,8 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import androidx.databinding.DataBindingUtil.setContentView
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -106,12 +108,12 @@ class NecessaryGoodsActivity : BaseViewModelActivity<FoldBeanVm>() {
             rv_need_unfogetable.layoutManager = LinearLayoutManager(this)
             rv_need_unfogetable.adapter = adapter3
 
-            viewModel.beans?.observe(this@NecessaryGoodsActivity, Observer<List<FoldBean>> {
-
-                (datalist3 as ArrayList).clear()
-                (datalist3 as ArrayList).addAll(it)
-                adapter3.notifyDataSetChanged()
-            })
+//            viewModel.beans?.observe(this@NecessaryGoodsActivity, Observer<List<FoldBean>> {
+//
+//                (datalist3 as ArrayList).clear()
+//                (datalist3 as ArrayList).addAll(it)
+//                adapter3.notifyDataSetChanged()
+//            })
 
             adapter3.setCheckBoxClickListener(object : OnCheckBoxClickListener {
                 override fun OnClick(view: View, pos: Int) {
