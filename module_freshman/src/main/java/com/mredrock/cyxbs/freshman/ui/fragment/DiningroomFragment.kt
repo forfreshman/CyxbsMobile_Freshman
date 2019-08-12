@@ -12,11 +12,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.tabs.TabLayout
 
 
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.DinningroomPageAdpter
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DiningroomViewModel
+import kotlinx.android.synthetic.main.freshman_delivery_fragment.*
 import kotlinx.android.synthetic.main.freshman_diningroom_fragment.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -73,6 +75,7 @@ class DiningroomFragment : Fragment() {
 
     private fun initTab(){
         tl_guide_diningroom.setupWithViewPager(vp_guide_diningroom)
+        tl_guide_diningroom.tabMode = TabLayout.MODE_SCROLLABLE
         tl_guide_diningroom.setSelectedTabIndicatorHeight(0)
     }
 
