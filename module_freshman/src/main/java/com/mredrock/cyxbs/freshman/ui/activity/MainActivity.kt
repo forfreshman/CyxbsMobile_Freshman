@@ -28,7 +28,7 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.freshman_activity_main)
+        setContentView(R.layout.freshman_aaa)
         viewModel = ViewModelProviders.of(this).get(viewModelClass)
         val initialRecyclerViewAdapter = InitialRecycleAdapter(application, dataList as List<InitialItemBean>)
 

@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.PagerAdapter
 import com.mredrock.cyxbs.freshman.R
-
 import com.mredrock.cyxbs.freshman.util.MyImageLoader
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
@@ -27,11 +26,12 @@ import kotlinx.android.synthetic.main.freshman_yt_fragment.view.*
 import kotlinx.android.synthetic.main.freshman_zt_fragment.view.*
 import kotlinx.android.synthetic.main.freshman_zxy_fragment.view.*
 import kotlinx.android.synthetic.main.freshman_zxy_fragment.view.tv_guide_hostel_detail
-import java.lang.StringBuilder
+
 
 class HostelPageAdpter(private val title: List<String>,private val details:List<String>,
                        private val image:List<List<String>>, private val activity :Context) :
     PagerAdapter() {
+
     private val views=object : ArrayList<View>(){
         init {
             this.add(View.inflate(activity, R.layout.freshman_zxy_fragment,null))
@@ -40,7 +40,6 @@ class HostelPageAdpter(private val title: List<String>,private val details:List<
             this.add(View.inflate(activity, R.layout.freshman_xyy_fragment,null))
         }
     }
-
 
 
     override fun getCount(): Int {

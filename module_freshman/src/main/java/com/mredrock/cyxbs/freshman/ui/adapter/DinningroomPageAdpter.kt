@@ -110,5 +110,6 @@ class DinningroomPageAdpter (private val title: List<String>,private val details
         views[4].banner_dxb.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
         views[4].banner_dxb.start()
         views[4].tv_guide_dining_room_detail.setText(details[0])
+
     }
 }

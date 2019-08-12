@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.mredrock.cyxbs.common.ui.BaseViewModelFragment
-import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.utils.interfaces.MyCallback
-import com.mredrock.cyxbs.freshman.utils.interfaces.OnCheckBoxClickListener
 import com.mredrock.cyxbs.freshman.viewmodel.DIYMemoBeanVM
 import com.mredrock.cyxbs.freshman.viewmodel.bean.DIYMemoBean
 import kotlinx.android.synthetic.main.freshman_fragment_add_memo_item.view.*
@@ -23,9 +22,10 @@ class AddMemoItemFragment : BaseViewModelFragment<DIYMemoBeanVM>() {
     override val viewModelClass: Class<DIYMemoBeanVM>
         get() = DIYMemoBeanVM::class.java
 
+    private var ETView: View ?= null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.freshman_fragment_add_memo_item, container, false)
-
+        ETView = view.et_add_memo_item
         return view
     }
 
@@ -53,6 +53,10 @@ class AddMemoItemFragment : BaseViewModelFragment<DIYMemoBeanVM>() {
         super.onStop()
         listener?.OnDo(view!!.et_add_memo_item, dataList, viewModel)
 
+    }
+
+    fun getETView(): View?{
+        return ETView
     }
 
 }
