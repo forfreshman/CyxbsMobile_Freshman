@@ -14,7 +14,7 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.*
 
 
 @Database(entities = [InitialItemBean::class, FoldBean::class, BusLineBean::class,
-    AdmissionProcessBean::class, DIYMemoBean::class], version = 5 )
+    AdmissionProcessBean::class, DIYMemoBean::class], version = 6 )
 abstract class FreshmanRoomDatabase : RoomDatabase() {
 
     abstract fun initialItemBeanDao(): InitialItemBeanDao

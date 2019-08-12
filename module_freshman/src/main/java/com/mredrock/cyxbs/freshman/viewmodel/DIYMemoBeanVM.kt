@@ -28,7 +28,15 @@ class DIYMemoBeanVM : BaseViewModel(){
         repository.deleteAll()
     }
 
+    fun deleteOne(bean: DIYMemoBean){
+        repository.delete(bean)
+    }
+
     fun updata(bean : DIYMemoBean){
         repository.updata(bean)
+    }
+
+    fun getAll() : List<DIYMemoBean>?{
+        return repository.getAll()
     }
 }
