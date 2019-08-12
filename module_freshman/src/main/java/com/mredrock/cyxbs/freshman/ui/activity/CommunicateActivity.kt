@@ -9,8 +9,8 @@ import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.FragmentAdapter
 import com.mredrock.cyxbs.freshman.ui.fragment.AcademyFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.ActivitiesFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.FellowFragment
+import com.mredrock.cyxbs.freshman.ui.fragment.communicate.ActivitiesFragment
+import com.mredrock.cyxbs.freshman.ui.fragment.communicate.FellowFragment
 
 import java.util.ArrayList
 

@@ -1,15 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.activity
 
-<<<<<<< HEAD
-import android.os.Bundle
-import android.view.View
-import androidx.fragment.app.Fragment
-import com.mredrock.cyxbs.common.ui.BaseActivity
-import com.mredrock.cyxbs.freshman.R
-//import com.mredrock.cyxbs.freshman.db.Repository
-//import com.mredrock.cyxbs.freshman.utils.interfaces.FoldBeanDao
-import kotlinx.android.synthetic.main.freshman_activity_edit_memo.*
-=======
+
 import android.annotation.SuppressLint
 import android.net.nsd.NsdManager
 import android.os.Bundle
@@ -34,51 +25,21 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.DIYMemoBean
 //import com.mredrock.cyxbs.freshman.utils.interfaces.FoldBeanDao
 import kotlinx.android.synthetic.main.freshman_activity_edit_memo.*
 import kotlinx.android.synthetic.main.freshman_fragment_add_memo_item.*
->>>>>>> upstream/master
 
 class EditMemoActivity : BaseActivity() {
     override val isFragmentActivity: Boolean
         get() = false
 
-<<<<<<< HEAD
-=======
     val manager = supportFragmentManager
     var add = AddMemoItemFragment()
     val edit = EditMemoItemFragment()
     var selectedNum = 0
 
 
->>>>>>> upstream/master
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_edit_memo)
 
-<<<<<<< HEAD
-        common_toolbar.init(title = "",icon = R.drawable.freshman_edit_memo_character_cancel, listener = object : View.OnClickListener{
-            override fun onClick(v: View?) {
-                //当左上角的取消二字被点击
-                finish()
-            }
-
-        })
-        //判断toobar的标题显示什么
-        judgeToolbarTitle(frgment_add_and_display)
-
-//        val reo = Repository<FoldBeanDao>(application)
-
-    }
-
-    private fun judgeToolbarTitle(fragment: Fragment) {
-        val bar = common_toolbar
-        if (fragment.isVisible) {
-            bar.title = "编辑"
-        } else {
-            bar.title = "备忘录"
-        }
-
-    }
-
-=======
         manager.beginTransaction().replace(R.id.frgment_add_and_display,add).commit()
         setToolbarBack()
 
@@ -175,6 +136,6 @@ class EditMemoActivity : BaseActivity() {
             }
         }
     }
->>>>>>> upstream/master
+
 
 }

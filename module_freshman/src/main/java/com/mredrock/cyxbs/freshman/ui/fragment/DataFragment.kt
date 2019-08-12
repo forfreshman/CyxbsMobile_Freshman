@@ -13,11 +13,9 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.DataRecylerviewAdapter
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DataViewModel
 import android.content.Intent
-import android.os.Message
 import android.widget.Toast
 import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.ui.activity.DataActivity
-import com.mredrock.cyxbs.freshman.utils.interfaces.Iitem
 import kotlinx.android.synthetic.main.freshman_data_fragment.*
 
 
@@ -29,8 +27,8 @@ class DataFragment : BaseFragment() {
     )
 
     var adpter = DataRecylerviewAdapter(title)
-    val message = Message()
     private var recyclerView: RecyclerView? = null
+
 
 
     companion object {
@@ -64,6 +62,9 @@ class DataFragment : BaseFragment() {
         adpter.setOnItemClickListener(object : DataRecylerviewAdapter.OnItemClickListener {
             override fun onClick(position: Int, view: View) {
                 val intent = Intent(activity, DataActivity::class.java)
+                val bundle=Bundle()
+                bundle.putInt("position",position)
+                intent.putExtras(bundle)
                 startActivity(intent)
             }
 
@@ -72,12 +73,6 @@ class DataFragment : BaseFragment() {
             }
         })
 
-        adpter.setiItem(object : Iitem {
-            override fun setOnItem(position: Int) {
-                message.what = position
-                Toast.makeText(context, "你点击了第${position}个item", Toast.LENGTH_SHORT).show()
-            }
-        })
         rv_guide_data.adapter = adpter
         val linearLayoutManager = LinearLayoutManager(context)
         rv_guide_data.layoutManager = linearLayoutManager

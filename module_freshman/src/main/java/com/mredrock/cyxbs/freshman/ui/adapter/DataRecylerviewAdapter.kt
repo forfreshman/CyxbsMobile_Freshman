@@ -3,22 +3,15 @@ package com.mredrock.cyxbs.freshman.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.utils.interfaces.Iitem
 
 
 class DataRecylerviewAdapter(internal var title: List<String>) :
     RecyclerView.Adapter<DataRecylerviewAdapter.ViewHolder>() {
     private var mOnItemClickListener: OnItemClickListener? = null
 
-    private var iItem: Iitem? =null
-
-    fun setiItem(iitem: Iitem){
-        this.iItem=iitem
-    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,8 +22,7 @@ class DataRecylerviewAdapter(internal var title: List<String>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = title[position]
         if (mOnItemClickListener != null) {
-            holder.itemView.setOnClickListener { v -> mOnItemClickListener!!.onClick(position, v)
-            iItem!!.setOnItem(position)}
+            holder.itemView.setOnClickListener { v -> mOnItemClickListener!!.onClick(position, v) }
 
             holder.itemView.setOnLongClickListener { v ->
                 mOnItemClickListener!!.onLongClick(position, v)

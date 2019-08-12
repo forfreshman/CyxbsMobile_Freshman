@@ -4,17 +4,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
-<<<<<<< HEAD
-import com.mredrock.cyxbs.freshman.utils.interfaces.BusLineBeanDao
-import com.mredrock.cyxbs.freshman.utils.interfaces.FoldBeanDao
-import com.mredrock.cyxbs.freshman.utils.interfaces.InitialItemBeanDao
-import com.mredrock.cyxbs.freshman.viewmodel.bean.BusLineBean
-import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
-import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
-=======
+
 import com.mredrock.cyxbs.freshman.utils.interfaces.*
 import com.mredrock.cyxbs.freshman.viewmodel.bean.*
->>>>>>> upstream/master
 
 /**
  *created by chenyang
@@ -22,22 +14,19 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.*
  */
 
 
-<<<<<<< HEAD
-@Database(entities = [InitialItemBean::class, FoldBean::class, BusLineBean::class], version = 3)
-=======
+
 @Database(entities = [InitialItemBean::class, FoldBean::class, BusLineBean::class,
     AdmissionProcessBean::class, DIYMemoBean::class], version = 5 )
->>>>>>> upstream/master
+
 abstract class FreshmanRoomDatabase : RoomDatabase() {
 
     abstract fun initialItemBeanDao(): InitialItemBeanDao
     abstract fun foldBeanDao() : FoldBeanDao
     abstract fun busLineBeanDao() : BusLineBeanDao
-<<<<<<< HEAD
-=======
+
     abstract fun admissionProcessBeanDao() : AdmissionProcessBeanDao
     abstract fun dIYMemoBeanDao() : DIYMemoBeanDao
->>>>>>> upstream/master
+
 
     companion object {
 
@@ -57,9 +46,7 @@ abstract class FreshmanRoomDatabase : RoomDatabase() {
             }
             return instance
         }
-<<<<<<< HEAD
-    }
-=======
+
 
 //
 //        val MIGRATION_1_2: Migration = object : Migration(1, 2) {
@@ -71,5 +58,5 @@ abstract class FreshmanRoomDatabase : RoomDatabase() {
 
     }
 
->>>>>>> upstream/master
+
 }

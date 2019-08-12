@@ -122,4 +122,3 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
 //        }
 
     }
-}

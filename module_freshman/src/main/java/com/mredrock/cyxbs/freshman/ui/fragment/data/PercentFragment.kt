@@ -36,9 +36,7 @@ class PercentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        pieview_data.setTitle("自动化学院")
-        pieview_data.setMalePercent(90.1)
-        pieview_data.setFemalePercent(9.9)
+
     }
 
 }

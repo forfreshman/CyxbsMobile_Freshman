@@ -16,6 +16,7 @@
                                                             android:layout_height="match_parent"
                                                             app:freshman_female_percent="20"
                                                             app:freshman_male_percent="80"
+                                                            app:freshman_academy="正在加载"
                                                             android:id="@+id/pieview_data"/>
 
     </LinearLayout>

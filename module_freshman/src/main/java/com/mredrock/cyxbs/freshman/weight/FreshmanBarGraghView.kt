@@ -31,9 +31,9 @@ class FreshmanBarGraghView @JvmOverloads constructor(context: Context, attrs: At
         paint.isAntiAlias = true
         initAttrs(context, attrs)
         val decimalFormat = DecimalFormat("#.00")
-        first = decimalFormat.format(firstPercent?.toDouble())
-        second=decimalFormat.format(secondPercent?.toDouble())
-        third=decimalFormat.format(thirdPercent?.toDouble())
+        first = decimalFormat.format(firstPercent.toDouble())
+        second=decimalFormat.format(secondPercent.toDouble())
+        third=decimalFormat.format(thirdPercent.toDouble())
     }
 
 
@@ -43,7 +43,7 @@ class FreshmanBarGraghView @JvmOverloads constructor(context: Context, attrs: At
         paint.color=Color.parseColor("#5c7ffc")
         canvas.drawLine((mWidth * 0.16).toFloat(), (mHeight * 0.75).toFloat(),(mWidth * 0.16).toFloat(), (mHeight *0.23).toFloat(),paint)
         canvas.drawLine((mWidth * 0.16).toFloat(), (mHeight * 0.75).toFloat(),(mWidth*0.9).toFloat(),(mHeight * 0.75).toFloat(),paint)
-        paint.textSize=30f
+        paint.textSize=26f
         canvas.drawText("难",(mWidth * 0.1).toFloat(), (mHeight*0.27).toFloat(),paint)
         canvas.drawText("度",(mWidth * 0.1).toFloat(), (mHeight*0.32).toFloat(),paint)
         canvas.drawText("系",(mWidth * 0.1).toFloat(), (mHeight*0.37).toFloat(),paint)
@@ -59,8 +59,8 @@ class FreshmanBarGraghView @JvmOverloads constructor(context: Context, attrs: At
         val firstRectF=RectF((mWidth * 0.225).toFloat(),(mWidth *0.76 - mWidth*firstPercent*0.7).toFloat(),(mWidth * 0.305).toFloat(),(mHeight!! * 0.75).toFloat())
         val secondRectF=RectF((mWidth * 0.465).toFloat(),(mWidth *0.76 - mWidth*secondPercent*0.7).toFloat(),(mWidth * 0.545).toFloat(),(mHeight!! * 0.75).toFloat())
         val thirdRectF=RectF((mWidth * 0.705).toFloat(),(mWidth *0.76 - mWidth*thirdPercent*0.7).toFloat(),(mWidth * 0.785).toFloat(),(mHeight!! * 0.75).toFloat())
-        canvas.drawText(firstName,(mWidth * 0.21).toFloat(), (mHeight *0.8).toFloat(),paint)
-        canvas.drawText(secondName,(mWidth * 0.45).toFloat(), (mHeight *0.8).toFloat(),paint)
+        canvas.drawText(firstName,(mWidth * 0.16).toFloat(), (mHeight *0.8).toFloat(),paint)
+        canvas.drawText(secondName,(mWidth * 0.43).toFloat(), (mHeight *0.8).toFloat(),paint)
         canvas.drawText(thirdName,(mWidth * 0.69).toFloat(), (mHeight *0.8).toFloat(),paint)
         paint.color=color[0]
         canvas.drawRect(firstRectF,paint)
