@@ -10,33 +10,32 @@
                   android:layout_marginLeft="15dp"
                   android:layout_marginRight="15dp"
                   android:layout_marginTop="15dp"
-                  android:layout_marginBottom="15dp"
                   android:orientation="vertical"
                   android:background="@drawable/guide_item_background"
-                  android:id="@+id/ll_guide_delivery_first">
+                  android:id="@+id/ll_guide_delivery">
 
         <ImageView android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:layout_marginTop="18dp"
                    android:layout_marginLeft="15dp"
                    android:layout_marginRight="15dp"
                    android:adjustViewBounds="true"
+                   android:layout_marginTop="18dp"
                    android:layout_gravity="center_horizontal"
-                   android:id="@+id/banner_zt"/>
+                   android:id="@+id/banner_jd"/>
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_marginStart="18dp"
                   android:layout_marginTop="15dp"
                   android:textColor="#4a4b4c"
-                  android:id="@+id/tv_guide_delivery_position_first"
+                  android:id="@+id/tv_guide_delivery_position"
                   android:textSize="14sp"/>
 
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:textSize="14sp"
                   android:textColor="#575859"
-                  android:id="@+id/tv_guide_delivery_desciption_first"
+                  android:id="@+id/tv_guide_delivery_desciption"
                   android:layout_marginLeft="18dp"
                   android:layout_marginRight="18dp"
                   android:layout_marginBottom="20dp"
@@ -44,4 +43,3 @@
 
     </LinearLayout>
 </LinearLayout>
-

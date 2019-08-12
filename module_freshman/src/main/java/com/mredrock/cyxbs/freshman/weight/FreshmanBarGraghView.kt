@@ -223,22 +223,6 @@ class FreshmanBarGraghView @JvmOverloads constructor(context: Context, attrs: At
         canvas.drawRect(firstRectF, linePaint)
         canvas.drawRect(secondRectF, linePaint)
         canvas.drawRect(thirdRectF, linePaint)
-//        if (isFirstDoAnimator == false) {
-//            doFirstAnimation()
-//            isFirstDoAnimator = true
-//            isSecondDoAnimator = false
-//        }
-//
-//        if (isSecondDoAnimator == false) {
-//            doSecondAnimation()
-//            isSecondDoAnimator = true
-//            isThirdDoAnimator = false
-//        }
-//
-//        if (isThirdDoAnimator == false) {
-//            doThirdAnimation()
-//            isThirdDoAnimator = true
-//        }
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {

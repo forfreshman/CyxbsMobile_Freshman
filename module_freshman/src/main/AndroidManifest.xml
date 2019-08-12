@@ -29,6 +29,7 @@
         <activity android:name=".ui.activity.NecessaryGoodsActivity">
         </activity>
         <activity android:name=".ui.activity.MainActivity">
+
         </activity>
         <activity android:name=".ui.activity.DataActivity"/>
         <activity android:name=".ui.activity.GuideActivity">

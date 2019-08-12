@@ -24,13 +24,15 @@ import org.json.JSONObject
 
 class DeliveryFragment : BaseFragment() {
 
-    private val names = arrayListOf("顺丰", "韵达", "中通", "圆通", "申通", "邮政/EMS", "菜鸟驿站（校外）", "百世")
+    private val names = arrayListOf("顺丰", "京东", "圆通", "申通", "韵达", "邮政/EMS", "百世", "菜鸟驿站（校外）", "中通")
     private var adapter: DeliveryPageAdapter? = null
     private var mView: View? = null
     val details = ArrayList<String>()
     val image = ArrayList<String>()
     val titles = ArrayList<String>()
-    private val BASE_URL = "http://129.28.185.138:9025/"
+    val secondTitles = ArrayList<String>()
+    val secondDetails = ArrayList<String>()
+    val secondImages = ArrayList<String>()
     private val handler = @SuppressLint("HandlerLeak")
     object : Handler() {
         override fun handleMessage(msg: Message) {
@@ -42,7 +44,6 @@ class DeliveryFragment : BaseFragment() {
             }
         }
     }
-
 
 
     companion object {
@@ -76,16 +77,36 @@ class DeliveryFragment : BaseFragment() {
                 .build()
             val response = client.newCall(request).execute()
             val body = response.body()!!.string()
-            Log.d("哈哈", "kk" + body)
             val jsonObject = JSONObject(body)
             val jsonArray = jsonObject.getJSONArray("text")
             for (i in 0 until jsonArray.length()) {
-                val initJsonObject: JSONObject = jsonArray.getJSONObject(i)
+                val initJsonObject = jsonArray.getJSONObject(i)
                 val message = initJsonObject.getJSONArray("message")
+                when (i) {
+                    2 -> {
+                        secondTitles.add(message.getJSONObject(1).getString("title"))
+                        secondDetails.add(message.getJSONObject(1).getString("detail"))
+                    }
+                    3 -> {
+                        secondTitles.add(message.getJSONObject(1).getString("title"))
+                        secondDetails.add(message.getJSONObject(1).getString("detail"))
+                    }
+                    4 -> {
+                        secondTitles.add(message.getJSONObject(1).getString("title"))
+                        secondDetails.add(message.getJSONObject(1).getString("detail"))
+                    }
+                    5 -> {
+                        secondTitles.add(message.getJSONObject(1).getString("title"))
+                        secondDetails.add(message.getJSONObject(1).getString("detail"))
+                        secondImages.add("http://129.28.185.138:8080/zsqy/image/" + message.getJSONObject(1).getString("photo"))
+                    }
+                }
                 titles.add(message.getJSONObject(0).getString("title"))
                 Log.d("哈哈哈", titles[i])
                 details.add(message.getJSONObject(0).getString("detail"))
-                image.add("http://129.28.185.138:9025/zsqy/image/" + message.getJSONObject(0).getString("photo"))
+                if (i !=3){
+                    image.add("http://129.28.185.138:9025/zsqy/image/" + message.getJSONObject(0).getString("photo"))
+                }
             }
             val message = Message()
             message.what = 0
@@ -95,7 +116,16 @@ class DeliveryFragment : BaseFragment() {
     }
 
     private fun initData() {
-        adapter = DeliveryPageAdapter(names, titles, image, details, activity as Context)
+        adapter = DeliveryPageAdapter(
+            names,
+            titles,
+            image,
+            details,
+            secondTitles,
+            secondDetails,
+            secondImages,
+            activity as Context
+        )
         adapter!!.initView()
         vp_guide_delivery.adapter = adapter
 

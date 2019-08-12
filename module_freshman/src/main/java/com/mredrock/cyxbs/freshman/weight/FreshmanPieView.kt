@@ -17,8 +17,8 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
     private val color = intArrayOf(Color.parseColor("#71d5ff"), Color.parseColor("#ff95c3"))
     //颜色（男，女）
     private var title: String? = null
-    private var maleAngle: Float? = null
-    private var femaleAngle: Float? = null
+    private var maleAngle: Float = 0f
+    private var femaleAngle: Float = 0f
     private var malePercent: Float? = null
     private var femalePercent: Float? = null
     private val startAngle = 90f
@@ -28,6 +28,7 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
     private var male: String? = null
     private var female: String? = null
     val decimalFormat = DecimalFormat(".0")
+    private var isFinishMale = false
 
     init {
         paint = Paint()
@@ -95,10 +96,10 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
         var currentStartAngle = startAngle
         paint.style = Paint.Style.FILL
         paint.color = color[0]
-        canvas.drawArc(pieRectf, currentStartAngle, 360 * (this.malePercent!! / 100), true, paint)
+        canvas.drawArc(pieRectf, currentStartAngle, maleAngle, true, paint)
         paint.color = color[1]
         currentStartAngle += 360 * (this.malePercent!! / 100)
-        canvas.drawArc(pieRectf, currentStartAngle, 360 * (this.femalePercent!! / 100), true, paint)
+        canvas.drawArc(pieRectf, currentStartAngle, femaleAngle, true, paint)
         paint.color = Color.parseColor("#698aff")
         canvas.drawLine(
             (width!! * 0.505).toFloat(),
@@ -119,10 +120,23 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
         paint.style = Paint.Style.FILL
         paint.textSize = 30f
         paint.color = Color.parseColor("#ffffff")
-        canvas.drawText(femalePercent.toString() + "%",
-            (raduis/2 * Math.sin((this.femalePercent!! / 100)*Math.PI)+width!! * 0.505).toFloat(),(raduis/2 * Math.cos((this.femalePercent!! / 100)*Math.PI)+height!! * 0.63).toFloat(), paint)
-        canvas.drawText(malePercent.toString() + "%",(-raduis/2 * Math.sin((this.femalePercent!! / 100)*Math.PI)+width!! * 0.505).toFloat(),(-raduis/2 * Math.cos((this.femalePercent!! / 100)*Math.PI)+height!! * 0.63).toFloat(), paint)
+        canvas.drawText(
+            femalePercent.toString() + "%",
+            (raduis / 2 * Math.sin((this.femalePercent!! / 100) * Math.PI) + width!! * 0.48).toFloat(),
+            (raduis / 2 * Math.cos((this.femalePercent!! / 100) * Math.PI) + height!! * 0.68).toFloat(),
+            paint
+        )
+        canvas.drawText(
+            malePercent.toString() + "%",
+            (-raduis / 2 * Math.sin((this.femalePercent!! / 100) * Math.PI) + width!! * 0.48).toFloat(),
+            (-raduis / 2 * Math.cos((this.femalePercent!! / 100) * Math.PI) + height!! * 0.63).toFloat(),
+            paint
+        )
 
+        if (maleAngle >= 360 * (this.malePercent!! / 100) && isFinishMale == false) {
+            doFemaleAnimation()
+            isFinishMale = true
+        }
     }
 
     fun setTitle(title: String) {
@@ -138,8 +152,29 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
     fun setFemalePercent(femalePercent: Double) {
         this.femalePercent = femalePercent.toFloat()
         female = decimalFormat.format(femalePercent)
-        invalidate()
+        doMaleAnimation()
     }
 
+    fun doFemaleAnimation() {
+        val femaleTarget = 360 * (this.femalePercent!! / 100)
+        val animation = ValueAnimator.ofFloat(0f, femaleTarget)
+        animation.duration = 800
+        animation.addUpdateListener {
+            femaleAngle = it.animatedValue as Float
+            invalidate()
+        }
+        animation.start()
+    }
+
+    fun doMaleAnimation() {
+        val maleTarget = 360 * (this.malePercent!! / 100)
+        val animation = ValueAnimator.ofFloat(0f, maleTarget)
+        animation.duration = 800
+        animation.addUpdateListener {
+            maleAngle = it.animatedValue as Float
+            invalidate()
+        }
+        animation.start()
+    }
 
 }

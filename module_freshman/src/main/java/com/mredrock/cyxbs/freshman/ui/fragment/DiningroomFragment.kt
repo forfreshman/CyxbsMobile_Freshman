@@ -23,7 +23,7 @@ import okhttp3.Request
 import org.json.JSONObject
 
 class DiningroomFragment : Fragment() {
-    private val title = arrayListOf("千喜鹤","延生","红高粱","中心食堂","大西北")
+    private val title = arrayListOf("大西北","红高粱","千喜鹤","兴业苑","延生","中心食堂")
     private var adapter :DinningroomPageAdpter?=null
     private var mView :View?=null
     private val details=ArrayList<String>()
