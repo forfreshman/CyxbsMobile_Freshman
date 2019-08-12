@@ -1,11 +1,20 @@
 <resources>
 
     <!-- Base application theme. -->
+<!--<<<<<<< HEAD-->
+    <!--<style name="FreshmanAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+<!--=======-->
     <style name="freshman_AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+<!--&gt;>>>>>> upstream/dev-->
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionOverflowButtonStyle">@style/FreshmanOverFlow</item>
+    </style>
+
+    <style name="FreshmanOverFlow" >
+        <item name="android:src">@drawable/freshman_edit_memo_character_deit</item>
     </style>
 
     <style name="freshman_edit_AlertDialog_style" parent="@android:style/Theme.Dialog">

@@ -13,6 +13,7 @@
             android:textColor="#a9a9a9"
             android:textSize="15sp"
             android:gravity="center_horizontal"
+            android:visibility="gone"
             android:text="还未添加内容，点击我添加备忘录清单"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,6 +22,7 @@
     <TextView
             android:id="@+id/tv_hint_bg_memo"
             android:text="备忘录"
+            android:visibility="gone"
             android:layout_marginTop="15dp"
             android:textSize="14sp"
             android:layout_marginStart="15dp"

@@ -11,11 +11,8 @@ import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnInitalRecycleIMClikListener
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.db.repository.InitialItemBeanRepository
 import com.mredrock.cyxbs.freshman.ui.adapter.InitialRecycleAdapter
-import com.mredrock.cyxbs.freshman.utils.interfaces.MyCallback
 import com.mredrock.cyxbs.freshman.viewmodel.InitialItemBeanVM
-import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
 import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
 import kotlinx.android.synthetic.main.freshman_activity_main.*
 import kotlin.collections.ArrayList
@@ -26,37 +23,17 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
     override val viewModelClass: Class<InitialItemBeanVM>
         get() = InitialItemBeanVM::class.java
 
-
     val dataList = ArrayList<InitialItemBean>()
-    var repository: InitialItemBeanRepository? = null
-    var id = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_main)
         viewModel = ViewModelProviders.of(this).get(viewModelClass)
+        val initialRecyclerViewAdapter = InitialRecycleAdapter(application, dataList as List<InitialItemBean>)
 
         insert(null)
+        setviewModel(initialRecyclerViewAdapter)
 
-        val initialRecyclerViewAdapter = InitialRecycleAdapter(application, dataList as List<InitialItemBean>)
-        repository = InitialItemBeanRepository()
-        //viewModel = InitialItemBeanVM()
-
-
-        object : MyCallback<InitialItemBean> {
-            override fun finished(beans: LiveData<List<InitialItemBean>>) {
-                viewModel.beans.observe(this@MainActivity, Observer<List<InitialItemBean>> {
-                    dataList.clear()
-                    dataList.addAll(it)
-                    initialRecyclerViewAdapter.notifyDataSetChanged()
-                })
-            }
-
-        }
-
-
-        initialData()
 
         initialRecyclerViewAdapter.setItemOnclicListener(object :
             OnInitalRecycleIMClikListener {
@@ -69,7 +46,9 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
                         intent = Intent(context, NecessaryGoodsActivity::class.java)
                     "指路重邮" ->
                         intent = Intent(context, ShowWayActivity::class.java)
-                    "入学流程" -> LogUtils.d("", "")
+                    "入学流程" ->
+                        intent = Intent(context, AdmissionProcessActivity::class.java)
+//                        LogUtils.d("","")
                     "校园指导" ->
                         intent = Intent(context, GuideActivity::class.java)
                     "线上活动" -> LogUtils.d("", "")
@@ -89,22 +68,32 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
 
     }
 
+    private fun setviewModel(adapter : InitialRecycleAdapter) {
+        viewModel.beans?.observe(this@MainActivity, Observer<List<InitialItemBean>> {
+            dataList.clear()
+            dataList.addAll(it)
+            adapter.notifyDataSetChanged()
+        })
+
+    }
+
 
     fun insert(view: View?) {
+        var id = 0
         val one = InitialItemBean(++id, "入学必备", "报道必备 宿舍用品 学习用品")
-        dataList.add(one)
+        viewModel.insertInitialItemBean(one)
         val two = InitialItemBean(++id, "指路重邮", "重游路线 重邮地图")
-        dataList.add(two)
+        viewModel.insertInitialItemBean(two)
         val three = InitialItemBean(++id, "入学流程", "入学步骤 入学地点")
-        dataList.add(three)
+        viewModel.insertInitialItemBean(three)
         val four = InitialItemBean(++id, "校园指导", "校舍 快递点指引")
-        dataList.add(four)
+        viewModel.insertInitialItemBean(four)
         val five = InitialItemBean(++id, "线上活动", "校舍 快递点指引")
-        dataList.add(five)
+        viewModel.insertInitialItemBean(five)
         val six = InitialItemBean(++id, "更多功能", "迎新网 新生课表")
-        dataList.add(six)
+        viewModel.insertInitialItemBean(six)
         val seven = InitialItemBean(++id, "关于我们", "红岩网校")
-        dataList.add(seven)
+        viewModel.insertInitialItemBean(seven)
 
     }
 
@@ -120,27 +109,10 @@ class MainActivity : BaseViewModelActivity<InitialItemBeanVM>() {
     }
 
     fun update(view: View) {
-        val seven = InitialItemBean(++id,"关于我们", "红岩网校")
+    //    val seven = InitialItemBean(++id,"关于我们", "红岩网校")
 
-        viewModel.updata(seven);
+   //     viewModel.updata();
     }
 
 
-    private fun initialData() {
-//        val one = InitialItemBean("入学必备", "报道必备 宿舍用品 学习用品")
-//        dataList.add(one)
-//        val two = InitialItemBean("指路重邮", "重游路线 重邮地图")
-//        dataList.add(two)
-//        val three = InitialItemBean("入学流程", "入学步骤 入学地点")
-//        dataList.add(three)
-//        val four = InitialItemBean("校园指导", "校舍 快递点指引")
-//        dataList.add(four)
-//        val five = InitialItemBean("线上活动", "校舍 快递点指引")
-//        dataList.add(five)
-//        val six = InitialItemBean("更多功能", "迎新网 新生课表")
-//        dataList.add(six)
-//        val seven = InitialItemBean("关于我们", "红岩网校")
-//        dataList.add(seven)
-
-    }
 }

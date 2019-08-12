@@ -6,12 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.utils.LogUtils
+import com.mredrock.cyxbs.freshman.R
+import kotlinx.android.synthetic.main.freshman_recycle_item_bus_line.view.*
 
 
 /**
  * created by chenyang
  * on 2019/8/4
  */
+
+
+
 abstract class BaseAdapter<T> internal constructor(private val datas: List<T>, private val context: Context) :
     RecyclerView.Adapter<BaseAdapter.BaseViewHolder>() {
 
@@ -35,9 +40,8 @@ abstract class BaseAdapter<T> internal constructor(private val datas: List<T>, p
          fun getView() : View{
              return itemView
          }
-
       }
 
     internal abstract fun creatHolder(holder: BaseViewHolder, t: T)
-
 }
+

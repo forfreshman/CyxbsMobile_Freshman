@@ -24,6 +24,12 @@ dependencies {
     implementation 'androidx.room:room-ktx:2.2.0-alpha01'
     implementation 'androidx.room:room-compiler:2.2.0-alpha01'
     implementation 'androidx.room:room-guava:2.2.0-alpha01'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+//Rxjava and Retrofit（Retrofit+Rx需要添加的依赖）
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'io.reactivex:rxjava:1.2.1'
     annotationProcessor 'androidx.room:room-compiler:2.2.0-alpha01'
     kapt "android.arch.persistence.room:compiler:1.1.1"
 
