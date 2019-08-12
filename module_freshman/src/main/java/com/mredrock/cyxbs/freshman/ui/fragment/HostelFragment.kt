@@ -50,6 +50,7 @@ class HostelFragment : Fragment() {
 
     private fun initData(){
         adapter=HostelPageAdpter(title,activity as Context)
+        adapter!!.initView()
         vp_guide_hostel.adapter=adapter
 
     }

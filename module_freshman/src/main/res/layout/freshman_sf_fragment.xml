@@ -11,7 +11,7 @@
                   android:layout_marginRight="15dp"
                   android:layout_marginTop="15dp"
                   android:orientation="vertical"
-                  android:background="@drawable/guide_delivery_background"
+                  android:background="@drawable/guide_item_background"
                   android:id="@+id/ll_guide_delivery">
 
         <com.youth.banner.Banner android:layout_width="309dp"

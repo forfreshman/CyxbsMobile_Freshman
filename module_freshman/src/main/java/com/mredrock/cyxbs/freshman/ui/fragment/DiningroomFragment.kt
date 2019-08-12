@@ -50,6 +50,7 @@ class DiningroomFragment : Fragment() {
 
     private fun initData(){
         adapter= DinningroomPageAdpter(title,activity as Context)
+        adapter!!.initView()
         vp_guide_diningroom.adapter=adapter
 
     }
