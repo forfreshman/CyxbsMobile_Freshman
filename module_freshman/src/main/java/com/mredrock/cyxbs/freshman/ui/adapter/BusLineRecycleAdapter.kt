@@ -13,7 +13,9 @@ import kotlinx.android.synthetic.main.freshman_recycle_item_bus_line.view.*
  */
 
 class BusLineRecycleAdapter(val datas: List<BusLineBean>, val context: Context,
+
                             override val latoutId: Int) :
+
     BaseAdapter<BusLineBean>(datas, context) {
 
     //标记展开的item
@@ -53,6 +55,7 @@ class BusLineRecycleAdapter(val datas: List<BusLineBean>, val context: Context,
                 notifyItemChanged(opened)
             }
         }
+
 
         holder.setVisiable()
     }

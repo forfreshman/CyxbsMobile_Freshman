@@ -11,29 +11,29 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.InitialItemBean
  */
 class InitialItemBeanVM : BaseViewModel(){
 
-     var beans : LiveData<List<InitialItemBean>>?
+//     var beans : LiveData<List<InitialItemBean>>?
     val repository: InitialItemBeanRepository
 
     init {
 
         repository = InitialItemBeanRepository()
 
-        beans = repository.allBean
+//        beans = repository.allBean
 
     }
 
 
 
     fun insertInitialItemBean(bean : InitialItemBean){
-        repository.insert(bean)
+//        repository.insert(bean)
     }
 
     fun deletAll(){
-        repository.deleteAll()
+//        repository.deleteAll()
     }
 
     fun updata(bean : InitialItemBean){
-        repository.updata(bean)
+//        repository.updata(bean)
     }
 
 }

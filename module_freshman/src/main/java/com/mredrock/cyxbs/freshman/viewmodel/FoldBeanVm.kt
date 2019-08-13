@@ -11,7 +11,7 @@ import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
  */
 class FoldBeanVm : BaseViewModel() {
 
-     var beans : LiveData<List<FoldBean>>?
+//     var beans : LiveData<List<FoldBean>>?
 
 
     val repository: FoldBeanRepository
@@ -19,18 +19,18 @@ class FoldBeanVm : BaseViewModel() {
     init {
 
         repository = FoldBeanRepository()
-        beans = repository.allBean
+//        beans = repository.allBean
     }
 
     fun insertFoldBean(bean : FoldBean){
-        repository.insert(bean)
+//        repository.insert(bean)
     }
 
     fun deletAll(){
-        repository.deleteAll()
+//        repository.deleteAll()
     }
 
     fun updata(bean : FoldBean){
-        repository.updata(bean)
+//        repository.updata(bean)
     }
 }

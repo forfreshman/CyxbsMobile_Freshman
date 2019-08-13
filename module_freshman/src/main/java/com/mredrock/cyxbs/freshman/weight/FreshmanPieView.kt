@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.weight
 
+import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
@@ -16,16 +17,18 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
     private val color = intArrayOf(Color.parseColor("#71d5ff"), Color.parseColor("#ff95c3"))
     //颜色（男，女）
     private var title: String? = null
-    private var maleAngle: Float ?=null
-    private var femaleAngle: Float ?=null
-    private var malePercent: Float ?=null
-    private var femalePercent: Float?=null
+    private var maleAngle: Float = 0f
+    private var femaleAngle: Float = 0f
+    private var malePercent: Float? = null
+    private var femalePercent: Float? = null
     private val startAngle = 90f
     private val paint: Paint
     private var width: Int? = null
     private var height: Int? = null
     private var male: String? = null
     private var female: String? = null
+    val decimalFormat = DecimalFormat(".0")
+    private var isFinishMale = false
 
     init {
         paint = Paint()
@@ -39,11 +42,6 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
         malePercent = ta.getFloat(R.styleable.FreshmanPieView_freshman_male_percent, 50f)
         femalePercent = ta.getFloat(R.styleable.FreshmanPieView_freshman_female_percent, 50f)
         title = ta.getString(R.styleable.FreshmanPieView_freshman_academy)
-        maleAngle = 360 * (malePercent!! / 100)
-        femaleAngle = 360 * (femalePercent!! / 100)
-        val decimalFormat = DecimalFormat(".0")
-        male = decimalFormat.format(malePercent!!.toDouble())
-        female = decimalFormat.format(femalePercent!!.toDouble())
         ta.recycle()
     }
 
@@ -57,12 +55,12 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val raduis = (width!! / 4).toFloat()
-        var currentStartAngle = startAngle
+
         paint.color = Color.parseColor("#333333")
-        paint.textSize = 25f
+        paint.textSize = 35f
         canvas.drawText(title!! + "男女比例", (width!! * 0.1).toFloat(), (height!! * 0.1).toFloat(), paint)
         paint.color = Color.parseColor("#5c7ffc")
-        paint.textSize = 18f
+        paint.textSize = 28f
         canvas.drawText("男", (width!! * 0.17).toFloat(), (height!! * 0.23).toFloat(), paint)
         canvas.drawText("女", (width!! * 0.17).toFloat(), (height!! * 0.33).toFloat(), paint)
         val femaleRectF = RectF(
@@ -94,12 +92,14 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
             (height!! * 0.9).toFloat()
         )
 
+
+        var currentStartAngle = startAngle
         paint.style = Paint.Style.FILL
         paint.color = color[0]
-        canvas.drawArc(pieRectf, currentStartAngle, maleAngle!!, true, paint)
+        canvas.drawArc(pieRectf, currentStartAngle, maleAngle, true, paint)
         paint.color = color[1]
-        currentStartAngle += maleAngle!!
-        canvas.drawArc(pieRectf, currentStartAngle, femaleAngle!!, true, paint)
+        currentStartAngle += 360 * (this.malePercent!! / 100)
+        canvas.drawArc(pieRectf, currentStartAngle, femaleAngle, true, paint)
         paint.color = Color.parseColor("#698aff")
         canvas.drawLine(
             (width!! * 0.505).toFloat(),
@@ -111,32 +111,70 @@ class FreshmanPieView @JvmOverloads constructor(context: Context, attrs: Attribu
         canvas.drawLine(
             (width!! * 0.505).toFloat(),
             (height!! * 0.63).toFloat(),
-            ((width!! * 0.505)+raduis * Math.sin(femaleAngle!! * Math.PI / 180)).toFloat(),
-            ((height!! * 0.63)+ raduis * Math.cos(femaleAngle!! * Math.PI / 180)).toFloat(),
+            ((width!! * 0.505) + raduis * Math.sin(360 * (this.femalePercent!! / 100) * Math.PI / 180)).toFloat(),
+            ((height!! * 0.63) + raduis * Math.cos(360 * (this.femalePercent!! / 100) * Math.PI / 180)).toFloat(),
             paint
         )
         paint.style = Paint.Style.STROKE
         canvas.drawArc(pieRectf, startAngle, 360f, true, paint)
         paint.style = Paint.Style.FILL
-        paint.textSize = 20f
+        paint.textSize = 30f
         paint.color = Color.parseColor("#ffffff")
-        canvas.drawText(male!! + "%", (width!! * 0.4).toFloat(), (height!! / 2).toFloat(), paint)
-        canvas.drawText(female!! + "%", (width!! * 0.55).toFloat(), (height!! * 0.85).toFloat(), paint)
+        canvas.drawText(
+            femalePercent.toString() + "%",
+            (raduis / 2 * Math.sin((this.femalePercent!! / 100) * Math.PI) + width!! * 0.48).toFloat(),
+            (raduis / 2 * Math.cos((this.femalePercent!! / 100) * Math.PI) + height!! * 0.68).toFloat(),
+            paint
+        )
+        canvas.drawText(
+            malePercent.toString() + "%",
+            (-raduis / 2 * Math.sin((this.femalePercent!! / 100) * Math.PI) + width!! * 0.48).toFloat(),
+            (-raduis / 2 * Math.cos((this.femalePercent!! / 100) * Math.PI) + height!! * 0.63).toFloat(),
+            paint
+        )
 
+        if (maleAngle >= 360 * (this.malePercent!! / 100) && isFinishMale == false) {
+            doFemaleAnimation()
+            isFinishMale = true
+        }
     }
 
     fun setTitle(title: String) {
         this.title = title
     }
 
-    fun setMalePercent(malePercent: Int) {
+    fun setMalePercent(malePercent: Double) {
         this.malePercent = malePercent.toFloat()
+        male = decimalFormat.format(malePercent)
         invalidate()
     }
 
-    fun setFemalePercent(femalePercent: Int) {
+    fun setFemalePercent(femalePercent: Double) {
         this.femalePercent = femalePercent.toFloat()
-        invalidate()
+        female = decimalFormat.format(femalePercent)
+        doMaleAnimation()
+    }
+
+    fun doFemaleAnimation() {
+        val femaleTarget = 360 * (this.femalePercent!! / 100)
+        val animation = ValueAnimator.ofFloat(0f, femaleTarget)
+        animation.duration = 800
+        animation.addUpdateListener {
+            femaleAngle = it.animatedValue as Float
+            invalidate()
+        }
+        animation.start()
+    }
+
+    fun doMaleAnimation() {
+        val maleTarget = 360 * (this.malePercent!! / 100)
+        val animation = ValueAnimator.ofFloat(0f, maleTarget)
+        animation.duration = 800
+        animation.addUpdateListener {
+            maleAngle = it.animatedValue as Float
+            invalidate()
+        }
+        animation.start()
     }
 
 }

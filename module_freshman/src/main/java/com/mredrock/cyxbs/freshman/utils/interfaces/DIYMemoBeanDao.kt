@@ -1,10 +1,7 @@
 package com.mredrock.cyxbs.freshman.utils.interfaces
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.mredrock.cyxbs.freshman.viewmodel.bean.DIYMemoBean
 
 /**
@@ -25,4 +22,10 @@ interface DIYMemoBeanDao {
 
     @Update
     fun updateDIYMemoBeans(vararg bean : DIYMemoBean)
+
+    @Delete
+    fun delete(bean: DIYMemoBean)
+
+    @Query("select * from DIYMemoBean")
+    fun getAll (): List<DIYMemoBean>
 }

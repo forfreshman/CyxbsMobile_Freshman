@@ -5,6 +5,7 @@ import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.db.repository.BusLineRepository
 import com.mredrock.cyxbs.freshman.viewmodel.bean.BusLineBean
 
+
 /**
  *created by chenyang
  *on 2019/8/8
@@ -20,15 +21,15 @@ class BusLineBeanVM : BaseViewModel() {
     }
 
     fun insertBusLIneBean(bean : BusLineBean){
-        repository.insert(bean)
+//        repository.insert(bean)
     }
 
     fun deletAll(){
-        repository.deleteAll()
+//        repository.deleteAll()
     }
 
     fun updata(bean : BusLineBean){
-        repository.updata(bean)
+//        repository.updata(bean)
     }
 
 }

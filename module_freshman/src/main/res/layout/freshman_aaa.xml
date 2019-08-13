@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:orientation="vertical"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:id="@+id/freshman_linearlayout"
+                                                   android:background="@color/freshman_main_bg">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/freshman_main_page_bg_banner"
+            android:id="@+id/freshman_imageview"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="fitXY" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"/>
+    <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                android:id="@+id/freshman_guideline"
+                                                android:orientation="vertical"
+                                                app:layout_constraintGuide_percent="0.783455"/>
+    <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                android:id="@+id/freshman_guideline2"
+                                                android:orientation="horizontal"
+                                                app:layout_constraintGuide_percent="0.17"/>
+    <com.mredrock.cyxbs.freshman.weight.RotateImageview
+            android:layout_width="wrap_content"
+            android:layout_height="17dp" app:srcCompat="@drawable/freshman_main_page_icon_screw_right"
+            android:id="@+id/freshman_rotateimageview"
+            app:layout_constraintBottom_toTopOf="@+id/freshman_guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/freshman_guideline"
+            app:layout_constraintStart_toStartOf="@+id/freshman_guideline"
+            app:layout_constraintTop_toTopOf="@+id/freshman_guideline2"/>
+    <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                android:id="@+id/freshman_guideline3"
+                                                android:orientation="horizontal"
+                                                app:layout_constraintGuide_percent="0.11"/>
+    <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                android:id="@+id/freshman_guideline4"
+                                                android:orientation="vertical"
+                                                app:layout_constraintGuide_percent="0.50121653"/>
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp" android:fillViewport="true"
+            app:layout_constraintTop_toBottomOf="@+id/freshman_imageview" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/rv_initial_page"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:srcCompat="@drawable/freshman_initial_icon_bottle"
+                    android:id="@+id/freshman_imageview4"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <com.mredrock.cyxbs.freshman.weight.RotateImageview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/freshman_main_page_icon_screw_left"
+            android:id="@+id/freshman_rotateimageview2" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/freshman_guideline3"
+            app:layout_constraintTop_toTopOf="@+id/freshman_guideline3"
+            app:layout_constraintStart_toStartOf="@+id/freshman_guideline4"
+            app:layout_constraintEnd_toStartOf="@+id/freshman_guideline4" android:layout_marginEnd="8dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

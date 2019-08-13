@@ -1,11 +1,8 @@
 <resources>
 
     <!-- Base application theme. -->
-<!--<<<<<<< HEAD-->
-    <!--<style name="FreshmanAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
-<!--=======-->
     <style name="freshman_AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-<!--&gt;>>>>>> upstream/dev-->
+
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -26,6 +23,48 @@
         <item name="android:background">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
         <!-- 是否使用背景半透明 -->
+    </style>
+
+
+
+    <style name="freshman_ActionSheetDialogStyle" parent="@android:style/Theme.Dialog">
+
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 浮于Activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- Dialog以外的区域模糊效果 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Dialog进入及退出动画 -->
+        <item name="android:windowAnimationStyle">@style/freshman_ActionSheetDialogAnimation</item>
+    </style>
+    <!-- ActionSheet进出动画 -->
+    <style name="freshman_ActionSheetDialogAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/freshman_appear</item>
+        <item name="android:windowExitAnimation">@anim/freshman_dismiss</item>
+    </style>
+
+
+    <style name="freshman_CustomDialog" parent="@android:style/Theme.Dialog">
+        <!--这个说明提示框是否有边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--这个说明提示框是否是浮动的-->
+        <item name="android:windowIsFloating">true</item>
+        <!--这个说明提示框是滞是透明的-->
+        <item name="android:windowIsTranslucent">false</item>
+        <!--这个说明提示框是否有标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--这个说明提示框的背景颜色是什么-->
+        <item name="android:windowBackground">@drawable/freshman_dialog_bakground_custom</item>
+        <!--这个说明是否充许对话框的背景变暗。为true则充许变暗-->
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
 
 </resources>

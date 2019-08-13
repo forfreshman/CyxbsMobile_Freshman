@@ -8,7 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.utils.interfaces.OnCheckBoxClickListener
 import com.mredrock.cyxbs.freshman.viewmodel.bean.FoldBean
+import kotlinx.android.synthetic.main.freshman_recycle_item_edit_memo.view.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.*
+import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.cb_necessary_fold
+import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.iv_necessary_fold
+import kotlinx.android.synthetic.main.freshman_recycle_item_fold_check.view.tv_necessary_spefic as tv_necessary_spefic1
+
 
 /**
  *created by chenyang
@@ -21,7 +26,7 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
     //标记展开的item
     private var opened = -1
     private var holder : MyViewHolder ?= null
-
+    private var itemViews:View ?=null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
@@ -37,7 +42,7 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
 
         this.holder = holder
         val bean = datas.get(position)
-        holder.bindView(position, bean)
+//        holder.bindView(position, bean)
         //当CheckBox被点击以后
         holder.itemView.cb_necessary_fold.setOnClickListener{v ->
             checkBoxClickListener?.OnClick(holder.itemView, position)
@@ -52,6 +57,9 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
             holder.itemView.iv_necessary_fold.setImageResource(R.drawable.freshman_necessary_fold_icon_up)
         }
 
+        if (holder.itemView.tv_necessary_spefic.text == "") {
+            holder.itemView.iv_necessary_fold.visibility = View.GONE
+        }
     }
 
     fun setCheckBoxClickListener(onCheckBoxClickListener: OnCheckBoxClickListener){
@@ -64,17 +72,19 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
     }
 
 
-    inner class MyViewHolder(itemViews: View) : RecyclerView.ViewHolder(itemViews) {
 
+
+
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         init {
 
-            itemViews.tv_click.setOnClickListener { v ->
+//            itemViews.tv_click.setOnClickListener { v ->
 
                 if(itemView.tv_necessary_spefic.visibility == View.VISIBLE){
-                    itemViews.iv_necessary_fold.setImageResource(R.drawable.freshman_necessary_fold_icon_up)
+                    itemViews?.iv_necessary_fold?.setImageResource(R.drawable.freshman_necessary_fold_icon_up)
                 }else{
-                    itemViews.iv_necessary_fold.setImageResource(R.drawable.freshman_necessary_fold_icon_down)
+                    itemViews?.iv_necessary_fold?.setImageResource(R.drawable.freshman_necessary_fold_icon_down)
                 }
                 if (opened == adapterPosition) {
                     //当前item已经被展开，关闭
@@ -99,17 +109,16 @@ class FoldRecycleAdapter(val context: Context, val datas: List<FoldBean>, val la
         }
 
 
-        fun bindView(pos: Int, bean: FoldBean) {
-
-            itemView.tv_necessary_thing.setText(bean.mainMsg)
-            itemView.tv_necessary_spefic.setText(bean.subMsg)
-
-            if (pos == opened) {
-                itemView.tv_necessary_spefic.visibility = View.VISIBLE
-            } else {
-                itemView.tv_necessary_spefic.visibility = View.GONE
-            }
-        }
+//        fun bindView(pos: Int, bean: FoldBean) {
+//
+//            itemView.tv_necessary_thing.setText(bean.mainMsg)
+//            itemView.tv_necessary_spefic.setText(bean.subMsg)
+//
+//            if (pos == opened) {
+//                itemView.tv_necessary_spefic.visibility = View.VISIBLE
+//            } else {
+//                itemView.tv_necessary_spefic.visibility = View.GONE
+//            }
+//        }
 
     }
-}
