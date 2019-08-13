@@ -23,10 +23,11 @@ class HostelFragment : Fragment() {
 
     private var title =object : ArrayList<String>(){
         init {
-            this.add("知行苑")
             this.add("明理苑")
             this.add("宁静苑")
             this.add("兴业苑")
+            this.add("知行苑")
+
         }
     }
     private var adapter: HostelPageAdpter?=null

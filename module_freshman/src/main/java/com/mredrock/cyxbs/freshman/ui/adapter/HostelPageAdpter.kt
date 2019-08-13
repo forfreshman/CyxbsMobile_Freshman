@@ -34,10 +34,11 @@ class HostelPageAdpter(private val title: List<String>,private val details:List<
 
     private val views=object : ArrayList<View>(){
         init {
-            this.add(View.inflate(activity, R.layout.freshman_zxy_fragment,null))
             this.add(View.inflate(activity, R.layout.freshman_mly_fragment,null))
             this.add(View.inflate(activity, R.layout.freshman_njy_fragment,null))
             this.add(View.inflate(activity, R.layout.freshman_xyy_fragment,null))
+            this.add(View.inflate(activity, R.layout.freshman_zxy_fragment,null))
+
         }
     }
 
@@ -71,41 +72,41 @@ class HostelPageAdpter(private val title: List<String>,private val details:List<
 
     public fun initView(){
 
-        views[0].banner_zxy.setImages(image[3])
-        views[0].banner_zxy.setImageLoader(MyImageLoader())
-        views[0].banner_zxy.isAutoPlay(true)
-        views[0].banner_zxy.setIndicatorGravity(BannerConfig.CENTER)
-        views[0].banner_zxy.setBannerAnimation(Transformer.ZoomOutSlide)
-        views[0].banner_zxy.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
-        views[0].banner_zxy.start()
-        views[0].tv_guide_hostel_detail.setText(details[3])
+        views[0].banner_mly.setImages(image[0])
+        views[0].banner_mly.setImageLoader(MyImageLoader())
+        views[0].banner_mly.isAutoPlay(true)
+        views[0].banner_mly.setIndicatorGravity(BannerConfig.CENTER)
+        views[0].banner_mly.setBannerAnimation(Transformer.ZoomOutSlide)
+        views[0].banner_mly.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
+        views[0].banner_mly.start()
+        views[0].tv_guide_hostel_detail.setText(details[0])
 
-        views[1].banner_mly.setImages(image[0])
-        views[1].banner_mly.setImageLoader(MyImageLoader())
-        views[1].banner_mly.isAutoPlay(true)
-        views[1].banner_mly.setIndicatorGravity(BannerConfig.CENTER)
-        views[1].banner_mly.setBannerAnimation(Transformer.ZoomOutSlide)
-        views[1].banner_mly.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
-        views[1].banner_mly.start()
-        views[1].tv_guide_hostel_detail.setText(details[0])
+        views[3].banner_zxy.setImages(image[3])
+        views[3].banner_zxy.setImageLoader(MyImageLoader())
+        views[3].banner_zxy.isAutoPlay(true)
+        views[3].banner_zxy.setIndicatorGravity(BannerConfig.CENTER)
+        views[3].banner_zxy.setBannerAnimation(Transformer.ZoomOutSlide)
+        views[3].banner_zxy.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
+        views[3].banner_zxy.start()
+        views[3].tv_guide_hostel_detail.setText(details[3])
 
-        views[2].banner_njy.setImages(image[1])
-        views[2].banner_njy.setImageLoader(MyImageLoader())
-        views[2].banner_njy.isAutoPlay(true)
-        views[2].banner_njy.setIndicatorGravity(BannerConfig.CENTER)
-        views[2].banner_njy.setBannerAnimation(Transformer.ZoomOutSlide)
-        views[2].banner_njy.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
-        views[2].banner_njy.start()
-        views[2].tv_guide_hostel_detail.setText(details[1])
+        views[1].banner_njy.setImages(image[1])
+        views[1].banner_njy.setImageLoader(MyImageLoader())
+        views[1].banner_njy.isAutoPlay(true)
+        views[1].banner_njy.setIndicatorGravity(BannerConfig.CENTER)
+        views[1].banner_njy.setBannerAnimation(Transformer.ZoomOutSlide)
+        views[1].banner_njy.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
+        views[1].banner_njy.start()
+        views[1].tv_guide_hostel_detail.setText(details[1])
 
-        views[3].banner_xyy.setImages(image[2])
-        views[3].banner_xyy.setImageLoader(MyImageLoader())
-        views[3].banner_xyy.isAutoPlay(true)
-        views[3].banner_xyy.setIndicatorGravity(BannerConfig.CENTER)
-        views[3].banner_xyy.setBannerAnimation(Transformer.ZoomOutSlide)
-        views[3].banner_xyy.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
-        views[3].banner_xyy.start()
-        views[3].tv_guide_hostel_detail.setText(details[2])
+        views[2].banner_xyy.setImages(image[2])
+        views[2].banner_xyy.setImageLoader(MyImageLoader())
+        views[2].banner_xyy.isAutoPlay(true)
+        views[2].banner_xyy.setIndicatorGravity(BannerConfig.CENTER)
+        views[2].banner_xyy.setBannerAnimation(Transformer.ZoomOutSlide)
+        views[2].banner_xyy.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
+        views[2].banner_xyy.start()
+        views[2].tv_guide_hostel_detail.setText(details[2])
     }
 
 }

@@ -12,18 +12,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.tabs.TabLayout
 
 
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.ui.adapter.DinningroomPageAdpter
 import com.mredrock.cyxbs.freshman.viewmodel.fragment.DiningroomViewModel
+import kotlinx.android.synthetic.main.freshman_delivery_fragment.*
 import kotlinx.android.synthetic.main.freshman_diningroom_fragment.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
 
 class DiningroomFragment : Fragment() {
-    private val title = arrayListOf("千喜鹤","延生","红高粱","中心食堂","大西北")
+    private val title = arrayListOf("大西北","红高粱","千喜鹤","兴业苑","延生","中心食堂")
     private var adapter :DinningroomPageAdpter?=null
     private var mView :View?=null
     private val details=ArrayList<String>()
@@ -73,6 +75,7 @@ class DiningroomFragment : Fragment() {
 
     private fun initTab(){
         tl_guide_diningroom.setupWithViewPager(vp_guide_diningroom)
+        tl_guide_diningroom.tabMode = TabLayout.MODE_SCROLLABLE
         tl_guide_diningroom.setSelectedTabIndicatorHeight(0)
     }
 

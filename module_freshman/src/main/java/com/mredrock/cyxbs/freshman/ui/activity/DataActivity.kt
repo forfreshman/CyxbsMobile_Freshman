@@ -30,6 +30,7 @@ class DataActivity : BaseActivity(), View.OnClickListener {
     override val isFragmentActivity: Boolean
         get() = true
     private var course: TextView? = null
+    private var isCreatePercent=false
     private var percent: TextView? = null
     private val fragments = ArrayList<Fragment>()
     private var dataViewPager: ViewPager? = null
@@ -350,7 +351,6 @@ class DataActivity : BaseActivity(), View.OnClickListener {
         percent!!.setOnClickListener(this)
         dataViewPager!!.setOnPageChangeListener(MyPagerChangeListener())
         createCourseJson()
-        createPercentJson()
     }
 
     private fun initView() {
@@ -374,12 +374,18 @@ class DataActivity : BaseActivity(), View.OnClickListener {
                     dataViewPager!!.currentItem = 0
                     course!!.setTextColor(Color.parseColor("#6385ff"))
                     percent!!.setTextColor(Color.parseColor("#333333"))
+
+
                 }
 
                 1 -> {
                     dataViewPager!!.currentItem = 1
                     course!!.setTextColor(Color.parseColor("#333333"))
                     percent!!.setTextColor(Color.parseColor("#6385ff"))
+                    if (isCreatePercent==false){
+                        createPercentJson()
+                        isCreatePercent=true
+                    }
                 }
             }
         }
